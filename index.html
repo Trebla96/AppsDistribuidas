@@ -16,7 +16,7 @@
     <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery/jquery.min.js" defer></script>
     <script src="assets/vendor/popper/js/popper.min.js" defer></script>
-<!--     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js" defer></script> -->
+    <!--     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js" defer></script> -->
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
 
 
@@ -30,29 +30,65 @@
 
         <!-- Nav tabs -->
 
-        <h1>My Data</h1>
-        <nav class="nav-">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-2 py-3">
+            <div class="container-fluid">
+
+                <a class="navbar-brand flex-grow-1" href="#">
+                    <img src="/assets/img/iconos/icono_1.svg" alt="" width="30" height="24">
+                    University Data Dashboard
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse flex-grow-0 px-2 fs-5" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">UIB</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Lista Graficos
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Barras</a></li>
+                                <li><a class="dropdown-item" href="#">Tendencia</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Extra</a></li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- <h1>My Data</h1>
+        <nav class="class=navbar navbar-expand-lg navbar-light bg-light">
             <ul>
                 <li class="nav-item active"><a href="index.html">Home</a></li>
                 <li class="nav-item"><a href="about.html">About</a></li>
                 <li class="nav-item"><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
+        </nav> -->
 
 
     </header>
     <main>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
+
 
 
     </main>
