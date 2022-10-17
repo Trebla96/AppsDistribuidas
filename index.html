@@ -21,7 +21,7 @@
 
 
     <!-- Higcharts js ejemplos https://www.highcharts.com/demo  -->
-    <!-- <script src="https://code.highcharts.com/highcharts.js" defer></script> -->
+    <script src="https://code.highcharts.com/highcharts.js" defer></script>
 
 </head>
 
@@ -85,8 +85,9 @@
         <div class="container-fluid">
             <div class="row">
               <div class="col justify-content-center">
-                <img class="img-fluid" src="/assets/img/barras.webp" alt="">
-              </div>
+                <!-- <img class="img-fluid" src="/assets/img/barras.webp" alt=""> -->
+                <div id="container" style="width:100%; height:400px;"></div>
+            </div>
               <div class="col justify-content-center">
                 <img class="img-fluid" src="/assets/img/dispersion.png" alt="">
               </div>
@@ -98,10 +99,53 @@
 
     </main>
     <footer>
-        <span>hola</span>
+        <div class="container">
+            <span>&copy;2022</span>
+        </div>
+        
     </footer>
 
+<script>
 
+    document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Fruit Consumption'
+                },
+                xAxis: {
+                    categories: ['Apples', 'Bananas', 'Oranges']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Fruit eaten'
+                    }
+                },
+                series: [{
+                    name: 'Jane',
+                    data: [1, 0, 4]
+                }, {
+                    name: 'John',
+                    data: [5, 7, 3]
+                }]
+            });
+        });
+
+        let chart; // globally available
+        document.addEventListener('DOMContentLoaded', function () {
+            chart = Highcharts.stockChart('container', {
+                rangeSelector: {
+                    selected: 1
+                },
+                series: [{
+                    name: 'USD to EUR',
+                    data: usdtoeur // predefined JavaScript array
+                }]
+            });
+        });
+</script>
 
 </body>
 
