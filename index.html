@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WorldDevelopement</title>
 
     <!-- Bootstrap CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js" defer></script>
+
+    <!-- plot.js?¿?¿ -->
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery/jquery.min.js" defer></script>
@@ -34,7 +39,8 @@
             <div class="container-fluid">
 
                 <a class="navbar-brand flex-grow-1" href="#">
-                    <img src="/assets/img/iconos/icono_1.svg" alt="" width="30" height="24">
+                    <img src="http://localhost/WorldDevelopement/assets/img/iconos/icono_1.svg" alt="" width="30"
+                        height="24">
                     University Data Dashboard
                 </a>
 
@@ -45,7 +51,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse flex-grow-0 px-2 fs-5" id="navbarSupportedContent">
-                    
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
@@ -84,68 +90,28 @@
 
         <div class="container-fluid">
             <div class="row">
-              <div class="col justify-content-center">
-                <!-- <img class="img-fluid" src="/assets/img/barras.webp" alt=""> -->
-                <div id="container" style="width:100%; height:400px;"></div>
+                <div class="col justify-content-center">
+                    <!-- <img class="img-fluid" src="/assets/img/barras.webp" alt=""> -->
+                    <div id="container" style="width:100%; height:400px;"></div>
+                </div>
+                <div class="col justify-content-center">
+                    <img class="img-fluid" src="http://localhost/WorldDevelopement/assets/img/dispersion.png" alt="">
+                </div>
+                <div class="col">
+                    <img class="img-fluid" src="http://localhost/WorldDevelopement/assets/img/pie.png" alt="">
+                </div>
             </div>
-              <div class="col justify-content-center">
-                <img class="img-fluid" src="/assets/img/dispersion.png" alt="">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="/assets/img/pie.png" alt="">
-              </div>
-            </div>
-          </div>
+        </div>
 
     </main>
     <footer>
         <div class="container">
             <span>&copy;2022</span>
         </div>
-        
+
     </footer>
 
-<script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-            const chart = Highcharts.chart('container', {
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Fruit Consumption'
-                },
-                xAxis: {
-                    categories: ['Apples', 'Bananas', 'Oranges']
-                },
-                yAxis: {
-                    title: {
-                        text: 'Fruit eaten'
-                    }
-                },
-                series: [{
-                    name: 'Jane',
-                    data: [1, 0, 4]
-                }, {
-                    name: 'John',
-                    data: [5, 7, 3]
-                }]
-            });
-        });
-
-        let chart; // globally available
-        document.addEventListener('DOMContentLoaded', function () {
-            chart = Highcharts.stockChart('container', {
-                rangeSelector: {
-                    selected: 1
-                },
-                series: [{
-                    name: 'USD to EUR',
-                    data: usdtoeur // predefined JavaScript array
-                }]
-            });
-        });
-</script>
 
 </body>
 
