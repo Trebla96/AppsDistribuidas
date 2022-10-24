@@ -1,5 +1,6 @@
 <?php
 
+
 function consultDatabase($query)
 {
     // connect to the server and select the database
@@ -21,7 +22,16 @@ function consultDatabase($query)
 }
 
 
-$QUERY_ALL_COUNTRIES = "SELECT * FROM country";
+
+function createIndicatorCodeQuery($indicatorCode)
+{
+    $QUERY_DATA_BY_INDICATOR = "SELECT CountryName, CountryCode Value FROM indicators WHERE indicatorCode = '{$indicatorCode}' AND Year = 1980";
+    return $QUERY_DATA_BY_INDICATOR;
+}
+
+
+$INDICATOR_CODE_DEATH_RATE = "SP.DYN.CDRT.IN";
+
 
 
 

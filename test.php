@@ -14,9 +14,12 @@
 
 <body>
     <?php
-    $result = consultDatabase("SELECT CountryCode from country WHERE ShortName='Albania'");
-    $row = mysqli_fetch_array($result);
-    echo "{$row['CountryCode']}";
+    $result = consultDatabase(createIndicatorCodeQuery($INDICATOR_CODE_DEATH_RATE));
+    while ($row = mysqli_fetch_array($result)) {
+        echo "{$row['CountryName']}, {$row['CountryCode']}, {$row['Value']}";
+        echo "<br>";
+    }
+
     ?>
 </body>
 
