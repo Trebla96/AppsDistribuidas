@@ -22,7 +22,7 @@ function loadEmissionFuelTypeGraphic() {
     $.get("assets/php/emissionFuelType.php", (data) => {
         data = JSON.parse(data);
         console.log(data)
-        my_data = data.map((item) => item.media);
+        my_data = data.map((item) => Number(item.media));
         my_labels = data.map((item) => types[item.FUELTYPE]);
 
         console.log(my_data, my_labels);
