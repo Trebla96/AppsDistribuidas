@@ -3,8 +3,9 @@
 
 function consultDatabase($query)
 {
-    // connect to the server and select the database
-    $conn = mysqli_connect('localhost', 'root', '', 'worlddevelopment');
+    // connect to the server and select the database 
+    //CAMBIAR NOMRE DE LA BASE DE DATOS!!!!!!!!!
+    $conn = mysqli_connect('localhost', 'root', '', 'consumo');
 
     // check connection
     if (!$conn) {
