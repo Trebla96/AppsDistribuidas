@@ -14,9 +14,9 @@
 
 <body>
     <?php
-    $result = consultDatabase(createIndicatorCodeQuery($INDICATOR_CODE_DEATH_RATE));
+    $result = consultDatabase(emissionFueltype());
     while ($row = mysqli_fetch_array($result)) {
-        echo "{$row['CountryName']}, {$row['CountryCode']}, {$row['Value']}";
+        echo "{$row['media']}";
         echo "<br>";
     }
 
