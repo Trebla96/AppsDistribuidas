@@ -30,9 +30,6 @@ function createIndicatorCodeQuery($indicatorCode)
 }
 
 
-$INDICATOR_CODE_DEATH_RATE = "SP.DYN.CDRT.IN";
-
-
 
 
 /* $countries = consultDatabase($QUERY_ALL_COUNTRIES); */
