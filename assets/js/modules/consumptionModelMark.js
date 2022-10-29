@@ -1,4 +1,4 @@
-export default function loadEmissionFuelTypeGraphic() {
+export default function loadConsumptionModelMarkGraphic() {
 
     const types = {
         'D': 'Diesel',
@@ -7,37 +7,49 @@ export default function loadEmissionFuelTypeGraphic() {
         'X': 'Gas natural'
     }
 
-    $.get("assets/php/emissionFuelType.php", (data) => {
-        data = JSON.parse(data);
-        const my_data = data.map((item) => Number(item.media));
-        const my_labels = data.map((item) => types[item.FUELTYPE]);
+    $.post("assets/php/consumptionModelMark.php",
 
-        const chart = Highcharts.chart('model-consumption-by-make', {
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Fuel Consumption'
-            },
-            xAxis: {
-                categories: my_labels
-            },
-            yAxis: {
-                title: {
-                    text: 'Fuel'
+        {
+            'make': 'BMW',
+        },
+
+        (data) => {
+            console.log(data)
+            data.sort(
+                (a, b) => {
+                    return a['AVERAGE_CONSUMPTION'] - b['AVERAGE_CONSUMPTION'];
                 }
-            },
-            series: [{
-                name: 'Fuel',
-                data: my_data
-            }
-            ]
+            )
+            data = data.slice(0, 5);
+            const my_data = data.map((item) => Number(item.AVERAGE_CONSUMPTION));
+            const my_labels = data.map((item) => item.MODEL);
 
-        });
+            const chart = Highcharts.chart('model-consumption-by-make', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Consumption by model (BMW)'
+                },
+                xAxis: {
+                    categories: my_labels
+                },
+                yAxis: {
+                    title: {
+                        text: 'Fuel'
+                    }
+                },
+                series: [{
+                    name: 'Fuel',
+                    data: my_data
+                }
+                ]
+
+            });
 
 
 
-    })
+        }, 'json')
 
 
 

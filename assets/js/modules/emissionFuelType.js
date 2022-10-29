@@ -9,7 +9,7 @@ export default function loadEmissionFuelTypeGraphic() {
 
     $.get("assets/php/emissionFuelType.php", (data) => {
         data = JSON.parse(data);
-        const my_data = data.map((item) => Number(item.media));
+        const my_data = data.map((item) => Number(item.AVERAGE_EMISSIONS));
         const my_labels = data.map((item) => types[item.FUELTYPE]);
 
         const chart = Highcharts.chart('emission-by-fueltype', {

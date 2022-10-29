@@ -44,9 +44,7 @@
                     ConSuCar
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -60,8 +58,7 @@
 
                         <li class="nav-item dropdown">
 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Lista Graficos
                             </a>
 
@@ -95,6 +92,23 @@
                     <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
                 </div>
                 <div class="col justify-content-center">
+                    <div class="mb-3">
+                        <label for="make-input" class="form-label">Manufacturer brand</label>
+                        <input class="form-control" list="datalistOptions" id="make-input" placeholder="Type the brand (e.g. BMW)">
+                        <datalist id="datalistOptions">
+                            <?php
+                            include "assets/php/carBrands.php";
+
+                            $brands = getQueryResultBrands();
+
+                            foreach ($brands as $brand) {
+                                echo "<option value='$brand[0]'>";
+                            }
+                            ?>
+                        </datalist>
+
+                    </div>
+
                     <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
                 </div>
                 <div class="col">

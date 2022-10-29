@@ -1,13 +1,12 @@
 <?php
 include "consults.php";
 
-function models($make)
+function modelsQuery($make)
 {
-    $string = "SELECT consumption.MODEL, consumption.FUELCONSUMPTION_COMB FROM consumption WHERE consumption.MAKE = '{$make}';";
-    return $string;
+    return "SELECT consumption.MODEL, avg(consumption.FUELCONSUMPTION_COMB) as AVERAGE_CONSUMPTION FROM consumption WHERE consumption.MAKE = '{$make}' GROUP BY MODEL;";
 }
 
-$query_result = consultDatabase(models($_POST['make']));
+$query_result = consultDatabase(modelsQuery($_POST['make']));
 
 $rows = [];
 while ($row = mysqli_fetch_assoc($query_result)) {

@@ -1,13 +1,13 @@
 <?php
 include "consults.php";
 
-function emissionFueltype()
+function emissionFueltypeQuery()
 {
-    $string = "SELECT AVG(CO2EMISSIONS) AS media, FUELTYPE FROM consumption GROUP BY FUELTYPE ORDER BY media;";
+    $string = "SELECT AVG(CO2EMISSIONS) AS AVERAGE_EMISSIONS, FUELTYPE FROM consumption GROUP BY FUELTYPE ORDER BY AVERAGE_EMISSIONS;";
     return $string;
 }
 
-$query_result = consultDatabase(emissionFueltype());
+$query_result = consultDatabase(emissionFueltypeQuery());
 
 $rows = [];
 while ($row = mysqli_fetch_assoc($query_result)) {
