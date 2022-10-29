@@ -2,8 +2,8 @@ export default function loadEmissionFuelTypeGraphic() {
 
     const types = {
         'D': 'Diesel',
-        'E': 'Gasolina',
-        'Z': 'Gasolina +',
+        'E': 'Gasolina +',
+        'Z': 'Gasolina',
         'X': 'Gas natural'
     }
 
