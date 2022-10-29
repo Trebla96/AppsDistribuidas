@@ -14,9 +14,6 @@
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <!-- Main JS File -->
-    <script src="assets/js/main.js" defer></script>
-
     <!-- plot.js?¿?¿ -->
 
     <!-- Vendor JS Files -->
@@ -25,9 +22,12 @@
     <!--     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js" defer></script> -->
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
 
+    <!-- Main JS File -->
+    <script type="module" src="http://localhost/consucar/assets/js/main.js" defer></script>
 
     <!-- Higcharts js ejemplos https://www.highcharts.com/demo  -->
-    <script src="https://code.highcharts.com/highcharts.js" defer></script>
+    <!-- <script src="https://code.highcharts.com/highcharts.js" defer></script> -->
+    <script src="assets/vendor/highcharts/code/highcharts.js"></script>
 
 </head>
 
@@ -92,10 +92,10 @@
             <div class="row">
                 <div class="col justify-content-center">
                     <!-- <img class="img-fluid" src="/assets/img/barras.webp" alt=""> -->
-                    <div id="container" style="width:100%; height:400px;"></div>
+                    <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
                 </div>
                 <div class="col justify-content-center">
-                    <img class="img-fluid" src="http://localhost/consucar/assets/img/dispersion.png" alt="">
+                    <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
                 </div>
                 <div class="col">
                     <img class="img-fluid" src="http://localhost/consucar/assets/img/pie.png" alt="">
