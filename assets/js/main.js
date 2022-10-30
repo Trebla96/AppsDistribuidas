@@ -1,17 +1,25 @@
-import loadEmissionFuelTypeGraphic from "./modules/emissionFuelType.js";
+import loadEmissionFuelTypeData from "./modules/emissionFuelType.js";
 import loadConsumptionModelMakeData from "./modules/consumptionModelMark.js";
+import loadConsumptionEngineSizeData from "./modules/consumptionEngineSize.js";
+import { lightTheme, darkTheme } from "./themes.js";
 
 // ========================== Fuel emissions graphic code ====================================
 const emissionsFuelGraphic = Highcharts.chart('emission-by-fueltype', {
     chart: {
-        type: 'bar'
+        type: 'pie'
     },
-    xAxis: {
-        categories: []
+    title: {
+        text: ''
     },
-    yAxis: {
-        title: {
-            text: 'Fuel'
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}: {point.percentage:.1f}%'
+            },
+            showInLegend: true
         }
     },
     series: [
@@ -26,22 +34,25 @@ const emissionsFuelGraphic = Highcharts.chart('emission-by-fueltype', {
 
 const types = {
     'D': 'Diesel',
-    'E': 'Gasolina +',
-    'Z': 'Gasolina',
-    'X': 'Gas natural'
+    'E': 'Gasoline +',
+    'Z': 'Gasoline',
+    'X': 'Natural gas'
 }
 
 function updateEmissionsFuelGraphic(data) {
-    const my_data = data.map((item) => Number(item.AVERAGE_EMISSIONS));
-    const my_labels = data.map((item) => types[item.FUELTYPE]);
+    const my_data = data.map((item) => {
+        return {
+            name: types[item.FUELTYPE],
+            y: Number(item.AVERAGE_EMISSIONS)
+        }
+    }
+    );
 
     emissionsFuelGraphic.series[0].setData(my_data);
-    emissionsFuelGraphic.xAxis[0].setCategories(my_labels);
-    emissionsFuelGraphic.setTitle({ text: '' });
 
 }
 
-loadEmissionFuelTypeGraphic(updateEmissionsFuelGraphic);
+loadEmissionFuelTypeData(updateEmissionsFuelGraphic);
 
 // ================= Consumption by model and brand graphic code =============================
 
@@ -51,6 +62,9 @@ const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-by-make'
     },
     xAxis: {
         categories: []
+    },
+    title: {
+        text: ''
     },
     yAxis: {
         title: {
@@ -73,7 +87,6 @@ function updateConsumptionModelMakeGraphic(data, make) {
 
     consumptionModelMakeGraphic.series[0].setData(my_data);
     consumptionModelMakeGraphic.xAxis[0].setCategories(my_labels);
-    consumptionModelMakeGraphic.setTitle({ text: `Consumption by model (${make})` });
 
 }
 
@@ -110,4 +123,65 @@ makeInput.change((e) => {
 loadConsumptionModelMakeData(options[0], updateConsumptionModelMakeGraphic);
 
 
-// ================= Consumption by model and brand graphic code =============================
+// ================= Consumption in hwy and city by engine size ============================= 
+
+const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-enginesize', {
+    chart: {
+        type: 'line'
+    },
+    xAxis: {
+        categories: []
+    },
+    title: {
+        text: ''
+    },
+    yAxis: {
+        title: {
+            text: 'Fuel'
+        }
+    },
+    series: [
+        {
+            name: 'Highway',
+            data: []
+        },
+        {
+            name: 'City',
+            data: []
+        }
+    ]
+});
+
+function updateConsumptionEngineSizeGraphic(data) {
+    const myDataCity = data.map((item) => Number(item.AVERAGE_CONSUMPTION_CITY));
+    const myDataHWY = data.map((item) => Number(item.AVERAGE_CONSUMPTION_HWY));
+
+    consumptionEngineSizeGraphic.series[0].setData(myDataHWY);
+    consumptionEngineSizeGraphic.series[1].setData(myDataCity);
+    consumptionEngineSizeGraphic.setTitle({ text: '' });
+
+}
+
+loadConsumptionEngineSizeData(updateConsumptionEngineSizeGraphic);
+
+
+
+// Delete highcharts credits
+$('.highcharts-credits').remove();
+
+
+
+// ================= Switch light mode ============================= 
+const graphics = [emissionsFuelGraphic, consumptionModelMakeGraphic, consumptionEngineSizeGraphic];
+export function toggleGraphicsLightMode() {
+    const lightMode = localStorage.getItem('lightSwitch');
+    const themes = {
+        'dark': darkTheme,
+        'light': lightTheme
+    }
+
+    graphics.forEach((graphic) => {
+        graphic.update(themes[lightMode]);
+    });
+
+}
