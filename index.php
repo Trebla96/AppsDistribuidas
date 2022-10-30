@@ -106,7 +106,7 @@
 
                                 // $brands to options
                                 while ($row = mysqli_fetch_assoc($brands)) {
-                                    echo "<option value='" . $row['MAKE'] . "'>";
+                                    echo "<option value='{$row['MAKE']}'>";
                                 }
                                 ?>
                             </datalist>
