@@ -95,52 +95,46 @@
 
                 <div class="col justify-content-center">
                     <div class="mb-3">
-                        <form> <!-- action ="test.php" method ="post" -->
-                        <label for="make-input" class="form-label">Manufacturer brand</label>
-                        <input class="form-control" list="datalistOptions" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
-                        <datalist id="datalistOptions">
-                            <?php
+                        <form>
+                            <!-- action ="test.php" method ="post" -->
+                            <label for="make-input" class="form-label">Manufacturer brand</label>
+                            <input class="form-control" list="datalistOptions" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                            <datalist id="datalistOptions">
+                                <?php
                                 include "assets/php/carBrands.php";
                                 $brands = getQueryResultBrands();
 
-                                // $brands to array
-                                $rows = [];
+                                // $brands to options
                                 while ($row = mysqli_fetch_assoc($brands)) {
-                                    $rows[] = $row;
-                                }
-
-                                //print options
-                                foreach ($rows as $row) {
                                     echo "<option value='" . $row['MAKE'] . "'>";
                                 }
-                            ?>
-                        </datalist>
+                                ?>
+                            </datalist>
 
                         </form>
 
-                            
+
                     </div>
 
                     <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
                     <script>
-                            // add event listener to input, console log the value when the user selects an option
-                            document.getElementById('make-input').addEventListener('input', function(e) {
-                                //verify if the value is in the list
-                                let options = document.getElementById('datalistOptions').options;
-                                let value = e.target.value;
-                                let found = false;
-                                for (let i = 0; i < options.length; i++) {
-                                    if (options[i].value === value) {
-                                        found = true;
-                                        break;
-                                    }
+                        // add event listener to input, console log the value when the user selects an option
+                        document.getElementById('make-input').addEventListener('input', function(e) {
+                            //verify if the value is in the list
+                            let options = document.getElementById('datalistOptions').options;
+                            let value = e.target.value;
+                            let found = false;
+                            for (let i = 0; i < options.length; i++) {
+                                if (options[i].value === value) {
+                                    found = true;
+                                    break;
                                 }
-                                if (found) {
-                                    $.post("http://localhost/consucar/assets/php/consumptionModelMark.php",
-                                    {
+                            }
+                            if (found) {
+                                $.post("http://localhost/consucar/assets/php/consumptionModelMark.php", {
                                         make: value
                                     },
-                                    (data)=> {
+                                    (data) => {
                                         console.log(data)
                                         data.sort(
                                             (a, b) => {
@@ -156,7 +150,7 @@
                                                 type: 'bar'
                                             },
                                             title: {
-                                                text: 'Consumption by model ('+value+')'
+                                                text: 'Consumption by model (' + value + ')'
                                             },
                                             xAxis: {
                                                 categories: my_labels
@@ -169,18 +163,16 @@
                                             series: [{
                                                 name: 'Fuelseries',
                                                 data: my_data
-                                            }
-                                            ]
+                                            }]
 
                                         });
-                                    },'json')
+                                    }, 'json')
 
-                                    //clean form
-                                    document.getElementById('make-input').value = "";
-                                }
-                            });
-                            
-                        </script>
+                                //clean form
+                                document.getElementById('make-input').value = "";
+                            }
+                        });
+                    </script>
                 </div>
                 <div class="col">
                     <img class="img-fluid" src="http://localhost/consucar/assets/img/pie.png" alt="">
