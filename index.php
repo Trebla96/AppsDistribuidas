@@ -95,11 +95,11 @@
 
                 <div class="col justify-content-center">
                     <div class="mb-3">
-                        <form>
+                        <form id="make-input-form">
                             <!-- action ="test.php" method ="post" -->
                             <label for="make-input" class="form-label">Manufacturer brand</label>
-                            <input class="form-control" list="datalistOptions" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
-                            <datalist id="datalistOptions">
+                            <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                            <datalist id="datalistOptionsBrand">
                                 <?php
                                 include "assets/php/carBrands.php";
                                 $brands = getQueryResultBrands();
@@ -115,64 +115,7 @@
 
 
                     </div>
-
                     <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
-                    <script>
-                        // add event listener to input, console log the value when the user selects an option
-                        document.getElementById('make-input').addEventListener('input', function(e) {
-                            //verify if the value is in the list
-                            let options = document.getElementById('datalistOptions').options;
-                            let value = e.target.value;
-                            let found = false;
-                            for (let i = 0; i < options.length; i++) {
-                                if (options[i].value === value) {
-                                    found = true;
-                                    break;
-                                }
-                            }
-                            if (found) {
-                                $.post("http://localhost/consucar/assets/php/consumptionModelMark.php", {
-                                        make: value
-                                    },
-                                    (data) => {
-                                        console.log(data)
-                                        data.sort(
-                                            (a, b) => {
-                                                return a['AVERAGE_CONSUMPTION'] - b['AVERAGE_CONSUMPTION'];
-                                            }
-                                        )
-                                        data = data.slice(0, 5);
-                                        const my_data = data.map((item) => Number(item.AVERAGE_CONSUMPTION));
-                                        const my_labels = data.map((item) => item.MODEL);
-
-                                        const chart = Highcharts.chart('model-consumption-by-make', {
-                                            chart: {
-                                                type: 'bar'
-                                            },
-                                            title: {
-                                                text: 'Consumption by model (' + value + ')'
-                                            },
-                                            xAxis: {
-                                                categories: my_labels
-                                            },
-                                            yAxis: {
-                                                title: {
-                                                    text: 'Fuel'
-                                                }
-                                            },
-                                            series: [{
-                                                name: 'Fuelseries',
-                                                data: my_data
-                                            }]
-
-                                        });
-                                    }, 'json')
-
-                                //clean form
-                                document.getElementById('make-input').value = "";
-                            }
-                        });
-                    </script>
                 </div>
                 <div class="col">
                     <img class="img-fluid" src="http://localhost/consucar/assets/img/pie.png" alt="">

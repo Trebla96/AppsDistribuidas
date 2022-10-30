@@ -1,4 +1,4 @@
-export default function loadConsumptionModelMarkGraphic() {
+export default function loadConsumptionModelMarkData(make, callback) {
 
     const types = {
         'D': 'Diesel',
@@ -10,47 +10,18 @@ export default function loadConsumptionModelMarkGraphic() {
     $.post("assets/php/consumptionModelMark.php",
 
         {
-            'make': 'BMW',
+            'make': make,
         },
 
         (data) => {
-            console.log(data)
             data.sort(
                 (a, b) => {
                     return a['AVERAGE_CONSUMPTION'] - b['AVERAGE_CONSUMPTION'];
                 }
             )
             data = data.slice(0, 5);
-            const my_data = data.map((item) => Number(item.AVERAGE_CONSUMPTION));
-            const my_labels = data.map((item) => item.MODEL);
 
-            const chart = Highcharts.chart('model-consumption-by-make', {
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Consumption by model (BMW)'
-                },
-                xAxis: {
-                    categories: my_labels
-                },
-                yAxis: {
-                    title: {
-                        text: 'Fuel'
-                    }
-                },
-                series: [{
-                    name: 'Fuel',
-                    data: my_data
-                }
-                ]
-
-            });
-
-
+            callback(data, make);
 
         }, 'json')
-
-
-
 }
