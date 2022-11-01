@@ -9,7 +9,8 @@
     <title>ConSuCar</title>
 
     <!-- Bootstrap CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -18,9 +19,13 @@
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery/jquery.min.js" defer></script>
-    <script src="assets/vendor/popper/js/popper.min.js" defer></script>
+    <!-- <script src="assets/vendor/popper/js/popper.min.js" defer></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <!--     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js" defer></script> -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
+    <!-- <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 
     <!-- Main JS File -->
     <script type="module" src="http://localhost/consucar/assets/js/main.js" defer></script>
@@ -46,6 +51,16 @@
                     </svg>
                     ConSuCar
                 </a>
+
+                <!-- light mode switch -->
+                <div class="form-check form-switch mx-5">
+                    <label class="form-check-label" for="lightSwitch">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
+                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                        </svg>
+                    </label>
+                    <input class="form-check-input" type="checkbox" id="lightSwitch" />
+                </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -92,72 +107,60 @@
         </nav>
     </header>
 
-    <main class="container-fluid">
+    <main>
 
-        <!-- light mode switch -->
-        <div class="row">
-            <div class="form-check form-switch ms-auto mt-3 me-3">
-                <label class="form-check-label ms-1" for="lightSwitch">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
-                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-                    </svg>
-                </label>
-                <input class="form-check-input" type="checkbox" id="lightSwitch" />
-            </div>
-        </div>
 
-        <!-- Barack obama cite about climate change -->
-        <div class="row">
-            <div class="row-cols-1 justify-content-center">
-                <figure class="text-center">
-                    <blockquote class="blockquote">
-                        <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                        Barack Obama
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
 
-        <div class="row">
-            <h1>Graphic title / question</h1>
-            <!-- Emission - Fuel_Type -->
-            <div class="col justify-content-center">
-                <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <!-- Consumption by Model -->
-            <div class="col-md justify-content-center">
-                <div class="mb-3">
-                    <form id="make-input-form">
-                        <!-- action ="test.php" method ="post" -->
-                        <label for="make-input" class="form-label">Manufacturer brand</label>
-                        <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
-                        <datalist id="datalistOptionsBrand">
-                            <?php
-                            include "assets/php/carBrands.php";
-                            $brands = getQueryResultBrands();
-
-                            // $brands to options
-                            while ($row = mysqli_fetch_assoc($brands)) {
-                                echo "<option value='{$row['MAKE']}'>";
-                            }
-                            ?>
-                        </datalist>
-                    </form>
+        <div class="container-sm px-5">
+            <!-- Barack obama cite about climate change -->
+            <div class="row my-5">
+                <div class="row-cols-1 justify-content-center">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            Barack Obama
+                        </figcaption>
+                    </figure>
                 </div>
-                <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
             </div>
-
-        </div>
-        <div class="row">
-            <!-- Consumption by Engine Size -->
-            <div class="col justify-content-center">
-                <div id="consumption-by-enginesize" style="width:100%; height:400px;"></div>
+            <div class="row my-5">
+                <h1>Graphic title / question</h1>
+                <!-- Emission - Fuel_Type -->
+                <div class="col">
+                    <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
+                </div>
             </div>
-
+            <div class="row my-5">
+                <!-- Consumption by Model -->
+                <div class="col">
+                    <div class="vstack gap-5">
+                        <form class="mx-auto w-75" id="make-input-form">
+                            <!-- action ="test.php" method ="post" -->
+                            <label for="make-input" class="form-label">Manufacturer brand</label>
+                            <input class="form-control" style="min-width: 40ch;" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                            <datalist id="datalistOptionsBrand">
+                                <?php
+                                include "assets/php/carBrands.php";
+                                $brands = getQueryResultBrands();
+                                // $brands to options
+                                while ($row = mysqli_fetch_assoc($brands)) {
+                                    echo "<option value='{$row['MAKE']}'>";
+                                }
+                                ?>
+                            </datalist>
+                        </form>
+                        <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <!-- Consumption by Engine Size -->
+                <div class="col justify-content-center">
+                    <div id="consumption-by-enginesize" style="width:100%; height:400px;"></div>
+                </div>
+            </div>
         </div>
     </main>
 
