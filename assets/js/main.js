@@ -173,20 +173,32 @@ $('.highcharts-credits').remove();
 
 // ================= Switch light mode ============================= 
 const graphics = [emissionsFuelGraphic, consumptionModelMakeGraphic, consumptionEngineSizeGraphic];
+const sunSVG = $('#svg-sun');
+const moonSVG = $('#svg-moon');
 export function toggleGraphicsLightMode() {
     const lightMode = localStorage.getItem('lightSwitch');
-    const themes = {
-        'dark': darkTheme,
-        'light': lightTheme
+    const options = {
+        'dark': {
+            theme: darkTheme,
+            moonSVGHidden: true,
+            sunSVGHidden: false
+        },
+        'light': {
+            theme: lightTheme,
+            moonSVGHidden: false,
+            sunSVGHidden: true
+        }
     }
 
-    const theme = themes[lightMode]
+    const theme = options[lightMode].theme
     graphics.forEach((graphic) => {
         graphic.update(theme);
     });
 
-    // console.log('theme.chart.backgroundColor', theme.chart.backgroundColor)
-    // $('#brand').prop('color', theme.chart.backgroundColor)
+
+
+    sunSVG.attr('hidden', options[lightMode].sunSVGHidden ? true : null)
+    moonSVG.attr('hidden', options[lightMode].moonSVGHidden ? true : null)
 
 
 }
