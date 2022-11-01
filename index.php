@@ -9,8 +9,8 @@
     <title>ConSuCar</title>
 
     <!-- Bootstrap CSS -->
-    <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -19,12 +19,12 @@
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery/jquery.min.js" defer></script>
-    <!-- <script src="assets/vendor/popper/js/popper.min.js" defer></script> -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="assets/vendor/popper/js/popper.min.js" defer></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script> -->
     <!--     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js" defer></script> -->
-    <!-- <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script> -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
 
 
     <!-- Main JS File -->
@@ -37,8 +37,8 @@
 
 </head>
 
-<body class="flex-column">
-    <header class="flex-row">
+<body>
+    <header class="fixed-top border-bottom border-secondary">
 
         <!-- Nav tabs -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light px-2 py-3">
@@ -53,8 +53,8 @@
                 </a>
 
                 <!-- light mode switch -->
-                <div class="hstack gap-5 form-check form-switch mx-5 pe-1">
-                    <label class="form-check-label" for="lightSwitch">
+                <div class="navbar-text form-check form-switch me-5 pe-1">
+                    <label class="form-check-label" for="lightSwitch" role="button">
                         <svg hidden id="svg-sun" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
                             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
                         </svg>
@@ -62,58 +62,33 @@
                             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
                         </svg>
                     </label>
-                    <input class="form-check-input" role="switch" type="checkbox" id="lightSwitch" />
+                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" />
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse flex-grow-0 px-2 fs-5" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse flex-grow-0 fs-5" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link hover-shadow" aria-current="page" target="_blank" href="https://www.kaggle.com/datasets/mohamedjafirashraf/fuel-consumption-co2">UIB</a>
+                            <a class="nav-link" aria-current="page" target="_blank" href="https://uibdigital.uib.es/uibdigital/">UIB</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" target="_blank" href="https://uibdigital.uib.es/uibdigital/">Data source</a>
+                            <a class="nav-link" aria-current="page" target="_blank" href="https://www.kaggle.com/datasets/mohamedjafirashraf/fuel-consumption-co2">Data source</a>
                         </li>
-
-
-                        <!-- <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                External links
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="nav-item">
-                                    <a class="dropdown-item" aria-current="page" target="_blank" href="https://uibdigital.uib.es/uibdigital/">Data source</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="dropdown-item" aria-current="page" target="_blank" href="https://www.kaggle.com/datasets/mohamedjafirashraf/fuel-consumption-co2">UIB</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Barras</a></li>
-                                <li><a class="dropdown-item" href="#">Tendencia</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Extra</a></li>
-                            </ul>
-                        </li> -->
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container-sm">
+    <main class="container-sm p-5 bg-light mt-5">
         <!-- Barack obama cite about climate change -->
-        <section class="row my-5">
-            <div class="row-cols-1 justify-content-center">
+        <section class="row ">
+            <div class="col my-5">
                 <figure class="text-center">
                     <blockquote class="blockquote">
                         <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
@@ -125,55 +100,61 @@
             </div>
         </section>
 
-        <section class="row my-5">
-            <!-- Emission - Fuel_Type -->
-            <h1 class="display-1 mb-3 text-center">Graphic title / question</h1>
-            <div class="col">
-                <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
-            </div>
-            <div class="col">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum et architecto cum, impedit delectus asperiores nam perspiciatis quae consequuntur porro quam ipsa, laudantium quos, iusto repellendus. Doloribus blanditiis ea nihil.
-                    Quod quasi voluptatibus eaque. Adipisci quos fugiat possimus! Minus, labore. Ea eum fugit ratione iure fugiat? Soluta necessitatibus officia deserunt nesciunt cum! Mollitia soluta cum at dignissimos aperiam beatae temporibus!
-                    Quae error itaque delectus nihil similique consequuntur obcaecati eum quaerat libero necessitatibus maiores accusamus mollitia harum doloribus asperiores molestiae sed qui, corporis saepe! Aperiam ullam animi obcaecati saepe placeat voluptate?
-                    Excepturi inventore odio cupiditate labore architecto rerum cumque atque voluptate. Itaque qui quam nulla et illum fugiat obcaecati deleniti! Delectus dignissimos quasi illo qui incidunt dolore aliquid quae autem commodi.
-                    Esse deleniti libero facere fugiat officia dolore laboriosam, aspernatur fugit? Quis dolores ratione vel assumenda? Mollitia aperiam tempore praesentium quae illum. Corrupti fuga mollitia quisquam laborum doloremque nesciunt hic incidunt.</p>
-            </div>
-        </section>
-        <section class="row my-5">
-            <!-- Consumption by Model -->
-            <div class="col">
-                <div class="vstack gap-5">
-                    <form class="" id="make-input-form">
-                        <!-- action ="test.php" method ="post" -->
-                        <label for="make-input" class="form-label">Manufacturer brand</label>
-                        <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
-                        <datalist id="datalistOptionsBrand">
-                            <?php
-                            include "assets/php/carBrands.php";
-                            $brands = getQueryResultBrands();
-                            // $brands to options
-                            while ($row = mysqli_fetch_assoc($brands)) {
-                                echo "<option value='{$row['MAKE']}'>";
-                            }
-                            ?>
-                        </datalist>
-                    </form>
-                    <div class="" id="model-consumption-by-make"></div>
+        <div class="w-75 mx-auto">
+            <section class="row">
+                <!-- Emission - Fuel_Type -->
+                <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
+                <div class="col">
+                    <div id="emission-by-fueltype"></div>
                 </div>
-            </div>
-        </section>
-        <section class="row my-5">
-            <!-- Consumption by Engine Size -->
-            <div class="col justify-content-center">
-                <div class="mx-auto w-75" id="consumption-by-enginesize" style="width:100%; height:400px;"></div>
-            </div>
-        </section>
+                <div class="col">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum et architecto cum, impedit delectus asperiores nam perspiciatis quae consequuntur porro quam ipsa, laudantium quos, iusto repellendus. Doloribus blanditiis ea nihil.
+                        Quod quasi voluptatibus eaque. Adipisci quos fugiat possimus! Minus, labore. Ea eum fugit ratione iure fugiat? Soluta necessitatibus officia deserunt nesciunt cum! Mollitia soluta cum at dignissimos aperiam beatae temporibus!
+                        Quae error itaque delectus nihil similique consequuntur obcaecati eum quaerat libero necessitatibus maiores accusamus mollitia harum doloribus asperiores molestiae sed qui, corporis saepe! Aperiam ullam animi obcaecati saepe placeat voluptate?
+                        Excepturi inventore odio cupiditate labore architecto rerum cumque atque voluptate. Itaque qui quam nulla et illum fugiat obcaecati deleniti! Delectus dignissimos quasi illo qui incidunt dolore aliquid quae autem commodi.
+                        Esse deleniti libero facere fugiat officia dolore laboriosam, aspernatur fugit? Quis dolores ratione vel assumenda? Mollitia aperiam tempore praesentium quae illum. Corrupti fuga mollitia quisquam laborum doloremque nesciunt hic incidunt.</p>
+                </div>
+            </section>
+            <section class="row my-5">
+                <!-- Consumption by Model -->
+                <div class="col">
+                    <div class="d-grid gap-5">
+                        <form id="make-input-form">
+                            <!-- action ="test.php" method ="post" -->
+                            <label for="make-input" class="form-label">Manufacturer brand</label>
+                            <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                            <datalist id="datalistOptionsBrand">
+                                <?php
+                                include "assets/php/carBrands.php";
+                                $brands = getQueryResultBrands();
+                                // $brands to options
+                                while ($row = mysqli_fetch_assoc($brands)) {
+                                    echo "<option value='{$row['MAKE']}'>";
+                                }
+                                ?>
+                            </datalist>
+                        </form>
+                        <div id="model-consumption-by-make"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="row my-5">
+                <!-- Consumption by Engine Size -->
+                <div class="col justify-content-center">
+                    <div id="consumption-by-enginesize"></div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
 
-        <div class="container">
-            <span>&copy;2022</span>
+        <div class="container-fluid justify-content-center bg-light p-3 text-center">
+            <div class="row">
+                <div class="col">
+                    <span>&copy;2022</span>
+                </div>
+            </div>
         </div>
 
     </footer>
