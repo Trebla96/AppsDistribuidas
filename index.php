@@ -36,7 +36,6 @@
     <header class="flex-row">
 
         <!-- Nav tabs -->
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light px-2 py-3">
             <div class="container-fluid">
 
@@ -93,18 +92,22 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container-fluid">
 
-        <div class="form-check form-switch ms-auto mt-3 me-3">
-            <label class="form-check-label ms-3" for="lightSwitch">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
-                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-                </svg>
-            </label>
-            <input class="form-check-input" type="checkbox" id="lightSwitch" />
+        <!-- light mode switch -->
+        <div class="row">
+            <div class="form-check form-switch ms-auto mt-3 me-3">
+                <label class="form-check-label ms-1" for="lightSwitch">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
+                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                    </svg>
+                </label>
+                <input class="form-check-input" type="checkbox" id="lightSwitch" />
+            </div>
         </div>
 
-        <div class="container">
+        <!-- Barack obama cite about climate change -->
+        <div class="row">
             <div class="row-cols-1 justify-content-center">
                 <figure class="text-center">
                     <blockquote class="blockquote">
@@ -117,49 +120,44 @@
             </div>
         </div>
 
-
-
-
-        <div class="container-fluid">
-            <div class="row">
-                <h1>Graphic title / question</h1>
-                <!-- Emission - Fuel_Type -->
-                <div class="col justify-content-center">
-                    <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
-                </div>
+        <div class="row">
+            <h1>Graphic title / question</h1>
+            <!-- Emission - Fuel_Type -->
+            <div class="col justify-content-center">
+                <div id="emission-by-fueltype" style="width:100%; height:400px;"></div>
             </div>
-            <div class="row justify-content-center">
-                <!-- Consumption by Model -->
-                <div class="col-md justify-content-center">
-                    <div class="mb-3">
-                        <form id="make-input-form">
-                            <!-- action ="test.php" method ="post" -->
-                            <label for="make-input" class="form-label">Manufacturer brand</label>
-                            <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
-                            <datalist id="datalistOptionsBrand">
-                                <?php
-                                include "assets/php/carBrands.php";
-                                $brands = getQueryResultBrands();
+        </div>
+        <div class="row justify-content-center">
+            <!-- Consumption by Model -->
+            <div class="col-md justify-content-center">
+                <div class="mb-3">
+                    <form id="make-input-form">
+                        <!-- action ="test.php" method ="post" -->
+                        <label for="make-input" class="form-label">Manufacturer brand</label>
+                        <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                        <datalist id="datalistOptionsBrand">
+                            <?php
+                            include "assets/php/carBrands.php";
+                            $brands = getQueryResultBrands();
 
-                                // $brands to options
-                                while ($row = mysqli_fetch_assoc($brands)) {
-                                    echo "<option value='{$row['MAKE']}'>";
-                                }
-                                ?>
-                            </datalist>
-                        </form>
-                    </div>
-                    <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
+                            // $brands to options
+                            while ($row = mysqli_fetch_assoc($brands)) {
+                                echo "<option value='{$row['MAKE']}'>";
+                            }
+                            ?>
+                        </datalist>
+                    </form>
                 </div>
-
+                <div id="model-consumption-by-make" style="width:100%; height:400px;"></div>
             </div>
-            <div class="row">
-                <!-- Consumption by Engine Size -->
-                <div class="col justify-content-center">
-                    <div id="consumption-by-enginesize" style="width:100%; height:400px;"></div>
-                </div>
 
+        </div>
+        <div class="row">
+            <!-- Consumption by Engine Size -->
+            <div class="col justify-content-center">
+                <div id="consumption-by-enginesize" style="width:100%; height:400px;"></div>
             </div>
+
         </div>
     </main>
 
