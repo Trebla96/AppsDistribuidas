@@ -180,8 +180,13 @@ export function toggleGraphicsLightMode() {
         'light': lightTheme
     }
 
+    const theme = themes[lightMode]
     graphics.forEach((graphic) => {
-        graphic.update(themes[lightMode]);
+        graphic.update(theme);
     });
+
+    // console.log('theme.chart.backgroundColor', theme.chart.backgroundColor)
+    // $('#brand').prop('color', theme.chart.backgroundColor)
+
 
 }
