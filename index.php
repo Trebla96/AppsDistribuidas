@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    <header class="fixed-top border-bottom border-secondary">
+    <header class="sticky-top border-bottom border-secondary">
 
         <!-- Nav tabs -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light px-2 py-3">
@@ -53,7 +53,7 @@
                 </a>
 
                 <!-- light mode switch -->
-                <div class="navbar-text form-check form-switch me-5 pe-1">
+                <div class="hstack gap-5 form-check form-switch me-5 pe-1">
                     <label class="form-check-label" for="lightSwitch" role="button">
                         <svg hidden id="svg-sun" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
                             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
@@ -85,10 +85,17 @@
         </nav>
     </header>
 
-    <main class="container-sm p-5 bg-light mt-5">
+    <!-- <aside id="list-sections" class="list-group my-5 float-start">
+        <a class="list-group-item list-group-item-action" href="#graphic-1">Item 1</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+    </aside> -->
+
+    <main class="container p-5">
         <!-- Barack obama cite about climate change -->
-        <section class="row ">
-            <div class="col my-5">
+        <section class="row">
+            <div class="col">
                 <figure class="text-center">
                     <blockquote class="blockquote">
                         <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
@@ -100,23 +107,27 @@
             </div>
         </section>
 
-        <div class="w-75 mx-auto">
-            <section class="row">
+        <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" tabindex="0">
+
+            <section class="row my-5" id="graphic-1">
                 <!-- Emission - Fuel_Type -->
-                <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
+                <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
                 <div class="col">
                     <div id="emission-by-fueltype"></div>
                 </div>
-                <div class="col">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum et architecto cum, impedit delectus asperiores nam perspiciatis quae consequuntur porro quam ipsa, laudantium quos, iusto repellendus. Doloribus blanditiis ea nihil.
-                        Quod quasi voluptatibus eaque. Adipisci quos fugiat possimus! Minus, labore. Ea eum fugit ratione iure fugiat? Soluta necessitatibus officia deserunt nesciunt cum! Mollitia soluta cum at dignissimos aperiam beatae temporibus!
-                        Quae error itaque delectus nihil similique consequuntur obcaecati eum quaerat libero necessitatibus maiores accusamus mollitia harum doloribus asperiores molestiae sed qui, corporis saepe! Aperiam ullam animi obcaecati saepe placeat voluptate?
-                        Excepturi inventore odio cupiditate labore architecto rerum cumque atque voluptate. Itaque qui quam nulla et illum fugiat obcaecati deleniti! Delectus dignissimos quasi illo qui incidunt dolore aliquid quae autem commodi.
-                        Esse deleniti libero facere fugiat officia dolore laboriosam, aspernatur fugit? Quis dolores ratione vel assumenda? Mollitia aperiam tempore praesentium quae illum. Corrupti fuga mollitia quisquam laborum doloremque nesciunt hic incidunt.</p>
+                <div class="col d-flex align-items-center">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
+                        Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
                 </div>
             </section>
+
             <section class="row my-5">
                 <!-- Consumption by Model -->
+                <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
+                <div class="col d-flex align-items-center">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
+                        Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
+                </div>
                 <div class="col">
                     <div class="d-grid gap-5">
                         <form id="make-input-form">
@@ -134,18 +145,33 @@
                                 ?>
                             </datalist>
                         </form>
-                        <div id="model-consumption-by-make"></div>
+                        <!-- <div class="row">
+                            <div class="col">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
+                                    Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
+                            </div> -->
+                        <div class="col">
+                            <div id="model-consumption-by-make"></div>
+                            <!-- </div>
+                        </div> -->
+                        </div>
                     </div>
-                </div>
             </section>
             <section class="row my-5">
                 <!-- Consumption by Engine Size -->
+                <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
                 <div class="col justify-content-center">
                     <div id="consumption-by-enginesize"></div>
                 </div>
             </section>
         </div>
     </main>
+
+    <a class="back-to-top opacity-0" id="go-top-button" href="#" aria-roledescription="Button to go to the top of the page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+        </svg>
+    </a>
 
     <footer>
 

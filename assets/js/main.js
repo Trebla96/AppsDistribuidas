@@ -2,11 +2,17 @@ import loadEmissionFuelTypeData from "./modules/emissionFuelType.js";
 import loadConsumptionModelMakeData from "./modules/consumptionModelMark.js";
 import loadConsumptionEngineSizeData from "./modules/consumptionEngineSize.js";
 import { lightTheme, darkTheme } from "./themes.js";
+import getCO2Travel from "./modules/apicall.js";
+
+// Enable tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 // ========================== Fuel emissions graphic code ====================================
 const emissionsFuelGraphic = Highcharts.chart('emission-by-fueltype', {
     chart: {
-        type: 'pie'
+        type: 'pie',
+        
     },
     title: {
         text: ''
@@ -33,10 +39,10 @@ const emissionsFuelGraphic = Highcharts.chart('emission-by-fueltype', {
 });
 
 const types = {
-    'D': 'Diesel',
-    'E': 'Gasoline +',
-    'Z': 'Gasoline',
-    'X': 'Natural gas'
+    'D': 'Gasoline +',
+    'E': 'Gasoline',
+    'Z': 'GLP',
+    'X': 'Diesel'
 }
 
 function updateEmissionsFuelGraphic(data) {
@@ -164,7 +170,7 @@ function updateConsumptionEngineSizeGraphic(data) {
 
 loadConsumptionEngineSizeData(updateConsumptionEngineSizeGraphic);
 
-
+// ================= Flys World Map ============================= 
 
 // Delete highcharts credits
 $('.highcharts-credits').remove();
@@ -202,3 +208,30 @@ export function toggleGraphicsLightMode() {
 
 
 }
+
+
+
+
+/**
+ * Back to top button
+ */
+let backtotop = document.querySelector('.back-to-top')
+if (backtotop) {
+    const toggleBacktotop = () => {
+        if (window.scrollY < 50) {
+            backtotop.classList.add('opacity-0')
+            backtotop.classList.add('pe-none')
+        } else {
+            backtotop.classList.remove('opacity-0')
+            backtotop.classList.remove('pe-none')
+        }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    document.addEventListener('scroll', toggleBacktotop)
+}
+
+// getCO2Travel("PMI", "BCN", 2, "first")
+//     .then(data => {
+//         console.log(data.co2e);
+//     })
+

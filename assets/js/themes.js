@@ -2,7 +2,7 @@ export const lightTheme = {
     colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
         '#FF9655', '#FFF263', '#6AF9C4'],
     chart: {
-        backgroundColor: '#f8f9fa',
+        backgroundColor: 'transparent', // #f8f9fa
     },
     legend: {
         itemStyle: {
@@ -48,7 +48,7 @@ export const darkTheme = {
     colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
         '#FF9655', '#FFF263', '#6AF9C4'],
     chart: {
-        backgroundColor: '#212529',
+        backgroundColor: 'transparent', //#212529
     },
     legend: {
         itemStyle: {

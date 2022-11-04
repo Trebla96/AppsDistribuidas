@@ -3,3 +3,10 @@ body {
     background-image: radial-gradient(circle at 1px 1px, rgba(128, 128, 128, 0.2) 1px, transparent 0);
     background-size: 25px 25px;
 }
+
+#go-top-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transition: opacity 0.2s ease-in-out;
+}
