@@ -12,7 +12,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 const emissionsFuelGraphic = Highcharts.chart('emission-by-fueltype', {
     chart: {
         type: 'pie',
-        
+
     },
     title: {
         text: ''
@@ -70,11 +70,11 @@ const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-by-make'
         categories: []
     },
     title: {
-        text: ''
+        text: 'hi'
     },
     yAxis: {
         title: {
-            text: 'Fuel'
+            text: 'Average Consumption (L/100km)'
         }
     },
     series: [
@@ -82,9 +82,16 @@ const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-by-make'
             name: 'Fuel',
             data: []
         }
-    ]
-
-
+    ],
+    plotOptions: {
+        series: {
+            events: {
+                legendItemClick: function () {
+                    return false;
+                }
+            }
+        }
+    }
 });
 
 function updateConsumptionModelMakeGraphic(data, make) {
@@ -93,7 +100,7 @@ function updateConsumptionModelMakeGraphic(data, make) {
 
     consumptionModelMakeGraphic.series[0].setData(my_data);
     consumptionModelMakeGraphic.xAxis[0].setCategories(my_labels);
-
+    consumptionModelMakeGraphic.setTitle({ text: make, style: { color: 'red' } });
 }
 
 $("#make-input-form").submit((e) => { e.preventDefault(); });
@@ -155,7 +162,17 @@ const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-enginesize
             name: 'City',
             data: []
         }
-    ]
+    ],
+    plotOptions: {
+        series: {
+            events: {
+                legendItemClick: function (event) {
+                    return this.chart.series.some(s =>
+                        this === s ? !s.visible : s.visible);
+                }
+            }
+        }
+    }
 });
 
 function updateConsumptionEngineSizeGraphic(data) {

@@ -123,7 +123,7 @@
 
             <section class="row my-5">
                 <!-- Consumption by Model -->
-                <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
+                <h1 class="display-4 mb-5 text-center">Model matters</h1>
                 <div class="col d-flex align-items-center">
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
                         Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>

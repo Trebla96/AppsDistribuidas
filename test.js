@@ -1,179 +1,233 @@
-/* 'https://code.highcharts.com/mapdata/countries/gb/gb-all.topo.json' */
-(async () => {
+const getGraticule = () => {
+    const data = [];
 
-    const mapData = await fetch(
-        
-        'https://code.highcharts.com/mapdata/custom/world.topo.json'
-    ).then(response => response.json());
-
-    // Initialize the chart
-    const chart = Highcharts.mapChart('container', {
-
-        title: {
-            text: 'Highmaps simple flight routes demo'
-        },
-
-        legend: {
-            align: 'left',
-            layout: 'vertical',
-            floating: true
-        },
-
-        accessibility: {
-            point: {
-                valueDescriptionFormat: '{xDescription}.'
+    // Meridians
+    for (let x = -180; x <= 180; x += 15) {
+        data.push({
+            geometry: {
+                type: 'LineString',
+                coordinates: x % 90 === 0 ? [
+                    [x, -90],
+                    [x, 0],
+                    [x, 90]
+                ] : [
+                    [x, -80],
+                    [x, 80]
+                ]
             }
-        },
-
-        mapNavigation: {
-            enabled: true
-        },
-
-        tooltip: {
-            formatter: function () {
-                return this.point.id + (
-                    this.point.lat ?
-                        '<br>Lat: ' + this.point.lat + ' Lon: ' + this.point.lon : ''
-                );
-            }
-        },
-
-        plotOptions: {
-            series: {
-                marker: {
-                    fillColor: '#FFFFFF',
-                    lineWidth: 2,
-                    lineColor: Highcharts.getOptions().colors[1]
-                }
-            }
-        },
-
-        series: [{
-            // Use the gb-all map with no data as a basemap
-            mapData,
-            name: 'Great Britain',
-            borderColor: '#707070',
-            nullColor: 'rgba(200, 200, 200, 0.3)',
-            showInLegend: false
-        }, {
-            // Specify cities using lat/lon
-            type: 'mappoint',
-            name: 'Cities',
-            dataLabels: {
-                format: '{point.id}'
-            },
-            // Use id instead of name to allow for referencing points later using
-            // chart.get
-            data: [{
-                id: 'London',
-                lat: 51.507222,
-                lon: -0.1275
-            }, {
-                id: 'Birmingham',
-                lat: 52.483056,
-                lon: -1.893611
-            }, {
-                id: 'Leeds',
-                lat: 53.799722,
-                lon: -1.549167
-            }, {
-                id: 'Glasgow',
-                lat: 55.858,
-                lon: -4.259
-            }, {
-                id: 'Sheffield',
-                lat: 53.383611,
-                lon: -1.466944
-            }, {
-                id: 'Liverpool',
-                lat: 53.4,
-                lon: -3
-            }, {
-                id: 'Bristol',
-                lat: 51.45,
-                lon: -2.583333
-            }, {
-                id: 'Belfast',
-                lat: 54.597,
-                lon: -5.93
-            }, {
-                id: 'Lerwick',
-                lat: 60.155,
-                lon: -1.145,
-                dataLabels: {
-                    align: 'left',
-                    x: 5,
-                    verticalAlign: 'middle'
-                }
-            }]
-        }]
-    });
-
-    // Function to return an SVG path between two points, with an arc
-    function pointsToPath(fromPoint, toPoint, invertArc) {
-        const
-            from = chart.mapView.lonLatToProjectedUnits(fromPoint),
-            to = chart.mapView.lonLatToProjectedUnits(toPoint),
-            curve = 0.05,
-            arcPointX = (from.x + to.x) / (invertArc ? 2 + curve : 2 - curve),
-            arcPointY = (from.y + to.y) / (invertArc ? 2 + curve : 2 - curve);
-        return [
-            ['M', from.x, from.y],
-            ['Q', arcPointX, arcPointY, to.x, to.y]
-        ];
+        });
     }
 
-    const londonPoint = chart.get('London'),
-        lerwickPoint = chart.get('Lerwick');
+    // Latitudes
+    for (let y = -90; y <= 90; y += 10) {
+        const coordinates = [];
+        for (let x = -180; x <= 180; x += 5) {
+            coordinates.push([x, y]);
+        }
+        data.push({
+            geometry: {
+                type: 'LineString',
+                coordinates
+            },
+            lineWidth: y === 0 ? 2 : undefined
+        });
+    }
 
-    // Add a series of lines for London
-    chart.addSeries({
-        name: 'London flight routes',
-        type: 'mapline',
-        lineWidth: 2,
-        color: Highcharts.getOptions().colors[3],
-        data: [{
-            id: 'London - Glasgow',
-            path: pointsToPath(londonPoint, chart.get('Glasgow'))
-        }, {
-            id: 'London - Belfast',
-            path: pointsToPath(londonPoint, chart.get('Belfast'), true)
-        }, {
-            id: 'London - Leeds',
-            path: pointsToPath(londonPoint, chart.get('Leeds'))
-        }, {
-            id: 'London - Liverpool',
-            path: pointsToPath(londonPoint, chart.get('Liverpool'), true)
-        }, {
-            id: 'London - Sheffield',
-            path: pointsToPath(londonPoint, chart.get('Sheffield'))
-        }, {
-            id: 'London - Birmingham',
-            path: pointsToPath(londonPoint, chart.get('Birmingham'), true)
-        }, {
-            id: 'London - Bristol',
-            path: pointsToPath(londonPoint, chart.get('Bristol'), true)
-        }]
-    }, true, false);
+    return data;
+};
 
-    // Add a series of lines for Lerwick
-    chart.addSeries({
-        name: 'Lerwick flight routes',
-        type: 'mapline',
-        lineWidth: 2,
-        color: Highcharts.getOptions().colors[5],
-        data: [{
-            id: 'Lerwick - Glasgow',
-            path: pointsToPath(lerwickPoint, chart.get('Glasgow'))
-        }, {
-            id: 'Lerwick - Belfast',
-            path: pointsToPath(lerwickPoint, chart.get('Belfast'))
-        }, {
-            id: 'Lerwick - Leeds',
-            path: pointsToPath(lerwickPoint, chart.get('Leeds'))
-        }, {
-            id: 'Lerwick - Liverpool',
-            path: pointsToPath(lerwickPoint, chart.get('Liverpool'))
-        }]
-    }, true, false);
-})();
+// Add flight route after initial animation
+const afterAnimate = e => {
+    const chart = e.target.chart;
+
+    if (!chart.get('flight-route')) {
+        chart.addSeries({
+            type: 'mapline',
+            name: 'Flight route, Amsterdam - Los Angeles',
+            animation: false,
+            id: 'flight-route',
+            data: [{
+                geometry: {
+                    type: 'LineString',
+                    coordinates: [
+                        [4.90, 53.38], // Amsterdam
+                        [-118.24, 34.05] // Los Angeles
+                    ]
+                },
+                color: '#313f77'
+            }],
+            lineWidth: 2,
+            accessibility: {
+                exposeAsGroupOnly: true
+            }
+        }, false);
+        chart.addSeries({
+            type: 'mappoint',
+            animation: false,
+            data: [{
+                name: 'Amsterdam',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [4.90, 53.38]
+                }
+            }, {
+                name: 'LA',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [-118.24, 34.05]
+                }
+            }],
+            color: '#313f77',
+            accessibility: {
+                enabled: false
+            }
+        }, false);
+        chart.redraw(false);
+    }
+};
+
+
+Highcharts.getJSON(
+    'https://code.highcharts.com/mapdata/custom/world.topo.json',
+    topology => {
+
+        const chart = Highcharts.mapChart('container', {
+            chart: {
+                map: topology
+            },
+
+            title: {
+                text: 'Airport density per country',
+                floating: true,
+                align: 'left',
+                style: {
+                    textOutline: '2px white'
+                }
+            },
+
+            subtitle: {
+                text: 'Source: <a href="http://www.citypopulation.de/en/world/bymap/airports/">citypopulation.de</a><br>' +
+                    'Click and drag to rotate globe<br>',
+                floating: true,
+                y: 34,
+                align: 'left'
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            mapNavigation: {
+                enabled: true,
+                enableDoubleClickZoomTo: true,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+            mapView: {
+                maxZoom: 30,
+                projection: {
+                    name: 'Orthographic',
+                    rotation: [60, -30]
+                }
+            },
+
+            colorAxis: {
+                tickPixelInterval: 100,
+                minColor: '#BFCFAD',
+                maxColor: '#31784B',
+                max: 1000
+            },
+
+            tooltip: {
+                pointFormat: '{point.name}: {point.value}'
+            },
+
+            plotOptions: {
+                series: {
+                    animation: {
+                        duration: 750
+                    },
+                    clip: false
+                }
+            },
+
+            series: [{
+                name: 'Graticule',
+                id: 'graticule',
+                type: 'mapline',
+                data: getGraticule(),
+                nullColor: 'rgba(0, 0, 0, 0.05)',
+                accessibility: {
+                    enabled: false
+                },
+                enableMouseTracking: false
+            }, {
+                /* data, */
+                joinBy: 'name',
+                name: 'Airports per million km²',
+                states: {
+                    hover: {
+                        color: '#a4edba',
+                        borderColor: '#333333'
+                    }
+                },
+                dataLabels: {
+                    enabled: false,
+                    format: '{point.name}'
+                },
+                events: {
+                    afterAnimate
+                },
+                accessibility: {
+                    exposeAsGroupOnly: true
+                }
+            }]
+        });
+
+        // Render a circle filled with a radial gradient behind the globe to
+        // make it appear as the sea around the continents
+        const renderSea = () => {
+            let verb = 'animate';
+            if (!chart.sea) {
+                chart.sea = chart.renderer
+                    .circle()
+                    .attr({
+                        fill: {
+                            radialGradient: {
+                                cx: 0.4,
+                                cy: 0.4,
+                                r: 1
+                            },
+                            stops: [
+                                [0, 'white'],
+                                [1, 'lightblue']
+                            ]
+                        },
+                        zIndex: -1
+                    })
+                    .add(chart.get('graticule').group);
+                verb = 'attr';
+            }
+
+            const bounds = chart.get('graticule').bounds,
+                p1 = chart.mapView.projectedUnitsToPixels({
+                    x: bounds.x1,
+                    y: bounds.y1
+                }),
+                p2 = chart.mapView.projectedUnitsToPixels({
+                    x: bounds.x2,
+                    y: bounds.y2
+                });
+            chart.sea[verb]({
+                cx: (p1.x + p2.x) / 2,
+                cy: (p1.y + p2.y) / 2,
+                r: Math.min(p2.x - p1.x, p1.y - p2.y) / 2
+            });
+        };
+        renderSea();
+        Highcharts.addEvent(chart, 'redraw', renderSea);
+
+    }
+);

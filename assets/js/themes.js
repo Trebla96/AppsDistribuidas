@@ -4,6 +4,11 @@ export const lightTheme = {
     chart: {
         backgroundColor: 'transparent', // #f8f9fa
     },
+    title: {
+        style: {
+            color: '#777'
+        }
+    },
     legend: {
         itemStyle: {
             font: '9pt Trebuchet MS, Verdana, sans-serif',
@@ -49,6 +54,11 @@ export const darkTheme = {
         '#FF9655', '#FFF263', '#6AF9C4'],
     chart: {
         backgroundColor: 'transparent', //#212529
+    },
+    title: {
+        style: {
+            color: 'red'
+        }
     },
     legend: {
         itemStyle: {
