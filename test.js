@@ -163,8 +163,8 @@ Highcharts.getJSON(
                     enabled: false
                 },
                 enableMouseTracking: false
-            }, {
-                /* data, */
+            }, /* {
+                data,
                 joinBy: 'name',
                 name: 'Airports per million km²',
                 states: {
@@ -183,7 +183,7 @@ Highcharts.getJSON(
                 accessibility: {
                     exposeAsGroupOnly: true
                 }
-            }]
+            } */]
         });
 
         // Render a circle filled with a radial gradient behind the globe to

@@ -10,7 +10,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -20,11 +19,7 @@
     <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery/jquery.min.js" defer></script>
     <script src="assets/vendor/popper/js/popper.min.js" defer></script>
-    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script> -->
-    <!--     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js" defer></script> -->
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
-    <!-- <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
 
 
     <!-- Main JS File -->
@@ -32,8 +27,9 @@
     <script type="module" src="http://localhost/consucar/assets/js/modules/switchLightMode.js" defer></script>
 
     <!-- Higcharts js ejemplos https://www.highcharts.com/demo  -->
-    <!-- <script src="https://code.highcharts.com/highcharts.js" defer></script> -->
-    <script src="assets/vendor/highcharts/code/highcharts.js"></script>
+    <!-- <script src="assets/vendor/highcharts/code/highcharts.js"></script> -->
+    <!-- Highmaps -->
+    <script src="assets/vendor/highmaps/code/highmaps.js"></script>
 
 </head>
 
@@ -85,52 +81,56 @@
         </nav>
     </header>
 
-    <!-- <aside id="list-sections" class="list-group my-5 float-start">
+    <!-- <aside id="list-sections" class="list-group my-5 float-end">
         <a class="list-group-item list-group-item-action" href="#graphic-1">Item 1</a>
         <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
         <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
         <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
     </aside> -->
 
-    <main class="container p-5">
-        <!-- Barack obama cite about climate change -->
-        <section class="row">
-            <div class="col">
-                <figure class="text-center">
-                    <blockquote class="blockquote">
-                        <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                        Barack Obama
-                    </figcaption>
-                </figure>
-            </div>
+    <main>
+        <section class="d-flex justify-content-left ms-3 mt-3">
+            <h1>ConSuCar <br>
+                <small class="text-muted">Vehicle emissions and consumption</small>
+            </h1>
         </section>
+        <div class="container p-5">
+            <!-- Barack obama cite about climate change -->
 
-        <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" tabindex="0">
-
-            <section class="row my-5" id="graphic-1">
-                <!-- Emission - Fuel_Type -->
-                <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
+            <section class="row">
                 <div class="col">
-                    <div id="emission-by-fueltype"></div>
-                </div>
-                <div class="col d-flex align-items-center">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
-                        Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            Barack Obama
+                        </figcaption>
+                    </figure>
                 </div>
             </section>
-
-            <section class="row my-5">
+            <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" tabindex="0">
+            
+                <!--      Graphic 1       -->
+                <!-- Emission - Fuel_Type -->
+                <!--                      -->
+                <section class="row my-5" id="graphic-1">
+                    <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
+                    <div class="col">
+                        <div id="emission-by-fueltype"></div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
+                            Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
+                    </div>
+                </section>
+                <!--      Graphic 2       -->
                 <!-- Consumption by Model -->
-                <h1 class="display-4 mb-5 text-center">Model matters</h1>
-                <div class="col d-flex align-items-center">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
-                        Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
-                </div>
-                <div class="col">
-                    <div class="d-grid gap-5">
-                        <form id="make-input-form">
+                <!--                      -->
+                <section class="row my-5">
+                    <h1 class="display-4 mb-5 text-center">Model matters</h1>
+                    <div class="col order-1 order-lg-2">
+                        <form class="mb-4" id="make-input-form">
                             <!-- action ="test.php" method ="post" -->
                             <label for="make-input" class="form-label">Manufacturer brand</label>
                             <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
@@ -145,25 +145,34 @@
                                 ?>
                             </datalist>
                         </form>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
-                                    Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
-                            </div> -->
-                        <div class="col">
-                            <div id="model-consumption-by-make"></div>
-                            <!-- </div>
-                        </div> -->
-                        </div>
+                        <div id="model-consumption-by-make"></div>
                     </div>
-            </section>
-            <section class="row my-5">
+                    <div class="col order-2 order-lg-1 d-flex align-items-center">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
+                            Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?
+                        </p>
+                    </div>
+                </section>
+            
+                <!--         Graphic 3          -->
                 <!-- Consumption by Engine Size -->
-                <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
-                <div class="col justify-content-center">
-                    <div id="consumption-by-enginesize"></div>
-                </div>
-            </section>
+                <!--                            -->
+                <section class="row my-5">
+                    <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
+                    <div class="col justify-content-center">
+                        <div id="consumption-by-enginesize"></div>
+                    </div>
+                </section>
+                <!--           API          -->
+                <!-- Flight emissions API -->
+                <!--                        -->
+                <section>
+                    <h1 class="display-4 mb-5 text-center">API TITLE</h1>
+                    <div class="col">
+                        <div id="flight-emissions"></div>
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 

@@ -6,7 +6,7 @@ export const lightTheme = {
     },
     title: {
         style: {
-            color: '#777'
+            color: '#555'
         }
     },
     legend: {
@@ -57,7 +57,7 @@ export const darkTheme = {
     },
     title: {
         style: {
-            color: 'red'
+            color: '#ccc'
         }
     },
     legend: {
