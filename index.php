@@ -24,6 +24,8 @@
 
     <!-- Main JS File -->
     <script type="module" src="http://localhost/consucar/assets/js/main.js" defer></script>
+    <script type="module" src="http://localhost/consucar/assets/js/plots.js" defer></script>
+    <script type="module" src="http://localhost/consucar/assets/js/map.js" defer></script>
     <script type="module" src="http://localhost/consucar/assets/js/modules/switchLightMode.js" defer></script>
 
     <!-- Higcharts js ejemplos https://www.highcharts.com/demo  -->
@@ -90,7 +92,7 @@
 
     <main>
         <section class="d-flex justify-content-left ms-3 mt-3">
-            <h1>ConSuCar <br>
+            <h1>ConSuCar<br>
                 <small class="text-muted">Vehicle emissions and consumption</small>
             </h1>
         </section>
@@ -128,12 +130,20 @@
                 <!-- Consumption by Model -->
                 <!--                      -->
                 <section class="row my-5">
-                    <h1 class="display-4 mb-5 text-center">Model matters</h1>
+                    <h1 class="display-4 mb-5 text-center">Model makes the difference</h1>
                     <div class="col order-1 order-lg-2">
-                        <form class="mb-4" id="make-input-form">
+                        <form class="mb-1" id="make-input-form">
                             <!-- action ="test.php" method ="post" -->
-                            <label for="make-input" class="form-label">Manufacturer brand</label>
-                            <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                                <label for="make-input" class="form-label">Manufacturer brand</label>
+                            <div class="input-group has-validation">
+                                <div class="form-floating">
+                                    <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                                    <label class="floating-input-label" for="make-input">Type the brand (e.g. BMW)</label>
+                                </div>
+                                <div class="invalid-feedback pe-none">
+                                    Please provide brand from the list.
+                                </div>
+                            </div>
                             <datalist id="datalistOptionsBrand">
                                 <?php
                                 include "assets/php/carBrands.php";
@@ -158,7 +168,7 @@
                 <!-- Consumption by Engine Size -->
                 <!--                            -->
                 <section class="row my-5">
-                    <h1 class="display-4 mb-5 text-center">Graphic title / question</h1>
+                    <h1 class="display-4 mb-5 text-center">Size matters</h1>
                     <div class="col justify-content-center">
                         <div id="consumption-by-enginesize"></div>
                     </div>
@@ -166,9 +176,89 @@
                 <!--           API          -->
                 <!-- Flight emissions API -->
                 <!--                        -->
-                <section>
-                    <h1 class="display-4 mb-5 text-center">API TITLE</h1>
-                    <div class="col">
+                <section class="row my-5">
+                    <h1 class="display-4 mb-5 text-center">Think twice before flying</h1>
+                    <div class="col-12 col-lg-4"> <!-- d-flex -->
+                        <form class="mb-4" id="make-input-form">
+                            <!-- Origin Airport IATA code input -->
+                            
+                            <label for="flight-origin" class="form-label">Origin</label>
+                            <div class="input-group has-validation mb-1">
+                                <div class="form-floating">
+                                    <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-origin" name="flight-input" placeholder="IATA code (e.g. PMI)">
+                                    <label class="floating-input-label" for="flight-origin">IATA code (e.g. PMI)</label>
+                                </div>
+                                <div class="invalid-feedback pe-none">
+                                    Please provide a valid IATA code.
+                                </div>
+                            </div>
+                            <datalist id="datalistOptionsFlight">
+                                <?php
+                                include "assets/php/iataCodes.php";
+                                $iataCodes = getQueryIataCodes();
+                                // $iataCodes to options
+                                while ($row = mysqli_fetch_assoc($iataCodes)) {
+                                    echo "<option label='{$row['city']}' value='{$row['code']}'>";
+                                }
+                                ?>
+                            </datalist>
+                            <!-- Destination Airport IATA code input -->
+                            <label for="flight-destination" class="form-label">Destination</label>
+                            <div class="input-group has-validation">
+                                <div class="form-floating">
+                                    <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-destination" name="flight-input-2" placeholder="IATA code (e.g. PMI)">
+                                    <label class="floating-input-label" for="flight-destination">IATA code (e.g. PMI)</label>
+                                </div>
+                                <div class="invalid-feedback pe-none">
+                                    Please provide a valid IATA code.
+                                </div>
+                            </div>
+                            <datalist id="datalistOptionsFlight">
+                                <?php
+                                $iataCodes = getQueryIataCodes();
+                                // $iataCodes to options
+                                while ($row = mysqli_fetch_assoc($iataCodes)) {
+                                    echo "<option label='{$row['city']}' value='{$row['code']}'>";
+                                }
+                                ?>
+                            </datalist>
+
+                            <!-- Send button that no recharge the page aligned right -->
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" id="flight-emissions-button">Calculate</button>
+                            </div>
+                        </form>
+                        
+                        <!-- div with the fly consumption calculated -->
+                        <div class="d-flex justify-content-center">
+                            <div class="card">
+                                <div class="card-body">
+                                <h5 class="card-title">Your flight emissions</h5>
+                                    <div class = "row my-5">
+                                        <div class = "">
+                                            <p class = "card-text">Origin :</p>
+                                            <p class="card-text" id = "selected-airport-origin">MAD - Madrid</p>
+                                        </div>
+
+                                        <!-- <img src="assets/img/iconos/airplane-engines-fill.svg" alt="Plane"> -->
+
+                                        <div class = "">
+                                            <p class = "card-text">Destination:</p>
+                                            <p class="card-text" id = "selected-airport-destination">PMI-Palma</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr>
+                                    <p class="card-text" id = "consumption_calculated">35</p>   
+                                </div>
+                            </div>
+                        </div>   
+                       
+
+ 
+
+                    </div>
+                    <div class="col-12 col-lg-8">
                         <div id="flight-emissions"></div>
                     </div>
                 </section>
@@ -184,7 +274,7 @@
 
     <footer>
 
-        <div class="container-fluid justify-content-center bg-light p-3 text-center">
+        <div class="container-fluid justify-content-center p-3 text-center">
             <div class="row">
                 <div class="col">
                     <span>&copy;2022</span>

@@ -10,3 +10,16 @@ body {
     right: 2rem;
     transition: opacity 0.2s ease-in-out;
 }
+
+.floating-input-label {
+    color: rgb(110, 110, 110);
+}
+
+.invalid-feedback {
+    opacity: 0;
+    display: inline-block;
+}
+
+.input-group.has-validation:has(input.is-invalid)>.invalid-feedback {
+    opacity: 1;
+}
