@@ -99,7 +99,7 @@
                 <small class="text-muted">Vehicle emissions and consumption</small>
             </h1>
         </section>
-        <div class="container p-5">
+        <div class="container p-sm-5 p-2">
             <!-- Barack obama cite about climate change -->
 
             <section class="row">
