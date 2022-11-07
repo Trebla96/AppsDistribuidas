@@ -6,7 +6,7 @@ import loadConsumptionMakeFiltersData from "./modules/consumptionMakeFilters.js"
 // ========================== Consumption by mark filters ====================================
 export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-make-filters', {
     chart: {
-        type: 'bar',
+        type: 'bar'
     },
     xAxis: {
         type: 'category',
@@ -21,9 +21,11 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
         tickLength: 0
     },
     title: {
-        text: 'Average consumption by Model of '
+        text: 'Average consumption by Mark'
     },
     yAxis: {
+        min: 0,
+        max: 50,
         title: {
             text: 'Average Consumption (L/100km)'
         }
@@ -31,7 +33,7 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
     series: [
         {
             name: 'Fuel',
-            data: [1, 2, 3]
+            data: []
         }
     ],
     plotOptions: {
@@ -40,8 +42,7 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
                 legendItemClick: function () {
                     return false;
                 }
-            },
-            pointWidth: 30
+            }
         },
         bar: {
             dataLabels: {
@@ -52,15 +53,14 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
 });
 
 function updateConsumptionMakeFiltersGraphic(data) {
-    console.log(data)
-    const my_data = data.map((item) => Number(item.AVERAGE_CONSUMPTION));
+    const my_data = data.map((item) => Math.round(Number(item.AVERAGE_CONSUMPTION) * 100) / 100);
     const my_labels = data.map((item) => item.MAKE);
 
-    console.log(my_data)
-
+    consumptionMakeFiltersGraphic.yAxis[0].setExtremes(0, Math.max(...my_data) * 1.1);
     consumptionMakeFiltersGraphic.series[0].setData(my_data);
     consumptionMakeFiltersGraphic.xAxis[0].setCategories(my_labels);
     consumptionMakeFiltersGraphic.setTitle({ text: `Average consumption by Mark` });
+
 
 }
 
@@ -70,8 +70,7 @@ loadConsumptionMakeFiltersData(updateConsumptionMakeFiltersGraphic);
 export const emissionsFuelGraphic =
     Highcharts.chart("emission-by-fueltype", {
         chart: {
-            type: "bubble",
-            height: "50%"
+            type: "bubble"
         },
 
         title: {
@@ -131,8 +130,8 @@ export const emissionsFuelGraphic =
                 }
             },
             bubble: {
-                minSize: 50,
-                maxSize: 80,
+                minSize: 60,
+                maxSize: 100,
             }
         },
 
@@ -153,11 +152,13 @@ const types = {
 
 function updateEmissionsFuelGraphic(data) {
 
+    let multiplier = 1.25;
     const myData = data.map((item, idx) => {
         const roundedEmissions = Math.round(item.AVERAGE_EMISSIONS * 100) / 100;
+        multiplier *= -1.25;
         return {
             data: [
-                { x: idx * 3, y: 1, z: roundedEmissions, name: types[item.FUELTYPE] }
+                { x: idx, y: 2 * multiplier, z: roundedEmissions, name: types[item.FUELTYPE] }
             ]
         }
     }
