@@ -1,5 +1,5 @@
 import { lightTheme, darkTheme } from "./themes.js";
-import { consumptionEngineSizeGraphic, consumptionModelMakeGraphic, emissionsFuelGraphic } from "./plots.js"
+import { consumptionEngineSizeGraphic, consumptionModelMakeGraphic, emissionsFuelGraphic, consumptionMakeFiltersGraphic } from "./plots.js"
 import { worldMap } from "./map.js";
 
 // Enable tooltips
@@ -7,7 +7,7 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 // ================= Switch light mode ============================= //
-const graphics = [emissionsFuelGraphic, consumptionModelMakeGraphic, consumptionEngineSizeGraphic, worldMap];
+const graphics = [consumptionMakeFiltersGraphic, emissionsFuelGraphic, consumptionModelMakeGraphic, consumptionEngineSizeGraphic, worldMap];
 const sunSVG = $('#svg-sun');
 const moonSVG = $('#svg-moon');
 export function toggleGraphicsLightMode() {

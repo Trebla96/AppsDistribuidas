@@ -31,7 +31,10 @@
     <!-- Higcharts js ejemplos https://www.highcharts.com/demo  -->
     <!-- <script src="assets/vendor/highcharts/code/highcharts.js"></script> -->
     <!-- Highmaps -->
-    <script src="assets/vendor/highmaps/code/highmaps.js"></script>
+    <!-- <script src="assets/vendor/highmaps/code/highmaps.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/stock/highstock.js"></script> -->
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
 
 </head>
 
@@ -112,7 +115,20 @@
                 </div>
             </section>
             <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" tabindex="0">
-            
+
+                <!--      Graphic 0       -->
+                <!-- Consumption MarkFilt -->
+                <!--                      -->
+                <section class="row my-5" id="graphic-0">
+                    <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
+                    <div class="col">
+                        <div id="consumption-by-make-filters"></div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
+                            Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
+                    </div>
+                </section>
                 <!--      Graphic 1       -->
                 <!-- Emission - Fuel_Type -->
                 <!--                      -->
@@ -134,7 +150,7 @@
                     <div class="col order-1 order-lg-2">
                         <form class="mb-1" id="make-input-form">
                             <!-- action ="test.php" method ="post" -->
-                                <label for="make-input" class="form-label">Manufacturer brand</label>
+                            <label for="make-input" class="form-label">Manufacturer brand</label>
                             <div class="input-group has-validation">
                                 <div class="form-floating">
                                     <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
@@ -163,7 +179,7 @@
                         </p>
                     </div>
                 </section>
-            
+
                 <!--         Graphic 3          -->
                 <!-- Consumption by Engine Size -->
                 <!--                            -->
@@ -178,10 +194,11 @@
                 <!--                        -->
                 <section class="row my-5">
                     <h1 class="display-4 mb-5 text-center">Think twice before flying</h1>
-                    <div class="col-12 col-lg-4"> <!-- d-flex -->
+                    <div class="col-12 col-lg-4">
+                        <!-- d-flex -->
                         <form class="mb-4" id="make-input-form">
                             <!-- Origin Airport IATA code input -->
-                            
+
                             <label for="flight-origin" class="form-label">Origin</label>
                             <div class="input-group has-validation mb-1">
                                 <div class="form-floating">
@@ -228,34 +245,34 @@
                                 <button type="button" class="btn btn-primary" id="flight-emissions-button">Calculate</button>
                             </div>
                         </form>
-                        
+
                         <!-- div with the fly consumption calculated -->
                         <div class="d-flex justify-content-center">
                             <div class="card">
                                 <div class="card-body">
-                                <h5 class="card-title">Your flight emissions</h5>
-                                    <div class = "row my-5">
-                                        <div class = "">
-                                            <p class = "card-text">Origin :</p>
-                                            <p class="card-text" id = "selected-airport-origin">MAD - Madrid</p>
+                                    <h5 class="card-title">Your flight emissions</h5>
+                                    <div class="row my-5">
+                                        <div class="">
+                                            <p class="card-text">Origin :</p>
+                                            <p class="card-text" id="selected-airport-origin">MAD - Madrid</p>
                                         </div>
 
                                         <!-- <img src="assets/img/iconos/airplane-engines-fill.svg" alt="Plane"> -->
 
-                                        <div class = "">
-                                            <p class = "card-text">Destination:</p>
-                                            <p class="card-text" id = "selected-airport-destination">PMI-Palma</p>
+                                        <div class="">
+                                            <p class="card-text">Destination:</p>
+                                            <p class="card-text" id="selected-airport-destination">PMI-Palma</p>
                                         </div>
                                     </div>
-                                    
+
                                     <hr>
-                                    <p class="card-text" id = "consumption_calculated">35</p>   
+                                    <p class="card-text" id="consumption_calculated">35</p>
                                 </div>
                             </div>
-                        </div>   
-                       
+                        </div>
 
- 
+
+
 
                     </div>
                     <div class="col-12 col-lg-8">

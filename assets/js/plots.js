@@ -1,37 +1,148 @@
 import loadEmissionFuelTypeData from "./modules/emissionFuelType.js";
 import loadConsumptionModelMakeData from "./modules/consumptionModelMark.js";
 import loadConsumptionEngineSizeData from "./modules/consumptionEngineSize.js";
+import loadConsumptionMakeFiltersData from "./modules/consumptionMakeFilters.js";
 
-
-// ========================== Fuel emissions graphic code ====================================
-export const emissionsFuelGraphic = Highcharts.chart('emission-by-fueltype', {
+// ========================== Consumption by mark filters ====================================
+export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-make-filters', {
     chart: {
-        type: 'pie',
-
+        type: 'bar',
+    },
+    xAxis: {
+        type: 'category',
+        title: {
+            text: null
+        },
+        min: 0,
+        max: 4,
+        scrollbar: {
+            enabled: true
+        },
+        tickLength: 0
     },
     title: {
-        text: ''
+        text: 'Average consumption by Model of '
     },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '{point.name}: {point.percentage:.1f}%'
-            },
-            showInLegend: true
+    yAxis: {
+        title: {
+            text: 'Average Consumption (L/100km)'
         }
     },
     series: [
         {
             name: 'Fuel',
-            data: []
+            data: [1, 2, 3]
         }
-    ]
-
-
+    ],
+    plotOptions: {
+        series: {
+            events: {
+                legendItemClick: function () {
+                    return false;
+                }
+            },
+            pointWidth: 30
+        },
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    }
 });
+
+function updateConsumptionMakeFiltersGraphic(data) {
+    console.log(data)
+    const my_data = data.map((item) => Number(item.AVERAGE_CONSUMPTION));
+    const my_labels = data.map((item) => item.MAKE);
+
+    console.log(my_data)
+
+    consumptionMakeFiltersGraphic.series[0].setData(my_data);
+    consumptionMakeFiltersGraphic.xAxis[0].setCategories(my_labels);
+    consumptionMakeFiltersGraphic.setTitle({ text: `Average consumption by Mark` });
+
+}
+
+loadConsumptionMakeFiltersData(updateConsumptionMakeFiltersGraphic);
+
+// ========================== Fuel emissions graphic code ====================================
+export const emissionsFuelGraphic =
+    Highcharts.chart("emission-by-fueltype", {
+        chart: {
+            type: "bubble",
+            height: "50%"
+        },
+
+        title: {
+            text: "Emissions by fuel type"
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        accessibility: {
+            point: {
+                valueDescriptionFormat:
+                    "{index}. {point.name}, Emissions: {point.z} g/km."
+            }
+        },
+
+        xAxis: {
+            lineWidth: 0,
+            minorGridLineWidth: 0,
+            labels: {
+                enabled: false
+            },
+            minorTickLength: 0,
+            tickLength: 0
+        },
+
+        yAxis: {
+            title: {
+                text: ""
+            },
+            labels: {
+                enabled: false
+            },
+            gridLineWidth: 0,
+            accessibility: {
+                rangeDescription: "Range: 200kg to 300kg."
+            }
+        },
+
+        tooltip: {
+            useHTML: true,
+            headerFormat: "<table>",
+            pointFormat:
+                '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
+                "<tr><th>Emissions:</th><td>{point.z} (g/km)</td></tr>",
+            footerFormat: "</table>",
+            followPointer: true,
+            shared: true
+        },
+
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: "{point.name}",
+                }
+            },
+            bubble: {
+                minSize: 50,
+                maxSize: 80,
+            }
+        },
+
+        series: [
+            {},
+            {},
+            {},
+            {}
+        ]
+    });
 
 const types = {
     'D': 'Gasoline +',
@@ -41,15 +152,22 @@ const types = {
 }
 
 function updateEmissionsFuelGraphic(data) {
-    const my_data = data.map((item) => {
+
+    const myData = data.map((item, idx) => {
+        const roundedEmissions = Math.round(item.AVERAGE_EMISSIONS * 100) / 100;
         return {
-            name: types[item.FUELTYPE],
-            y: Number(item.AVERAGE_EMISSIONS)
+            data: [
+                { x: idx * 3, y: 1, z: roundedEmissions, name: types[item.FUELTYPE] }
+            ]
         }
     }
     );
 
-    emissionsFuelGraphic.series[0].setData(my_data);
+    //Unit of measure for the emissions
+
+    emissionsFuelGraphic.update({
+        series: myData
+    });
 
 }
 
