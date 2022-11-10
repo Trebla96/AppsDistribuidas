@@ -42,6 +42,9 @@ import { toggleGraphicsLightMode } from './../main.js';
         localStorage.setItem('lightSwitch', 'dark');
 
         // 212529
+        document.querySelectorAll('.card').forEach((element) => {
+            element.classList.replace('text-dark', 'text-light');
+        });
 
 
     }
@@ -75,6 +78,11 @@ import { toggleGraphicsLightMode } from './../main.js';
             lightSwitch.checked = false;
         }
         localStorage.setItem('lightSwitch', 'light');
+
+        document.querySelectorAll('.card').forEach((element) => {
+            element.classList.replace('text-light', 'text-dark');
+        });
+
     }
 
     /**

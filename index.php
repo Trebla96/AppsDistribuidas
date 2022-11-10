@@ -120,26 +120,13 @@
                 <!-- Consumption MarkFilt -->
                 <!--                      -->
                 <section class="row my-5" id="graphic-0">
-                    <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
+                    <h1 class="display-4 mb-5 text-center">Not all the makers are the same</h1>
                     <div class="col">
                         <div id="consumption-by-make-filters"></div>
                     </div>
-                    <div class="col d-flex align-items-center">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
-                            Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
-                    </div>
-                </section>
-                <!--      Graphic 1       -->
-                <!-- Emission - Fuel_Type -->
-                <!--                      -->
-                <section class="row my-5" id="graphic-1">
-                    <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
-                    <div class="col">
-                        <div id="emission-by-fueltype"></div>
-                    </div>
-                    <div class="col d-flex align-items-center">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
-                            Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?</p>
+                    <div class="col d-flex flex-column justify-content-center">
+                        <p>Due to the power of their vehicles and the degree of awareness of each brand, the level of consumption of each one is different.</p>
+                        <p>If we do not want to contribute to the deterioration of our planet, we should be careful when choosing the manufacturer of our future car.</p>
                     </div>
                 </section>
                 <!--      Graphic 2       -->
@@ -173,18 +160,35 @@
                         </form>
                         <div id="model-consumption-by-make"></div>
                     </div>
-                    <div class="col order-2 order-lg-1 d-flex align-items-center">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit saepe est nesciunt vel suscipit exercitationem placeat sunt officiis? Beatae nostrum magni molestias vero est rem suscipit officia quidem alias blanditiis.
-                            Corporis magnam praesentium veritatis minima dicta magni sint porro voluptate temporibus, pariatur eos eius mollitia quo deleniti quasi, ullam odio nihil? Tempora cumque mollitia commodi consequatur cupiditate soluta optio temporibus?
-                        </p>
+                    <div class="col order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <p>Within each brand, we can find models with more or less consumption, so we always have to review their specifications.</p>
+                        <p>Choosing the model wisely can be decisive in our carbon footprint.</p>
                     </div>
                 </section>
-
+                <!--      Graphic 1       -->
+                <!-- Emission - Fuel_Type -->
+                <!--                      -->
+                <section class="row my-5" id="graphic-1">
+                    <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
+                    <div class="col">
+                        <div id="emission-by-fueltype"></div>
+                    </div>
+                    <div class="col d-flex flex-column justify-content-center">
+                        <p>There are many types of fuel, and here we collect the most used.</p>
+                        <p>The differences in emissions between them occur because they are not all used to the same extent and, moreover, they are not all equally polluting.</p>
+                        <p>It can be seen that gasoline is the cause of most fuel emissions.</p>
+                    </div>
+                </section>
                 <!--         Graphic 3          -->
                 <!-- Consumption by Engine Size -->
                 <!--                            -->
                 <section class="row my-5">
                     <h1 class="display-4 mb-5 text-center">Size matters</h1>
+                    <div class="col d-flex flex-column justify-content-center">
+                        <p>The size of the engine is a fundamental factor in the consumption of the car, and in its emissions.</p>
+                        <p>In this case, if we want to pollute less, we could say that the smaller the better. Much better.</p>
+                        <p>In addition, whenever we can go by highway, it will be preferable to going through the city.</p>
+                    </div>
                     <div class="col justify-content-center">
                         <div id="consumption-by-enginesize"></div>
                     </div>
@@ -248,18 +252,28 @@
 
                         <!-- div with the fly consumption calculated -->
                         <div class="d-flex justify-content-center">
-                            <div class="card">
+                            <div class="card text-dark bg-light border-primary" id = "cocard">
                                 <div class="card-body">
                                     <h5 class="card-title">Your flight emissions</h5>
                                     <div class="row my-5">
-                                        <div class="">
+                                        <div class="col">
                                             <p class="card-text">Origin :</p>
                                             <p class="card-text" id="selected-airport-origin">MAD - Madrid</p>
                                         </div>
 
-                                        <!-- <img src="assets/img/iconos/airplane-engines-fill.svg" alt="Plane"> -->
-
-                                        <div class="">
+                                        <!-- <img width="50px" src="assets/img/iconos/airplane-engines-fill.svg" alt="Plane"> -->
+                                        <svg class="col align-self-center" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#0d6efd" class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
+                                        <g
+                                            transform="
+                                            translate(8, 8)
+                                            rotate(90)
+                                            translate(-8,-8)
+                                            "
+                                        >
+                                            <path d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0Z"/>
+                                        </g>
+                                        </svg>
+                                        <div class="col">
                                             <p class="card-text">Destination:</p>
                                             <p class="card-text" id="selected-airport-destination">PMI-Palma</p>
                                         </div>

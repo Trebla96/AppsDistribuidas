@@ -21,7 +21,7 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
         tickLength: 0
     },
     title: {
-        text: 'Average consumption by Mark'
+        text: 'Average consumption by Maker'
     },
     yAxis: {
         min: 0,

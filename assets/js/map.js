@@ -70,6 +70,7 @@ let afterAnimate = e => {
         chart.addSeries({
             type: 'mappoint',
             animation: false,
+            id: 'flight-points',
             data: [{
                 name: 'Amsterdam',
                 geometry: {
@@ -101,10 +102,7 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
     title: {
         text: 'Flight consumption',
         floating: true,
-        align: 'left',
-        style: {
-            textOutline: '2px white'
-        }
+        align: 'left'
     },
 
     subtitle: {
@@ -176,6 +174,7 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
 // make it appear as the sea around the continents
 const renderSea = () => {
     let verb = 'animate';
+
     if (!worldMap.sea) {
         worldMap.sea = worldMap.renderer
             .circle()
@@ -188,7 +187,7 @@ const renderSea = () => {
                     },
                     stops: [
                         [0, 'white'],
-                        [1, 'lightblue']
+                        [1, 'lightblue'] //lightblue
                     ]
                 },
                 zIndex: -1
@@ -220,77 +219,52 @@ Highcharts.addEvent(worldMap, 'redraw', renderSea);
 
 function updateWorldMap(params, originIata, destinationIata) {
 
-    // Get the data from the API
-    const originData = params.filter((item) => item.code === originIata);
-    const destinationData = params.filter((item) => item.code === destinationIata);
-
-    console.log(originData);
-
-    afterAnimate = e => {
-        const chart = e.target.chart;
-
-        if (!chart.get('flight-route')) {
-            chart.addSeries({
-                type: 'mapline',
-                name: 'Flight route, notAmsterdam - notLos Angeles',
-                animation: false,
-                id: 'flight-route',
-                data: [{
-                    geometry: {
-                        type: 'LineString',
-                        coordinates: [
-                            [-20.90, -30], // Amsterdam
-                            [5.24, -120.05] // Los Angeles
-                        ]
-                    },
-                    color: '#313f77'
-                }],
-                lineWidth: 2,
-                accessibility: {
-                    exposeAsGroupOnly: true
-                }
-            }, false);
-            chart.addSeries({
-                type: 'mappoint',
-                animation: false,
-                data: [{
-                    name: originData.city,
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [originData.lat, originData.long]
-                    }
-                }, {
-                    name: destinationData.city,
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [destinationData.lat, destinationData.long]
-                    }
-                }],
-                color: '#313f77',
-                accessibility: {
-                    enabled: false
-                }
-            }, false);
-            chart.redraw(false);
+    // Get the coordinates of the airports from the database
+    const originDataRaw = params.filter((item) => item.code === originIata);
+    const destinationDataRaw = params.filter((item) => item.code === destinationIata);
+    const fAux = (item) => {
+        return {
+            city: item.city,
+            lat: Number(item.lat),
+            long: Number(item.lon)
         }
-    };
+    }
+    const originData = originDataRaw.map(fAux)[0];
+    const destinationData = destinationDataRaw.map(fAux)[0];
 
-    // update after anuimate from world map series
-    worldMap.series[1].update({
-        events: {
-            afterAnimate
-        }
-    });
+    const ob = {
+        data: [{
+            geometry: {
+                type: 'LineString',
+                coordinates: [
+                    [originData.long, originData.lat], // Amsterdam
+                    [destinationData.long, destinationData.lat] // Los Angeles
+                ]
+            },
+            color: '#313f77'
+        }]
+    }
 
-    // worldMap.update({
-    //     series: [{
-    //         events: {
-    //             afterAnimate: afterAnimate
-    //         }
-    //     }]
-    // });
+    const ob2 = {
+        data: [{
+            name: originData.city,
+            geometry: {
+                type: 'Point',
+                coordinates: [originData.long, originData.lat]
+            }
+        }, {
+            name: destinationData.city,
+            geometry: {
+                type: 'Point',
+                coordinates: [destinationData.long, destinationData.lat]
+            }
+        }]
+    }
 
+    worldMap.get('flight-route').update(ob, false);
+    worldMap.get('flight-points').update(ob2, false);
 
+    worldMap.redraw(false);
 }
 
 
@@ -326,7 +300,6 @@ $("#flight-emissions-button").on("click", function () {
 
     loadAirportoordinatesData(originValue, destinationValue, updateWorldMap);
 
-
     // clean the form with jQuery
     origin.val("");
     origin.removeClass("is-invalid");
@@ -336,12 +309,9 @@ $("#flight-emissions-button").on("click", function () {
     destination.removeClass("is-invalid");
     destination.removeClass("is-valid");
 
-    // update the world map
-    //updateWorldMap(origin, destination);
 });
 
 const iataOptions = [...$('#datalistOptionsFlight').prop('options')].map((option) => option.value);
-
 
 $("[data-input-iata]").on("input", (e) => {
 
@@ -358,19 +328,7 @@ $("[data-input-iata]").on("input", (e) => {
     e.target.classList.remove("is-invalid");
     e.target.classList.add("is-valid");
 
-
-    // update the world map
-    //updateWorldMap(origin, destination);
 });
-
-//FFunction get airport coordinates from IATA code
-function getAirportCoordinates(iataCode) {
-    const airport = airports.find(airport => airport.iata === iataCode);
-    return [airport.longitude, airport.latitude];
-}
-
-
-
 
 // ================== API call =============================
 

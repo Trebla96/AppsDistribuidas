@@ -30,16 +30,9 @@ export function toggleGraphicsLightMode() {
         graphic.update(theme);
     });
 
-
-
     sunSVG.attr('hidden', options[lightMode].sunSVGHidden ? true : null)
     moonSVG.attr('hidden', options[lightMode].moonSVGHidden ? true : null)
-
-
 }
-
-
-
 
 /**
  * Back to top button
@@ -61,6 +54,3 @@ if (backtotop) {
 
 // Delete highcharts credits
 $('.highcharts-credits').remove();
-
-
-
