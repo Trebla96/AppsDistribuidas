@@ -84,7 +84,7 @@
         </nav>
     </header>
 
-    <!-- <aside id="list-sections" class="list-group my-5 float-end">
+    <!-- <aside id="list-sections" class="list-group my-5 position-fixed top-50 start-0 h-75 offcanvas-lg">
         <a class="list-group-item list-group-item-action" href="#graphic-1">Item 1</a>
         <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
         <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
@@ -112,7 +112,7 @@
                     </figure>
                 </div>
             </section>
-            <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" tabindex="0">
+            <div class="mx-auto" data-bs-spy="scroll" data-bs-target="# -sections" data-bs-offset="0" tabindex="0">
 
                 <!--      Graphic 0       -->
                 <!-- Consumption MarkFilt -->
