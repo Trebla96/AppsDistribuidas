@@ -49,19 +49,10 @@ let afterAnimate = e => {
     if (!chart.get('flight-route')) {
         chart.addSeries({
             type: 'mapline',
-            name: 'Flight route, Amsterdam - Los Angeles',
+            name: 'Flight route',
             animation: false,
             id: 'flight-route',
-            data: [{
-                geometry: {
-                    type: 'LineString',
-                    coordinates: [
-                        [4.90, 53.38], // Amsterdam
-                        [-118.24, 34.05] // Los Angeles
-                    ]
-                },
-                color: '#313f77'
-            }],
+            data: [],
             lineWidth: 2,
             accessibility: {
                 exposeAsGroupOnly: true
@@ -71,19 +62,7 @@ let afterAnimate = e => {
             type: 'mappoint',
             animation: false,
             id: 'flight-points',
-            data: [{
-                name: 'Amsterdam',
-                geometry: {
-                    type: 'Point',
-                    coordinates: [4.90, 53.38]
-                }
-            }, {
-                name: 'LA',
-                geometry: {
-                    type: 'Point',
-                    coordinates: [-118.24, 34.05]
-                }
-            }],
+            data: [],
             color: '#313f77',
             accessibility: {
                 enabled: false
@@ -93,6 +72,21 @@ let afterAnimate = e => {
     }
 };
 
+// Auto rotation the map
+const autoRotate = (chart) => {
+    setInterval(() => {
+        const rotation = chart.mapView.projection.options.rotation;
+        rotation[0] += 0.2;
+        chart.update({
+            mapView: {
+                projection: {
+                    rotation
+                }
+            }
+        }, void 0, void 0, false);
+    }, 30);
+};
+
 // ================== World Map =============================
 
 export const worldMap = Highcharts.mapChart('flight-emissions', {
@@ -100,9 +94,9 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
         map: topology
     },
     title: {
-        text: 'Flight consumption',
+        text: 'Flight route',
         floating: true,
-        align: 'left'
+        align: 'right'
     },
 
     subtitle: {
@@ -110,7 +104,7 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
             'Click and drag to rotate globe<br>',
         floating: true,
         y: 34,
-        align: 'left'
+        align: 'right'
     },
 
     legend: {
@@ -118,15 +112,15 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
     },
 
     mapNavigation: {
-        enabled: true,
-        enableDoubleClickZoomTo: true,
+        enabled: false,
+        enableDoubleClickZoomTo: false,
         buttonOptions: {
             verticalAlign: 'bottom'
         }
     },
 
     mapView: {
-        maxZoom: 30,
+        maxZoom: 40,
         projection: {
             name: 'Orthographic',
             rotation: [60, -30]
@@ -165,7 +159,7 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
         enableMouseTracking: false
     }, {
         events: {
-            afterAnimate
+            afterAnimate,
         },
     }]
 });
@@ -213,6 +207,7 @@ const renderSea = () => {
 };
 
 renderSea();
+autoRotate(worldMap);
 Highcharts.addEvent(worldMap, 'redraw', renderSea);
 
 // ================== Update world Map =============================
@@ -237,8 +232,8 @@ function updateWorldMap(params, originIata, destinationIata) {
             geometry: {
                 type: 'LineString',
                 coordinates: [
-                    [originData.long, originData.lat], // Amsterdam
-                    [destinationData.long, destinationData.lat] // Los Angeles
+                    [originData.long, originData.lat],
+                    [destinationData.long, destinationData.lat]
                 ]
             },
             color: '#313f77'
@@ -265,12 +260,15 @@ function updateWorldMap(params, originIata, destinationIata) {
     worldMap.get('flight-points').update(ob2, false);
 
     worldMap.redraw(false);
+
+    $('#selected-airport-origin').text(originData.city);
+    $('#selected-airport-destination').text(destinationData.city);
+
 }
 
 
 // add event listener on button id = flight-emissions-button to capture the data of the form
 $("#flight-emissions-button").on("click", function () {
-
 
     // get the data from the form with jQuery
     const origin = $("#flight-origin")
@@ -300,7 +298,18 @@ $("#flight-emissions-button").on("click", function () {
 
     loadAirportoordinatesData(originValue, destinationValue, updateWorldMap);
 
-    // clean the form with jQuery
+    // CO2 API call
+    /*    getCO2Travel(originValue, destinationValue, 1, "first")
+           .then(data => {
+               $("#consumption_calculated").text(data.co2e);
+           })
+           .catch(err => {
+               console.log(err);
+           }); */
+
+    $("#consumption_calculated").text("A lot of CO2");
+
+    // clean the form
     origin.val("");
     origin.removeClass("is-invalid");
     origin.removeClass("is-valid");
@@ -315,10 +324,8 @@ const iataOptions = [...$('#datalistOptionsFlight').prop('options')].map((option
 
 $("[data-input-iata]").on("input", (e) => {
 
-
-    // get the data from the form with jQuery
+    // get the data from
     var value = e.target.value;
-
 
     if (value.length !== 3 || !iataOptions.includes(value)) {
         e.target.classList.remove("is-valid");
@@ -327,14 +334,4 @@ $("[data-input-iata]").on("input", (e) => {
 
     e.target.classList.remove("is-invalid");
     e.target.classList.add("is-valid");
-
 });
-
-// ================== API call =============================
-
-// getCO2Travel("PMI", "BCN", 2, "first")
-//     .then(data => {
-//         console.log(data.co2e);
-//     })
-
-

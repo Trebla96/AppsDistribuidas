@@ -42,7 +42,8 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
                 legendItemClick: function () {
                     return false;
                 }
-            }
+            },
+
         },
         bar: {
             dataLabels: {
@@ -178,7 +179,7 @@ loadEmissionFuelTypeData(updateEmissionsFuelGraphic);
 
 export const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-by-make', {
     chart: {
-        type: 'bar'
+        type: 'column'
     },
     xAxis: {
         categories: []
@@ -195,6 +196,7 @@ export const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-b
         {
             name: 'Fuel',
             data: []
+
         }
     ],
     plotOptions: {

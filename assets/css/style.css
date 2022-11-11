@@ -23,3 +23,11 @@ body {
 .input-group.has-validation:has(input.is-invalid)>.invalid-feedback {
     opacity: 1;
 }
+
+.card {
+    box-shadow: 0 0 10px 5px #0d6efd44;
+}
+
+.form-switch {
+    padding-left: 0;
+}
