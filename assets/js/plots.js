@@ -1,10 +1,10 @@
 import loadEmissionFuelTypeData from "./modules/emissionFuelType.js";
 import loadConsumptionModelMakeData from "./modules/consumptionModelMark.js";
 import loadConsumptionEngineSizeData from "./modules/consumptionEngineSize.js";
-import loadConsumptionMakeFiltersData from "./modules/consumptionMakeFilters.js";
+import loadConsumptionMakeData from "./modules/consumptionMake.js";
 
 // ========================== Consumption by mark filters ====================================
-export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-make-filters', {
+export const consumptionMakeGraphic = Highcharts.chart('consumption-by-make', {
     chart: {
         type: 'bar'
     },
@@ -43,7 +43,6 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
                     return false;
                 }
             },
-
         },
         bar: {
             dataLabels: {
@@ -53,21 +52,41 @@ export const consumptionMakeFiltersGraphic = Highcharts.chart('consumption-by-ma
     }
 });
 
-function updateConsumptionMakeFiltersGraphic(data) {
+function updateconsumptionMakeGraphic(data) {
     const my_data = data.map((item) => Math.round(Number(item.AVERAGE_CONSUMPTION) * 100) / 100);
     const my_labels = data.map((item) => item.MAKE);
 
-    consumptionMakeFiltersGraphic.yAxis[0].setExtremes(0, Math.max(...my_data) * 1.1);
-    consumptionMakeFiltersGraphic.series[0].setData(my_data);
-    consumptionMakeFiltersGraphic.xAxis[0].setCategories(my_labels);
-    consumptionMakeFiltersGraphic.setTitle({ text: `Average consumption by Mark` });
+    consumptionMakeGraphic.yAxis[0].setExtremes(0, Math.max(...my_data) * 1.1);
+    consumptionMakeGraphic.series[0].setData(my_data);
+    consumptionMakeGraphic.xAxis[0].setCategories(my_labels);
 
 
 }
 
-loadConsumptionMakeFiltersData(updateConsumptionMakeFiltersGraphic);
+loadConsumptionMakeData(updateconsumptionMakeGraphic);
 
 // ========================== Fuel emissions graphic code ====================================
+
+function getColorPattern(i) {
+    var colors = Highcharts.getOptions().colors,
+        patternColors = [colors[0], colors[1], colors[2], colors[3]],
+        patterns = [
+            'M 0 0 L 5 5 M 4.5 -0.5 L 5.5 0.5 M -0.5 4.5 L 0.5 5.5',
+            'M 0 5 L 5 0 M -0.5 0.5 L 0.5 -0.5 M 4.5 5.5 L 5.5 4.5',
+            'M 1.5 0 L 1.5 5 M 4 0 L 4 5',
+            'M 0 1.5 L 5 1.5 M 0 4 L 5 4'
+        ];
+
+    return {
+        pattern: {
+            path: patterns[i],
+            color: patternColors[i],
+            width: 5,
+            height: 5
+        }
+    };
+}
+
 export const emissionsFuelGraphic =
     Highcharts.chart("emission-by-fueltype", {
         chart: {
@@ -144,7 +163,7 @@ export const emissionsFuelGraphic =
         ]
     });
 
-const types = {
+const fuelTypes = {
     'D': 'Gasoline +',
     'E': 'Gasoline',
     'Z': 'GLP',
@@ -159,17 +178,17 @@ function updateEmissionsFuelGraphic(data) {
         multiplier *= -1.25;
         return {
             data: [
-                { x: idx, y: 2 * multiplier, z: roundedEmissions, name: types[item.FUELTYPE] }
+                { x: idx, y: 2 * multiplier, z: roundedEmissions, name: fuelTypes[item.FUELTYPE] }
             ]
         }
     }
     );
 
-    //Unit of measure for the emissions
 
     emissionsFuelGraphic.update({
         series: myData
     });
+
 
 }
 
@@ -205,6 +224,11 @@ export const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-b
                 legendItemClick: function () {
                     return false;
                 }
+            }
+        },
+        column: {
+            dataLabels: {
+                enabled: true
             }
         }
     }
@@ -281,6 +305,9 @@ export const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-eng
         },
         categories: []
     },
+    legend: {
+        symbolWidth: 60
+    },
     title: {
         text: ''
     },
@@ -292,11 +319,13 @@ export const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-eng
     series: [
         {
             name: 'Highway',
-            data: []
+            data: [],
+            dashStyle: 'longdash'
         },
         {
             name: 'City',
-            data: []
+            data: [],
+            dashStyle: 'shortdot'
         }
     ],
     plotOptions: {

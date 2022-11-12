@@ -1,9 +1,17 @@
+html {
+    scroll-padding-top: 100px;
+}
+
 body {
     /* height: 100vh; */
     background-image: radial-gradient(circle at 1px 1px, rgba(128, 128, 128, 0.2) 1px, transparent 0);
     background-size: 25px 25px;
     scroll-behavior: smooth;
+    /* height of sticky header */
+
 }
+
+
 
 #go-top-button {
     position: fixed;
@@ -31,4 +39,37 @@ body {
 
 .form-switch {
     padding-left: 0;
+}
+
+#ligt-switch-container {
+    margin-right: 2rem;
+}
+
+#vertical-separator {
+    display: none;
+}
+
+#list-sections {
+    margin-top: 1rem;
+}
+
+@media (min-width: 992px) {
+    #ligt-switch-container {
+        position: fixed;
+        top: 115px;
+        right: 0px;
+    }
+
+    #horizontal-separator {
+        display: none;
+    }
+
+    #vertical-separator {
+        display: inline-block;
+    }
+
+    #list-sections {
+        margin-top: 0;
+    }
+
 }

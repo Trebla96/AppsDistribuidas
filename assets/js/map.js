@@ -1,5 +1,5 @@
 import getCO2Travel from "./modules/apicall.js";
-import loadAirportoordinatesData from "./modules/airportCoordinates.js";
+import loadAirportCoordinatesData from "./modules/airportCoordinates.js";
 import topology from './maps/worldmap.js'
 
 // ================= Auxiliar functions =============================
@@ -100,8 +100,7 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
     },
 
     subtitle: {
-        text: 'Source: <a href="https://www.climatiq.io/docs#travel-flights">climatiq.io</a><br>' +
-            'Click and drag to rotate globe<br>',
+        text: 'Click and drag to rotate globe',
         floating: true,
         y: 34,
         align: 'right'
@@ -296,18 +295,17 @@ $("#flight-emissions-button").on("click", function () {
         return;
     }
 
-    loadAirportoordinatesData(originValue, destinationValue, updateWorldMap);
+    loadAirportCoordinatesData(originValue, destinationValue, updateWorldMap);
 
     // CO2 API call
-    /*    getCO2Travel(originValue, destinationValue, 1, "first")
-           .then(data => {
-               $("#consumption_calculated").text(data.co2e);
-           })
-           .catch(err => {
-               console.log(err);
-           }); */
+    getCO2Travel(originValue, destinationValue, 1, "first")
+        .then(data => {
+            $("#consumption_calculated").text(Math.round(Number(data.co2e) * 100) / 100);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 
-    $("#consumption_calculated").text("A lot of CO2");
 
     // clean the form
     origin.val("");
