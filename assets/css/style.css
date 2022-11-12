@@ -53,6 +53,22 @@ body {
     margin-top: 1rem;
 }
 
+.nav-pills .nav-link.dark {
+    font-weight: 600;
+    color: rgb(37, 139, 248);
+}
+
+.nav-pills .nav-link.light {
+    font-weight: 600;
+    color: rgb(13, 107, 244);
+}
+
+.nav-pills .nav-link.active {
+    color: white;
+}
+
+
+
 @media (min-width: 992px) {
     #ligt-switch-container {
         position: fixed;
