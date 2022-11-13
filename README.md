@@ -1,11 +1,10 @@
 # ConSuCar
 
-xxx
+ConSuCar es una aplicacion que permite consultar el consumo y emisiones de los automoiles.
 
 ## Tabla de contenidos
 
-1. xx
-2. xx
+xxx
 
 ## Descripción del proyecto
 
@@ -17,18 +16,26 @@ Con esta pagina se pretende concienciar sobre el uso responsable del coche y el 
 
 ### Tecnologias (FRONT-END (LENG- LIB))
 
-Se usan las siguientes tecnologias para el desempeño de la pagina:
+#### FRONT-END
+
+##### Librerias
+
+1. JQuery y Ajax
+2. Bootstrap 5.2.0
+3. Popper
+4. Highcharts y Highmaps
+5. AOS
+
+##### Lenguajes
 
 1. HTML 5
 2. CSS
 3. JavaScript
-4. PHP
-5. MySQL
-6. JQuery y Ajax
-7. Bootstrap 5.2.0
-8. Highcharts y Highmaps
-9. popper
-10. AOS 3.0
+
+#### BACK-END
+
+1. PHP
+2. MySQL
 
 ### Origen de los datos
 
@@ -43,24 +50,50 @@ Ambos estan cargados en la base de datos local llamada consumo, en las siguiente
 
 Esta tabla contiene la informacion referente al consumo y emisiones de diferentes vehiculos, segun su marca y modelo. La tabla esta organizada con los siguientes campos:
 
-1. aaa
-2. bbb
+1. MODELYEAR
+2. MAKE
+3. MODEL
+4. VEHICLECLASS
+5. ENGINESIZE
+6. CYLINDERS
+7. TRANSMISSION
+8. FUELTYPE
+9. FUELCONSUMPTION_CITY
+10. FUELCONSUMPTION_HWY
+11. FUELCONSUMPTION_COMB_MPG
+12. CO2EMISSIONS
 
 ##### airports
 
-1. consumo
-2. cod
+Esta tabla copntiene informacion de todos los aeropuertos del mundo, referentye a su identificación y ubicación
+
+1. code
+2. lat
+3. lon
+4. name
+5. city
+6. state
+7. country
 
 #### API
 
+Como API hemos elegido climatiq, que nos permite ver las emisiones de CO2 de un viaje en avion entre dos aeropuertos
+
 ## Instalacion y ejecucion del proyecto
 
-xx
+Para la instalacion y ejecucion del proyecto en un entorno local hay que conectar el proyecto a la base de datos 'consumo.sql', para el desarollo del proyecto se ha usado un servidor apache, mediante XAMPP. Para poder visualizar el proyecto hay que ejecutar el archivo index.php.
+
+XAMPP: <https://www.apachefriends.org/es/download.html>
+
+Tambien hemos usado un servidor remoto para poder visualizar el proyecto en la web, para ello hemos usado el servicio de hosting de railway, que nos permite alojar paginas web gratuitamente.
+
+Link: <https://consucar.up.railway.app/>
 
 ## Créditos
 
-xx
+1. Cristian Comellas Fluixa
+2. Albert Fajardo Marcus
 
 ## Licencias
 
-(common comunity....)
+xx
