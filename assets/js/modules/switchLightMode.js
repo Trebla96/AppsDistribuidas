@@ -46,6 +46,7 @@ import { toggleGraphicsLightMode } from './../main.js';
             element.classList.replace('text-dark', 'text-light');
         });
 
+        $('.nav-pills .nav-link').addClass('dark').removeClass('light');
 
     }
 
@@ -82,6 +83,8 @@ import { toggleGraphicsLightMode } from './../main.js';
         document.querySelectorAll('.card').forEach((element) => {
             element.classList.replace('text-light', 'text-dark');
         });
+
+        $('.nav-pills .nav-link').addClass('light').removeClass('dark');
 
     }
 
