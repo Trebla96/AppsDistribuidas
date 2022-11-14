@@ -272,8 +272,8 @@ $("#flight-emissions-button").on("click", function () {
     // get the data from the form with jQuery
     const origin = $("#flight-origin")
     const destination = $("#flight-destination")
-    const originValue = origin.val();
-    const destinationValue = destination.val();
+    const originValue = origin.val().toUpperCase();
+    const destinationValue = destination.val().toUpperCase();
 
     let error = false;
 
@@ -323,7 +323,7 @@ const iataOptions = [...$('#datalistOptionsFlight').prop('options')].map((option
 $("[data-input-iata]").on("input", (e) => {
 
     // get the data from
-    var value = e.target.value;
+    var value = e.target.value.toUpperCase();
 
     if (value.length !== 3 || !iataOptions.includes(value)) {
         e.target.classList.remove("is-valid");
