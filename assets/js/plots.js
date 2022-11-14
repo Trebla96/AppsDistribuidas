@@ -238,7 +238,7 @@ makeInput.on('input', (e) => {
         e.target.classList.remove("is-valid");
         return;
     }
-
+    e.target.classList.remove("is-invalid");
     e.target.classList.add("is-valid");
 });
 
