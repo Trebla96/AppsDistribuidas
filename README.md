@@ -14,7 +14,7 @@ La pagina muestra diferentes estadisticas que hacen referencia al uso de automov
 Finalmente hay una ultima seccion que muestra la cantidad de kg de CO2 que emite una sola persona al hacer un viaje en avion comercial.
 Con esta pagina se pretende concienciar sobre el uso responsable del coche y el cambio climatico.
 
-### Tecnologias (FRONT-END (LENG- LIB))
+### Tecnologias
 
 #### FRONT-END
 
