@@ -1,6 +1,6 @@
 # ConSuCar
 
-ConSuCar es una aplicacion que permite consultar el consumo y emisiones de los automoiles.
+ConSuCar es una aplicacion que permite consultar el consumo y emisiones de algunos vehículos, marcas e incluso de vuelos.
 
 ## Tabla de contenidos
 
@@ -77,7 +77,7 @@ Esta tabla copntiene informacion de todos los aeropuertos del mundo, referentye 
 
 #### API
 
-Como API hemos elegido climatiq, que nos permite ver las emisiones de CO2 de un viaje en avion entre dos aeropuertos
+Como API hemos elegido climatiq.io, que nos permite ver las emisiones de CO2 de un viaje en avion entre dos aeropuertos
 
 ## Instalacion y ejecucion del proyecto
 
@@ -91,7 +91,7 @@ Link: <https://consucar.up.railway.app/>
 
 ## Créditos
 
-1. Cristian Comellas Fluixa
+1. Cristian Comellas Fluxá
 2. Albert Fajardo Marcus
 
 ## Licencias

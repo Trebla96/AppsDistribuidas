@@ -66,27 +66,6 @@ function updateconsumptionMakeGraphic(data) {
 loadConsumptionMakeData(updateconsumptionMakeGraphic);
 
 // ========================== Fuel emissions graphic code ====================================
-
-function getColorPattern(i) {
-    var colors = Highcharts.getOptions().colors,
-        patternColors = [colors[0], colors[1], colors[2], colors[3]],
-        patterns = [
-            'M 0 0 L 5 5 M 4.5 -0.5 L 5.5 0.5 M -0.5 4.5 L 0.5 5.5',
-            'M 0 5 L 5 0 M -0.5 0.5 L 0.5 -0.5 M 4.5 5.5 L 5.5 4.5',
-            'M 1.5 0 L 1.5 5 M 4 0 L 4 5',
-            'M 0 1.5 L 5 1.5 M 0 4 L 5 4'
-        ];
-
-    return {
-        pattern: {
-            path: patterns[i],
-            color: patternColors[i],
-            width: 5,
-            height: 5
-        }
-    };
-}
-
 export const emissionsFuelGraphic =
     Highcharts.chart("emission-by-fueltype", {
         chart: {
@@ -274,14 +253,13 @@ makeInput.change((e) => {
         return;
     }
 
-    // if the brand name is the same as the previous one we exit the function
-    // because we do not need to search for it in the BD again
-    if (brandName === actualMake) return;
-
-    // Update the graphic with the new data
-    loadConsumptionModelMakeData(brandName, updateConsumptionModelMakeGraphic);
-    actualMake = brandName;
-
+    // if the brand name is the same as the previous one we do not need to search
+    // for it in the BD again
+    if (brandName !== actualMake) {
+        // Update the graphic with the new data
+        loadConsumptionModelMakeData(brandName, updateConsumptionModelMakeGraphic);
+        actualMake = brandName;
+    };
 
     // Clean form
     makeInput.val('');
@@ -309,7 +287,7 @@ export const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-eng
         symbolWidth: 60
     },
     title: {
-        text: ''
+        text: 'Consumption in highway and city by engine size'
     },
     yAxis: {
         title: {
