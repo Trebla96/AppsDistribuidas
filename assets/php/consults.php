@@ -3,6 +3,7 @@
 
 function consultDatabase($query)
 {
+    // echo "<script>console.log(" . json_encode($_ENV) . ")</script>";
     // connect to the server and select the database 
     $conn = mysqli_connect('localhost', 'root', '', 'consumo');
 

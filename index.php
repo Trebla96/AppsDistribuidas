@@ -9,7 +9,7 @@
     <title>ConSuCar</title>
 
     <!-- Bootstrap CSS -->
-    <link href="http://localhost/consucar/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
