@@ -1,6 +1,6 @@
 # ConSuCar
 
-ConSuCar es una aplicacion que permite consultar el consumo y emisiones de algunos vehículos, marcas e incluso de vuelos.
+ConSuCar es una aplicación que permite consultar el consumo y emisiones de algunos vehículos, marcas e incluso de vuelos.
 
 ## Tabla de contenidos
 
@@ -8,80 +8,88 @@ xxx
 
 ## Descripción del proyecto
 
-### Introdicción
+### Introducción
+Con esta página se pretende concienciar sobre el uso responsable del coche y el cambio climático.
 
-La pagina muestra diferentes estadisticas que hacen referencia al uso de automoviles de diferentes marcas y modelos, mostrando como dependiendo del tipo de combustible, modelo y tipo de conduccion afectan al consumo de combustible y emisiones de CO2.
-Finalmente hay una ultima seccion que muestra la cantidad de kg de CO2 que emite una sola persona al hacer un viaje en avion comercial.
-Con esta pagina se pretende concienciar sobre el uso responsable del coche y el cambio climatico.
+La página contiene distintas gráficas que muestran como la marca, el modelo, el tamaño del motor y los hábitos de conducción afectan en el consumo del vehículo. Además, también se presentan las emisiones producidas por los carburantes más usados. 
 
-### Tecnologias
+Finalmente, hay una última sección que muestra la cantidad de kg de CO2 que emite una sola persona al hacer un viaje en un avión comercial.
 
-#### FRONT-END
+### Tecnologías
 
-##### Librerias
+#### FRONT END
+- Lenguajes
 
-1. JQuery y Ajax
-2. Bootstrap 5.2.0
-3. Popper
-4. Highcharts y Highmaps
-5. AOS
+    1. **HTML 5**: estructura de la página.
+    2. **CSS**: estilos personalizados.
+    3. **JavaScript**: interacción con el usuario y peticiones asíncronas al servidor y a la API empleada.
 
-##### Lenguajes
+-  Librerías
 
-1. HTML 5
-2. CSS
-3. JavaScript
+    1. **JQuery y Ajax**: utilizado para manipular el DOM y facilitar la petición asíncrona de datos.
+    2. **Bootstrap 5.2.0**: empleado para dar estilos e interactividad a la página de forma sencilla.
+    3. **Popper**: librería auxiliar de Bootstrap para 'dropdowns' y 'popover', entre otros.
+    4. **Highcharts y Highmaps**: conjunto de librerías utilizadas para la creación y manipulación de los gráficos mostrados en la página.
+    5. **AOS**: empleada para las animaciones al moverse por la página.
 
-#### BACK-END
-
-1. PHP
-2. MySQL
+#### BACK END
+1. **PHP**: peticiones a la base de datos.
+2. **MySQL**: base de datos empleada.
 
 ### Origen de los datos
 
 #### Base de datos local
 
-Los datos referentes al consumo y emisiones de CO2 por veiculo se han extraido de la siguinte base de datos: {LINK}
-Las coordenadas de los aeropuertos y sus codigos IATA se han extraido de la siguinete base de datos: {LINK}
+Los datos referentes al consumo y emisiones de CO2 por vehículo se han extraido de un [dataset de Kaggle](https://www.kaggle.com/datasets/mohamedjafirashraf/fuel-consumption-co2).
 
-Ambos estan cargados en la base de datos local llamada consumo, en las siguientes tablas:
+Dicha información está cargada en la base de datos local llamada consumo, en las siguientes tablas:
 
-##### consumption
+- Consumption
 
-Esta tabla contiene la informacion referente al consumo y emisiones de diferentes vehiculos, segun su marca y modelo. La tabla esta organizada con los siguientes campos:
+    Esta tabla contiene la informacion referente al consumo y emisiones de diferentes vehiculos, segun su marca y modelo. La tabla esta organizada con los siguientes campos:
 
-1. MODELYEAR
-2. MAKE
-3. MODEL
-4. VEHICLECLASS
-5. ENGINESIZE
-6. CYLINDERS
-7. TRANSMISSION
-8. FUELTYPE
-9. FUELCONSUMPTION_CITY
-10. FUELCONSUMPTION_HWY
-11. FUELCONSUMPTION_COMB_MPG
-12. CO2EMISSIONS
+    1. **MODELYEAR**: año del modelo.
+    2. **MAKE**: marca del vehiculo.
+    3. **MODEL**: modelo del vehiculo.
+    4. **VEHICLECLASS**: clase del vehiculo.
+    5. **ENGINESIZE**: tamaño del motor.
+    6. **CYLINDERS**: numero de cilindros.
+    7. **TRANSMISSION**: tipo de transmisión.
+    8. **FUELTYPE**: tipo de combustible.
+    9. **FUELCONSUMPTION_CITY**: consumo en ciudad.
+    10. **FUELCONSUMPTION_HWY**: consumo en carretera.
+    11. **FUELCONSUMPTION_COMB**: consumo combinado en ciudad y carretera.
+    12. **FUELCONSUMPTION_COMB_MPG**: consumo combinado en ciudad y carretera en millas por galón.
+    13. **CO2EMISSIONS**: emisiones de CO2.
 
-##### airports
+- Airports
 
-Esta tabla copntiene informacion de todos los aeropuertos del mundo, referentye a su identificación y ubicación
+    Esta tabla copntiene informacion de todos los aeropuertos del mundo, referente a su identificación y ubicación
 
-1. code
-2. lat
-3. lon
-4. name
-5. city
-6. state
-7. country
+    1. **code**: código identificador del aeropuerto.
+    2. **lat**: latitud del aeropuerto.
+    3. **lon**: longitud del aeropuerto.
+    4. **name**: nombre del aeropuerto.
+    5. **city**: ciudad donde se encuentra el aeropuerto.
+    6. **state**: estado donde se encuentra el aeropuerto.
+    7. **country**: pais donde se encuentra el aeropuerto.
 
 #### API
 
-Como API hemos elegido climatiq.io, que nos permite ver las emisiones de CO2 de un viaje en avion entre dos aeropuertos
+Como API hemos elegido [climatiq.io](https://www.climatiq.io/docs#travel-flights), que nos permite ver las emisiones de CO2 de un viaje en avión entre dos aeropuertos.
 
-## Instalacion y ejecucion del proyecto
+## Instalación y ejecución del proyecto
+Ofrecemos 
+
+
+Para ejecutar el proyecto es necesario tener instalado un servidor web, como por ejemplo Apache, y un servidor de base de datos, como MySQL.
+
 
 Para la instalacion y ejecucion del proyecto en un entorno local hay que conectar el proyecto a la base de datos 'consumo.sql', para el desarollo del proyecto se ha usado un servidor apache, mediante XAMPP. Para poder visualizar el proyecto hay que ejecutar el archivo index.php.
+
+```bash
+
+```
 
 XAMPP: <https://www.apachefriends.org/es/download.html>
 
