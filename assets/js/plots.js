@@ -233,7 +233,7 @@ let actualMake = "";
 // selects a new brand
 
 makeInput.on('input', (e) => {
-    const make = e.target.value.toUpperCase();
+    const make = e.target.value.toUpperCase().toUpperCase();
     if (make.length < 3 || !options.includes(make)) {
         e.target.classList.remove("is-valid");
         return;
