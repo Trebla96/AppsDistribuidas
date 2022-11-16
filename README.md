@@ -4,27 +4,37 @@ ConSuCar es una aplicación que permite consultar el consumo y emisiones de algu
 
 ## Tabla de contenidos
 
-xxx
+1. [Descripción](#descripción-del-proyecto)
+    1. [Introducción](#introducción)
+    2. [Tecnologóas](#tecnologías)
+    3. [Origen de los datos](#origen-de-los-datos)
+2. [Instalación](#instalación-y-ejecución-del-proyecto)
+    1. [Ejecución en un servidor remoto](#ejecución-en-un-servidor-remoto)
+    2. [Instalación local](#instalación-local)
+3. [Créditos](#créditos)
+4. [Licencias](#licencias)
 
 ## Descripción del proyecto
 
 ### Introducción
+
 Con esta página se pretende concienciar sobre el uso responsable del coche y el cambio climático.
 
-La página contiene distintas gráficas que muestran como la marca, el modelo, el tamaño del motor y los hábitos de conducción afectan en el consumo del vehículo. Además, también se presentan las emisiones producidas por los carburantes más usados. 
+La página contiene distintas gráficas que muestran como la marca, el modelo, el tamaño del motor y los hábitos de conducción afectan en el consumo del vehículo. Además, también se presentan las emisiones producidas por los carburantes más usados.
 
 Finalmente, hay una última sección que muestra la cantidad de kg de CO2 que emite una sola persona al hacer un viaje en un avión comercial.
 
 ### Tecnologías
 
 #### FRONT END
+
 - Lenguajes
 
     1. **HTML 5**: estructura de la página.
     2. **CSS**: estilos personalizados.
     3. **JavaScript**: interacción con el usuario y peticiones asíncronas al servidor y a la API empleada.
 
--  Librerías
+- Librerías
 
     1. **JQuery y Ajax**: utilizado para manipular el DOM y facilitar la petición asíncrona de datos.
     2. **Bootstrap 5.2.0**: empleado para dar estilos e interactividad a la página de forma sencilla.
@@ -33,6 +43,7 @@ Finalmente, hay una última sección que muestra la cantidad de kg de CO2 que em
     5. **AOS**: empleada para las animaciones al moverse por la página.
 
 #### BACK END
+
 1. **PHP**: peticiones a la base de datos.
 2. **MySQL**: base de datos empleada.
 
@@ -79,23 +90,61 @@ Dicha información está cargada en la base de datos local llamada consumo, en l
 Como API hemos elegido [climatiq.io](https://www.climatiq.io/docs#travel-flights), que nos permite ver las emisiones de CO2 de un viaje en avión entre dos aeropuertos.
 
 ## Instalación y ejecución del proyecto
-Ofrecemos 
 
+Ofrecemos dos opciones a la hora de ejecutar el proyecto: ejecución en un servidor remoto y instalación local.
 
-Para ejecutar el proyecto es necesario tener instalado un servidor web, como por ejemplo Apache, y un servidor de base de datos, como MySQL.
+### Ejecución en un servidor remoto
 
+Para ejecutar el proyecto en un servidor remoto basta con entrar en el siguiente enlace: <https://consucar.up.railway.app/>.
+Una vez dentro de la página, se puede navegar por la misma con todas sus funcionalidades.
 
-Para la instalacion y ejecucion del proyecto en un entorno local hay que conectar el proyecto a la base de datos 'consumo.sql', para el desarollo del proyecto se ha usado un servidor apache, mediante XAMPP. Para poder visualizar el proyecto hay que ejecutar el archivo index.php.
+### Instalación local
 
-```bash
+1. Instalar servidor local
+  
+    Para ejecutar la práctica es necesario tener instalado un servidor local en el sistema. En nuestro caso, hemos utilizado [XAMPP](https://www.apachefriends.org/es/download.html), pero cualquier otro servidor local puede ser utilizado (WAMP, etc).
 
-```
+2. Clonar el proyecto en el servidor local.
 
-XAMPP: <https://www.apachefriends.org/es/download.html>
+    Para clonar el proyecto en el servidor local, es necesario tener instalado [Git](https://git-scm.com/downloads) en el sistema.
 
-Tambien hemos usado un servidor remoto para poder visualizar el proyecto en la web, para ello hemos usado el servicio de hosting de railway, que nos permite alojar paginas web gratuitamente.
+    Una vez instalado, deberemos movernos a la carpeta destinada a alojar los proyectos del servidor local (por defecto, en XAMPP es la carpeta 'htdocs') y ejecutar el siguiente comando desde la terminal:
 
-Link: <https://consucar.up.railway.app/>
+    ```bash
+    git clone https://github.com/Trebla96/AppsDistribuidas.git
+    ```
+
+3. Copiar la base de datos en el servidor local.
+
+    Crear una base de datos llamada "consumo" y importar la base de datos a partir del archivo `consumo.sql` que se encuentra en la carpeta 'database' de la raíz del proyecto previamente clonado.
+
+4. Modificar la cabecera del archivo `consults.php`, ubicado en "assets/php", para que la conexión a la base de datos sea correcta.
+
+    ```php
+
+    <?php
+
+    $hostName = 'hostname';      # Host name
+    $user = 'username';          # Username of sql server
+    $pass = 'password';          # Password of sql server
+    $dbName = 'dbName';          # Name of database
+
+    function consultDatabase($query)
+    {
+        ...
+
+        $conn = mysqli_connect($hostName, $user, $pass, $dbName);
+        
+        ...
+    }
+
+    ```
+
+5. Arrancar el servidor local.
+
+6. Acceder a la página.
+
+    Una vez arrancado el servidor local, acceder a la página a través del siguiente enlace: <http://localhost/AppsDistribuidas/index.html>.
 
 ## Créditos
 
