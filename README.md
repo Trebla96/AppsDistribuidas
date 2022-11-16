@@ -57,14 +57,14 @@ Dicha información está cargada en la base de datos local llamada consumo, en l
 
 - Consumption
 
-    Esta tabla contiene la informacion referente al consumo y emisiones de diferentes vehiculos, segun su marca y modelo. La tabla esta organizada con los siguientes campos:
+    Esta tabla contiene la información referente al consumo y emisiones de diferentes vehículos, según su marca y modelo. La tabla esta organizada con los siguientes campos:
 
     1. **MODELYEAR**: año del modelo.
-    2. **MAKE**: marca del vehiculo.
-    3. **MODEL**: modelo del vehiculo.
-    4. **VEHICLECLASS**: clase del vehiculo.
+    2. **MAKE**: marca del vehículo.
+    3. **MODEL**: modelo del vehículo.
+    4. **VEHICLECLASS**: clase del vehículo.
     5. **ENGINESIZE**: tamaño del motor.
-    6. **CYLINDERS**: numero de cilindros.
+    6. **CYLINDERS**: número de cilindros.
     7. **TRANSMISSION**: tipo de transmisión.
     8. **FUELTYPE**: tipo de combustible.
     9. **FUELCONSUMPTION_CITY**: consumo en ciudad.
@@ -75,7 +75,7 @@ Dicha información está cargada en la base de datos local llamada consumo, en l
 
 - Airports
 
-    Esta tabla copntiene informacion de todos los aeropuertos del mundo, referente a su identificación y ubicación
+    Esta tabla contiene información de todos los aeropuertos del mundo, referente a su identificación y ubicación
 
     1. **code**: código identificador del aeropuerto.
     2. **lat**: latitud del aeropuerto.
@@ -83,7 +83,7 @@ Dicha información está cargada en la base de datos local llamada consumo, en l
     4. **name**: nombre del aeropuerto.
     5. **city**: ciudad donde se encuentra el aeropuerto.
     6. **state**: estado donde se encuentra el aeropuerto.
-    7. **country**: pais donde se encuentra el aeropuerto.
+    7. **country**: país donde se encuentra el aeropuerto.
 
 #### API
 
@@ -91,7 +91,7 @@ Como API hemos elegido [climatiq.io](https://www.climatiq.io/docs#travel-flights
 
 ## Instalación y ejecución del proyecto
 
-Ofrecemos dos opciones a la hora de ejecutar el proyecto: ejecución en un servidor remoto y instalación local.
+Ofrecemos dos opciones a la hora de ejecutar el proyecto: ejecución en un servidor remoto e instalación local.
 
 ### Ejecución en un servidor remoto
 
@@ -104,7 +104,7 @@ Una vez dentro de la página, se puede navegar por la misma con todas sus funcio
   
     Para ejecutar la práctica es necesario tener instalado un servidor local en el sistema. En nuestro caso, hemos utilizado [XAMPP](https://www.apachefriends.org/es/download.html), pero cualquier otro servidor local puede ser utilizado (WAMP, etc).
 
-2. Clonar el proyecto en el servidor local.
+2. Clonar el proyecto en el servidor local
 
     Para clonar el proyecto en el servidor local, es necesario tener instalado [Git](https://git-scm.com/downloads) en el sistema.
 
@@ -114,11 +114,13 @@ Una vez dentro de la página, se puede navegar por la misma con todas sus funcio
     git clone https://github.com/Trebla96/AppsDistribuidas.git
     ```
 
-3. Copiar la base de datos en el servidor local.
+3. Copiar la base de datos en el servidor local
 
-    Crear una base de datos llamada "consumo" y importar la base de datos a partir del archivo `consumo.sql` que se encuentra en la carpeta 'database' de la raíz del proyecto previamente clonado.
+    Crear una base de datos llamada "consumo" y importar la base de datos a partir del archivo `consumo.sql` que se encuentra en la carpeta 'database' de la raíz del proyecto previamente clonado, llamada `AppsDistribuidas`.
 
-4. Modificar la cabecera del archivo `consults.php`, ubicado en "assets/php", para que la conexión a la base de datos sea correcta.
+4. Modificar la cabecera del archivo `consults.php`
+
+    Se debe modificar el archivo `consults.php` ubicado en "assets/php", para que la conexión con la base de datos se realice correctamente. Deberá modificarse el valor de las variables `$hostName`, `$user`, `$pass` y `$dbName`, de acuerdo con los parámetros del servidor local.
 
     ```php
 
@@ -140,11 +142,22 @@ Una vez dentro de la página, se puede navegar por la misma con todas sus funcio
 
     ```
 
+    En nuestro caso, los valores utilizados son:
+
+    ```php
+    $hostName = 'localhost';    # Hostname of server
+    $user = 'root';             # Username of sql server
+    $pass = '';                 # Password of sql server
+    $dbName = 'consumo';        # Name of database        
+    ```
+
 5. Arrancar el servidor local.
+
+    Se debe arrancar el servidor web y el servidor de base de datos.
 
 6. Acceder a la página.
 
-    Una vez arrancado el servidor local, acceder a la página a través del siguiente enlace: <http://localhost/AppsDistribuidas/index.html>.
+    Una vez arrancado el servidor local, acceder a la página a través del siguiente enlace: <http://localhost/AppsDistribuidas/index.php>.
 
 ## Créditos
 
@@ -153,4 +166,4 @@ Una vez dentro de la página, se puede navegar por la misma con todas sus funcio
 
 ## Licencias
 
-xx
+Link al documento de licencias: [LICENSE](https://github.com/Trebla96/AppsDistribuidas/blob/main/LICENSE.md)
