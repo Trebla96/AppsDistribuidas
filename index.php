@@ -36,6 +36,8 @@
 
 <body>
 
+    <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
     <!-- Header of the page -->
     <header class="sticky-top border-bottom border-secondary">
 
@@ -118,7 +120,7 @@
     </header>
 
     <!-- Main content of the page-->
-    <main>
+    <main id="main-content">
         <!-- Title and subtitle -->
         <section class="d-flex justify-content-left ms-3 mt-3">
             <h1>ConSuCar<br>
@@ -132,7 +134,7 @@
             <!-- Barack obama cite about climate change -->
             <section class="row" data-aos="zoom-in">
                 <div class="col">
-                    <figure class="text-center">
+                    <figure class="text-center" tabindex="0" aria-labelledby="#barack-quote">
                         <blockquote class="blockquote">
                             <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
                         </blockquote>
