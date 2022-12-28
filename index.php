@@ -39,6 +39,7 @@
     <script src="https://code.highcharts.com/modules/sonification.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+
 </head>
 
 <body>
@@ -149,6 +150,15 @@
                             Barack Obama
                         </figcaption>
                     </figure>
+                </div>
+            </section>
+
+            <section class="row my-4" data-aos="zoom-in">
+                <div class="col d-flex justify-content-center">
+                    <div class="ratio ratio-16x9 w-75">
+                        <iframe id="climate-change-video-player" src="https://www.youtube.com/embed/G4H1N_yXBiA" title="Video about climatic change" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </section>
 
