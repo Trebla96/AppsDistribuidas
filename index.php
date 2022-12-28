@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="http://localhost/consucar/assets/img/iconos/co2.svg">
+    <link rel="icon" href="assets/img/iconos/co2.svg">
     <title>ConSuCar</title>
 
     <!-- Bootstrap CSS -->
@@ -23,14 +23,21 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
 
     <!-- Main JS File -->
-    <script type="module" src="http://localhost/consucar/assets/js/main.js" defer></script>
-    <script type="module" src="http://localhost/consucar/assets/js/plots.js" defer></script>
-    <script type="module" src="http://localhost/consucar/assets/js/map.js" defer></script>
-    <script type="module" src="http://localhost/consucar/assets/js/modules/switchLightMode.js" defer></script>
+    <script type="module" src="assets/js/main.js" defer></script>
+    <script type="module" src="assets/js/plots.js" defer></script>
+    <script type="module" src="assets/js/map.js" defer></script>
+    <script type="module" src="assets/js/modules/switchLightMode.js" defer></script>
+
 
     <!-- Highmaps -->
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+
+    <!-- Highcharts accessibility -->
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/sonification.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 </head>
 
@@ -244,15 +251,28 @@
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center">Size matters</h1>
                         <!-- Graphic -->
-                        <div class="col order-1 order-lg-2 justify-content-center">
+                        <figure class="col order-1 order-lg-2">
                             <div id="consumption-by-enginesize"></div>
-                        </div>
+                            <div class="w-100">
+                                <button id="play-engine-size" type="button" class="btn btn-secondary"><span id="play-pause-word">Play</span> chart
+                                    <!-- Play svg -->
+                                    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                                    </svg>
+                                    <!-- Pause svg -->
+                                    <svg id="pause-icon" class="d-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                                        <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z" />
+                                    </svg>
+                                </button>
+
+                            </div>
+                        </figure>
                         <!-- Text -->
-                        <div class="col order-2 order-lg-1 d-flex flex-column justify-content-center">
-                            <p>The size of the engine is a fundamental factor in the consumption of the car, and in its emissions.</p>
-                            <p>In this case, if we want to pollute less, we could say that the smaller the better. Much better.</p>
-                            <p>In addition, whenever we can go by highway, it will be preferable to going through the city.</p>
-                        </div>
+                        <p class="col order-2 order-lg-1 d-flex flex-column justify-content-center gap-3">
+                            <span>The size of the engine is a fundamental factor in the consumption of the car, and in its emissions.</span>
+                            <span>In this case, if we want to pollute less, we could say that the smaller the better. Much better.</span>
+                            <span>In addition, whenever we can go by highway, it will be preferable to going through the city.</s>
+                        </p>
                     </div>
                 </section>
                 <!--           API          -->

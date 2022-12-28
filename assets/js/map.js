@@ -98,6 +98,9 @@ export const worldMap = Highcharts.mapChart('flight-emissions', {
         floating: true,
         align: 'right'
     },
+    exporting: {
+        enabled: false
+    },
 
     subtitle: {
         text: 'Click and drag to rotate globe',
