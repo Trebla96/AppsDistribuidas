@@ -338,6 +338,9 @@ function switchSonificationIcons() {
     $("#pause-icon").toggleClass("d-none");
 }
 
+
+let sonificationPaused = false;
+
 $("#play-engine-size").click(
 
     () => {
@@ -346,31 +349,36 @@ $("#play-engine-size").click(
 
         if (playPauseWord.text() === "Play") {
 
-            console.log(consumptionEngineSizeGraphic.getCurrentSonifyPoints())
             playPauseWord.text("Pause");
 
-            consumptionEngineSizeGraphic.resumeSonify();
-            // consumptionEngineSizeGraphic.sonify({
-            //     duration: 5000,
-            //     order: 'sequential',
-            //     pointPlayTime: 'x',
-            //     afterSeriesWait: 1000,
-            //     instruments: [{
-            //         instrument: 'triangleMajor',
-            //         instrumentMapping: {
-            //             volume: 0.5,
-            //             duration: 250,
-            //             pan: 'x',
-            //             frequency: 'y'
-            //         },
-            //         // Start at C5 note, end at C6
-            //         instrumentOptions: {
-            //             minFrequency: 520,
-            //             maxFrequency: 1050
-            //         }
-            //     }]
-            // });
+            if (sonificationPaused) {
+                sonificationPaused = false;
+                consumptionEngineSizeGraphic.resumeSonify();
+                return;
+            }
+
+            consumptionEngineSizeGraphic.sonify({
+                duration: 5000,
+                order: 'sequential',
+                pointPlayTime: 'x',
+                afterSeriesWait: 1000,
+                instruments: [{
+                    instrument: 'triangleMajor',
+                    instrumentMapping: {
+                        volume: 0.5,
+                        duration: 250,
+                        pan: 'x',
+                        frequency: 'y'
+                    },
+                    // Start at C5 note, end at C6
+                    instrumentOptions: {
+                        minFrequency: 520,
+                        maxFrequency: 1050
+                    }
+                }]
+            });
         } else if (playPauseWord.text() === "Pause") {
+            sonificationPaused = true;
             playPauseWord.text("Play");
             consumptionEngineSizeGraphic.pauseSonify();
         }
