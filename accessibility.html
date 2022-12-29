@@ -38,7 +38,7 @@
             <div class="container-fluid">
 
                 <!-- Brand name -->
-                <a id="brand" class="navbar-brand flex-grow-1" href="#">
+                <a id="brand" class="navbar-brand flex-grow-1" href="index.php">
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                         viewBox="0 0 24 24">
                         <path
@@ -135,7 +135,8 @@
                 <h2>Compliance status</h2>
 
                 <p>This website currently complies with the double AA level of the
-                    <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 standard.
+                    <a href="https://www.w3.org/TR/2018/REC-WCAG21-20180605/" target="_blank"><abbr
+                            title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 standard</a>.
                 </p>
 
                 <a href="https://www.w3.org/WAI/WCAG2AA-Conformance" title="Explanation of WCAG 2 Level AA conformance">
@@ -158,6 +159,7 @@
                 <h2>
                     Preparation of the accessibility statement
                 </h2>
+
             </section>
             <section class="mt-5">
                 <h2>
@@ -168,6 +170,50 @@
                     out the contact form
                     and we will get back to you as soon as possible.
                 </p>
+                <form autocomplete="off" class="mb-5" id="contact-form" onsubmit="(()=>{})()">
+                    <input class="d-none" autocomplete="false" name="hidden" type="text">
+                    <!-- Origin Airport IATA code input -->
+                    <!-- Title label for the input -->
+                    <div class="mb-3">
+                        <label for="first-name" class="form-label">First name</label>
+                        <div class="input-group has-validation mb-1">
+                            <div class="form-floating">
+                                <!-- Input -->
+                                <input required data-input-iata class="form-control" spellcheck="false" id="first-name"
+                                    name="first-name-input" placeholder="First name">
+                                <!-- Floating label -->
+                                <label class="floating-input-label">Name (e.g. Peter)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Destination Airport IATA code input -->
+                    <!-- Title label for the input -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Destination</label>
+                        <div class="input-group has-validation">
+                            <div class="form-floating">
+                                <!-- Input -->
+                                <input required data-input-iata class="form-control" spellcheck="false" id="email"
+                                    type="email" name="email-input" placeholder="Email (e.g. peter@gmail.com)">
+                                <!-- Floating label -->
+                                <label class="floating-input-label">Email (e.g. peter@gmail.com)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-textarea" class="form-label">Message</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" style="height: 200px;" id="message-textarea"
+                                placeholder="Write your message here..." required></textarea>
+                            <label class="floating-input-label">Write your message here...</label>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!-- Send button that no recharge the page aligned right -->
+                    <div class="mt-3 d-flex justify-content-start">
+                        <button type="submit" class="btn btn-primary" id="send-message-button">Send Now</button>
+                    </div>
+                </form>
             </section>
         </section>
 
