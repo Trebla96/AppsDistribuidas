@@ -46,7 +46,8 @@ html {
     padding-left: 0;
 }
 
-#ligt-switch-container {
+#ligt-switch-container,
+#font-size-container {
     margin-right: 2rem;
 }
 
@@ -75,10 +76,17 @@ html {
 
 
 @media (min-width: 992px) {
+
     #ligt-switch-container {
         position: fixed;
         top: 115px;
         right: 0px;
+    }
+
+    #font-size-container {
+        position: fixed;
+        top: 105px;
+        right: 100px;
     }
 
     #horizontal-separator {
@@ -94,3 +102,23 @@ html {
     }
 
 }
+
+.dropdown-center>.dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* 
+@media all and (min-width: 992px) {
+    .navbar .dropdown .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .dropdown .dropdown-menu {
+        margin-top: 0;
+    }
+} */
