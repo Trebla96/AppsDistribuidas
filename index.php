@@ -24,6 +24,7 @@
 
     <!-- Main JS File -->
     <script type="module" src="assets/js/main.js" defer></script>
+    <script type="module" src="assets/js/back-top.js"></script>
     <script type="module" src="assets/js/plots.js" defer></script>
     <script type="module" src="assets/js/map.js" defer></script>
     <script type="module" src="assets/js/modules/switchLightMode.js" defer></script>
@@ -408,7 +409,12 @@
         <div class="container-fluid justify-content-center p-3 text-center">
             <div class="row">
                 <div class="col">
-                    <span>&copy; ConSuCar 2022</span>
+                    <a class="link-primary" href="accessibility.html">Accessibility</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="text-secondary">&copy; ConSuCar 2022</span>
                 </div>
             </div>
         </div>

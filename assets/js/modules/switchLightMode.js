@@ -2,7 +2,16 @@
  *  Light Switch @version v0.1.4
  */
 
-import { toggleGraphicsLightMode } from './../main.js';
+// import only if on index.php
+let toggleGraphicsLigthModeFunction;
+if (window.location.href.split('/').at(-1) === 'index.php') {
+    import('./../main.js')
+        .then(({ toggleGraphicsLightMode }) => {
+            console.log("hi")
+            toggleGraphicsLigthModeFunction = toggleGraphicsLightMode;
+            toggleGraphicsLigthModeFunction();
+        });
+}
 
 (function () {
     let lightSwitch = document.getElementById('lightSwitch');
@@ -98,7 +107,9 @@ import { toggleGraphicsLightMode } from './../main.js';
         } else {
             lightMode();
         }
-        toggleGraphicsLightMode();
+        if (toggleGraphicsLigthModeFunction) {
+            toggleGraphicsLigthModeFunction();
+        }
     }
 
     /**
