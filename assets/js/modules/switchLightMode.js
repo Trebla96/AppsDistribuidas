@@ -4,10 +4,11 @@
 
 // import only if on index.php
 let toggleGraphicsLigthModeFunction;
-if (window.location.href.split('/').at(-1) === 'index.php') {
+let currName = window.location.href.split('consucar/').at(-1);
+console.log(currName);
+if (currName === 'index.php' || currName === '') {
     import('./../main.js')
         .then(({ toggleGraphicsLightMode }) => {
-            console.log("hi")
             toggleGraphicsLigthModeFunction = toggleGraphicsLightMode;
             toggleGraphicsLigthModeFunction();
         });

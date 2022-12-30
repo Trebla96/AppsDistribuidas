@@ -2,6 +2,11 @@ html {
     scroll-padding-top: 100px;
 }
 
+:root {
+    --font-size: 16;
+    font-size: calc(var(--font-size) * 1px);
+}
+
 body {
     /* height: 100vh; */
     background-image: radial-gradient(circle at 1px 1px, rgba(128, 128, 128, 0.2) 1px, transparent 0);
@@ -79,13 +84,13 @@ html {
 
     #ligt-switch-container {
         position: fixed;
-        top: 115px;
-        right: 0px;
+        top: 7.5rem;
+        right: 0rem;
     }
 
     #font-size-container {
         position: fixed;
-        top: 105px;
+        top: 6.8rem;
         right: 100px;
     }
 
@@ -108,17 +113,6 @@ html {
     transform: translateX(-50%) !important;
 }
 
-/* 
-@media all and (min-width: 992px) {
-    .navbar .dropdown .dropdown-menu {
-        display: none;
-    }
-
-    .navbar .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    .navbar .dropdown .dropdown-menu {
-        margin-top: 0;
-    }
-} */
+.font-size-menu>div:hover {
+    color: white;
+}

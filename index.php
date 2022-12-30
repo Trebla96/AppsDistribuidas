@@ -27,6 +27,7 @@
     <script type="module" src="assets/js/back-top.js"></script>
     <script type="module" src="assets/js/plots.js" defer></script>
     <script type="module" src="assets/js/map.js" defer></script>
+    <script type="module" src="assets/js/fonts.js" defer></script>
     <script type="module" src="assets/js/modules/switchLightMode.js" defer></script>
 
     <!-- Highmaps -->
@@ -68,10 +69,18 @@
                         <span class="fs-6">A</span>
                     </div>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li class="d-flex justify-content-between">
-                            <button class="btn fs-3">A-</button>
-                            <button class="btn fs-3">A</button>
-                            <button class="btn fs-3">A+</button>
+                        <li class="container-fluid">
+                            <div class="row font-size-menu">
+                                <div class="col">
+                                    <span role="button" class="fs-3 user-select-none">A-</span>
+                                </div>
+                                <div class="col" role="button" class="fs-3 user-select-none">
+                                    <span role="button" class="fs-3 user-select-none">A</span>
+                                </div>
+                                <div class="col" role="button" class="fs-3 user-select-none">
+                                    <span role="button" class="fs-3 user-select-none">A+</span>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
