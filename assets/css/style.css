@@ -25,8 +25,8 @@ html {
 
 #go-top-button {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 32px;
+    right: 32px;
     transition: opacity 0.2s ease-in-out;
 }
 
