@@ -45,7 +45,7 @@
 
 <body>
 
-    <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
+    <a class="visually-hidden-focusable" href="#main-content" alt = "Skip to content">Skip to main content</a>
 
     <!-- Header of the page -->
     <header class="sticky-top border-bottom border-secondary">
@@ -55,7 +55,7 @@
             <div class="container-fluid">
 
                 <!-- Brand name -->
-                <a id="brand" class="navbar-brand flex-grow-1" href="#">
+                <a id="brand" class="navbar-brand flex-grow-1" href="#" aria-label = "link to main page">
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
                         <path d="M21.739 15.921c-1.347-.39-1.885-.538-3.552-.921 0 0-2.379-2.359-2.832-2.816-.568-.572-1.043-1.184-2.949-1.184h-7.894c-.511 0-.735.547-.069 1-.743.602-1.62 1.38-2.258 2.027-1.436 1.455-2.185 2.385-2.185 4.255 0 1.76 1.042 3.718 3.174 3.718h.01c.413 1.162 1.512 2 2.816 2 1.304 0 2.403-.838 2.816-2h6.367c.413 1.162 1.512 2 2.816 2s2.403-.838 2.816-2h.685c1.994 0 2.5-1.776 2.5-3.165 0-2.041-1.123-2.584-2.261-2.914zm-15.739 6.279c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm3.576-6.2c-1.071 0-3.5-.106-5.219-.75.578-.75.998-1.222 1.27-1.536.318-.368.873-.714 1.561-.714h2.388v3zm1-3h1.835c.882 0 1.428.493 2.022 1.105.452.466 1.732 1.895 1.732 1.895h-5.588v-3zm7.424 9.2c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm-7.777-16.972c0 .53-.239.926-.655.926-.412 0-.663-.376-.663-.909 0-.529.243-.925.659-.925.424-.002.659.419.659.908zm2.857 2.977c-.35 2.316-3.454 2.22-4.175.683-.941 1.75-3.791 1.283-4.024-.738-1.251-.251-2.194-1.355-2.194-2.68s.943-2.429 2.194-2.68l-.006-.055c0-1.51 1.225-2.735 2.735-2.735 1.096 0 2.034.649 2.471 1.579 1.239-1.203 3.358-.468 3.484 1.205 1.278.23 2.25 1.342 2.25 2.686 0 1.511-1.224 2.735-2.735 2.735zm-6.464-2.965c0-.606.38-.901.869-.901.218 0 .392.049.517.101l.126-.49c-.11-.056-.352-.121-.671-.121-.825 0-1.487.517-1.487 1.447 0 .776.485 1.362 1.427 1.362.331 0 .586-.061.699-.117l-.094-.481c-.121.049-.327.089-.513.089-.55 0-.873-.343-.873-.889zm4.257-.032c0-.752-.457-1.378-1.294-1.378-.804 0-1.326.611-1.326 1.427 0 .776.473 1.386 1.281 1.386.798-.001 1.339-.542 1.339-1.435zm1.66 1.548h-.695s.661-.483.661-.942c0-.335-.229-.579-.647-.579-.25 0-.466.085-.604.19l.122.309c.096-.074.235-.153.394-.153.213 0 .304.119.304.27-.007.27-.316.523-.843.999v.261h1.308v-.355zm-8.345 2.62c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm-2.144 1.995c0 .414-.336.75-.75.75s-.75-.336-.75-.75.336-.75.75-.75.75.335.75.75zm-1.044 2.129c0 .276-.224.5-.5.5s-.5-.224-.5-.5.224-.5.5-.5.5.224.5.5z" />
                     </svg>
@@ -64,22 +64,16 @@
 
                 <!-- Change font size -->
                 <div id="font-size-container" class="dropdown-center">
-                    <div class="dropdown-toggle user-select-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="text-primary dropdown-toggle user-select-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label = "font resizing options">
                         <span class="fs-2">A</span>
                         <span class="fs-6">A</span>
-                    </div>
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li class="container-fluid">
+                    <li class="container-fluid">
                             <div class="row font-size-menu">
-                                <div class="col">
-                                    <span role="button" class="fs-3 user-select-none">A-</span>
-                                </div>
-                                <div class="col" role="button" class="fs-3 user-select-none">
-                                    <span role="button" class="fs-3 user-select-none">A</span>
-                                </div>
-                                <div class="col" role="button" class="fs-3 user-select-none">
-                                    <span role="button" class="fs-3 user-select-none">A+</span>
-                                </div>
+                                <button class="col-4 fs-3 user-select-none" aria-label = "Reduce font size">A-</button>
+                                <button class="col-4 fs-3 user-select-none" aria-label = "Restart font size">A</button>
+                                <button class="col-4 fs-3 user-select-none" aria-label = "increrase font size">A+</button>
                             </div>
                         </li>
                     </ul>
@@ -95,7 +89,7 @@
                             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
                         </svg>
                     </label>
-                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" aria-label="lightSwitch" />
+                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" aria-label="light Switch to dark and light mode" />
                 </div>
 
                 <!-- Responsive navbar toggler -->
@@ -113,11 +107,11 @@
                         <!-- Navigation pills (in the same page) -->
                         <li id="list-sections">
                             <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link" href="#section-make">Makers</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-model">Models</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-fuel">Fuel type</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-size">Engine size</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-flight">Flights</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-make" title = "Makers">Makers</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-model" title = "Models">Models</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-fuel" title = "Fuel type">Fuel type</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-size" title = "Engine size">Engine size</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-flight" title = "Flights">Flights</a></li>
                             </ul>
                         </li>
 

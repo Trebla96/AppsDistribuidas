@@ -113,6 +113,28 @@ html {
     transform: translateX(-50%) !important;
 }
 
-.font-size-menu>div:hover {
+.font-size-menu>button:hover {
     color: white;
 }
+
+.font-size-menu>button {
+    color: rgb(230, 230, 230);
+    background-color: transparent;
+    border: none;
+}
+
+#font-size-container>a {
+    text-decoration: none;
+}
+
+/* 
+#font-size-container .dropdown-menu li {
+    width: fit-content;
+
+}
+
+#font-size-container .dropdown-menu ul {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: 1fr;
+
+} */

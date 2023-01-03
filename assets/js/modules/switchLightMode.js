@@ -6,7 +6,7 @@
 let toggleGraphicsLigthModeFunction;
 let currName = window.location.href.split('consucar/').at(-1);
 console.log(currName);
-if (currName === 'index.php' || currName === '') {
+if (!currName.includes('accessibility.html')) {
     import('./../main.js')
         .then(({ toggleGraphicsLightMode }) => {
             toggleGraphicsLigthModeFunction = toggleGraphicsLightMode;
