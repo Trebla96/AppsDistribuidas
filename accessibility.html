@@ -52,23 +52,17 @@
 
                 <!-- Change font size -->
                 <div id="font-size-container" class="dropdown-center">
-                    <div class="dropdown-toggle user-select-none" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="text-primary dropdown-toggle user-select-none" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" aria-label="font resizing options">
                         <span class="fs-2">A</span>
                         <span class="fs-6">A</span>
-                    </div>
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
                         <li class="container-fluid">
                             <div class="row font-size-menu">
-                                <div class="col">
-                                    <span role="button" class="fs-3 user-select-none">A-</span>
-                                </div>
-                                <div class="col" role="button" class="fs-3 user-select-none">
-                                    <span role="button" class="fs-3 user-select-none">A</span>
-                                </div>
-                                <div class="col" role="button" class="fs-3 user-select-none">
-                                    <span role="button" class="fs-3 user-select-none">A+</span>
-                                </div>
+                                <button class="col-4 fs-3 user-select-none" aria-label="Reduce font size">A-</button>
+                                <button class="col-4 fs-3 user-select-none" aria-label="Restart font size">A</button>
+                                <button class="col-4 fs-3 user-select-none" aria-label="increrase font size">A+</button>
                             </div>
                         </li>
                     </ul>
@@ -158,11 +152,12 @@
 
         <section class="container-fluid" style="max-width: 75ch;">
             <section class="mt-5">
-                <h2>Compliance status</h2>
+                <h2 tabindex="0">Compliance status</h2>
 
-                <p>This website currently complies with the double AA level of the
+                <p tabindex="0">This website currently complies with the double AA level of the
                     <a href="https://www.w3.org/TR/2018/REC-WCAG21-20180605/" target="_blank"><abbr
-                            title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 standard</a>.
+                            title="Web Content Accessibility Guidelines"
+                            aria-label="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 standard</a>.
                 </p>
 
                 <a href="https://www.w3.org/WAI/WCAG2AA-Conformance" title="Explanation of WCAG 2 Level AA conformance">
@@ -170,28 +165,40 @@
                             W3C WAI Web Content Accessibility Guidelines 2.1">
                 </a>
 
-                <h3 class="mt-3">Most relevant improvements</h3>
-                <ul>
-                    <li>All videos have the option to activate subtitles in the most common languages.</li>
-                    <li>The graphics can be heard by means of a suitable representation.
+                <h3 tabindex="0" class="mt-3">Technologies</h3>
+                <p tabindex="0">
+                    The site is built using HTML5, with its semantic tags, CSS3 and JavaScript. In addition, it uses
+                    Bootstrap 5.2 and
+                    Highcharts libraries, making use of all its accessible functionalities. It also uses the <abbr
+                        title="animate on scroll" aria-label="animate on scroll">AOS</abbr> library for animations, which
+                    can be disabled if the user
+                    wishes.
+                </p>
+
+                <h3 tabindex="0" class="mt-3">Most relevant improvements</h3>
+                <ul tabindex="0">
+                    <li>All videos have the option to activate subtitles in the most common languages, using the YouTube
+                        API.</li>
+                    <li>The graphics can be listened to by means of a suitable representation, both in the form of a
+                        description and a song, depending on the type.
                     </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>The page can be navigated and read in full using a screen reader.</li>
                 </ul>
 
             </section>
             <section class="mt-5">
-                <h2>
+                <h2 tabindex="0">
                     Preparation of the accessibility statement
                 </h2>
+                <p tabindex="0">This accessibility statement was prepared on January 5, 2023 through a self-assessment
+                    conducted by the site development team. </p>
 
             </section>
             <section class="mt-5">
-                <h2>
+                <h2 tabindex="0">
                     Contact with us
                 </h2>
-                <p>
+                <p tabindex="0">
                     In case you have any problems, questions or suggestions, we will be happy to assist you. Just fill
                     out the contact form
                     and we will get back to you as soon as possible.
@@ -206,23 +213,27 @@
                             <div class="form-floating">
                                 <!-- Input -->
                                 <input required data-input-iata class="form-control" spellcheck="false" id="first-name"
-                                    name="first-name-input" placeholder="First name">
+                                    name="first-name-input" placeholder="First name (e.g. peter@gmail.com)">
                                 <!-- Floating label -->
-                                <label class="floating-input-label">Name (e.g. Peter)</label>
+                                <label class="floating-input-label">Name (<abbr aria-label="for example"
+                                        title="for example">e.g.</abbr>
+                                    Peter)</label>
                             </div>
                         </div>
                     </div>
                     <!-- Destination Airport IATA code input -->
                     <!-- Title label for the input -->
                     <div class="mb-3">
-                        <label for="email" class="form-label">Destination</label>
+                        <label for="email" class="form-label">Email</label>
                         <div class="input-group has-validation">
                             <div class="form-floating">
                                 <!-- Input -->
                                 <input required data-input-iata class="form-control" spellcheck="false" id="email"
                                     type="email" name="email-input" placeholder="Email (e.g. peter@gmail.com)">
                                 <!-- Floating label -->
-                                <label class="floating-input-label">Email (e.g. peter@gmail.com)</label>
+                                <label class="floating-input-label">Email (<abbr aria-label="for example"
+                                        title="for example">e.g.</abbr>
+                                    peter@gmail.com)</label>
                             </div>
                         </div>
                     </div>
@@ -245,21 +256,6 @@
 
 
     </main>
-
-    <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
-        <div class="toast-container p-3" id="messageSendedToast">
-            <div class="toast">
-                <div class="toast-header">
-                    <img src="..." class="rounded me-2" alt="...">
-                    <strong class="me-auto">Bootstrap</strong>
-                    <small>11 mins ago</small>
-                </div>
-                <div class="toast-body">
-                    Hello, world! This is a toast message.
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Arrow link to come back to the top -->
     <a class="back-to-top opacity-0" id="go-top-button" href="#" aria-label="Button to go to the top of the page">

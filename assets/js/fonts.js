@@ -27,3 +27,11 @@ $('.font-size-menu>button:nth-child(3)').on('click', function () {
     root.css('--font-size', prevFontSize + 2);
     localStorage.setItem('font-size', root.css('--font-size'));
 });
+
+// ================= Font control ============================= //
+// Fix problem with dropdown menu closing on click
+$('#font-size-container>.dropdown-menu').on('click', function (event) {
+    // The event won't be propagated up to the document NODE and 
+    // therefore delegated events won't be fired
+    event.stopPropagation();
+});

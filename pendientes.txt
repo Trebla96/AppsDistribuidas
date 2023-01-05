@@ -1,0 +1,12 @@
+1.1 descripcion de los datos de los graficos- accesibilidad grafico (Descripcion datos o tabla)
+
+2.3 desactivar AOS y Bola del mundo
+
+1.3 / 4.1 movil
+
+1.4 repasar contraste con 3 herramienta web XXX TAR/TAW ** Livehouse ** otro 
+
+
+EXTRA navegacion correcta tabindex="¿? y screen reader funcionando
+
+

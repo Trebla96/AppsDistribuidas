@@ -37,10 +37,3 @@ export function toggleGraphicsLightMode() {
 // Delete highcharts credits
 $('.highcharts-credits').remove();
 
-// ================= Font control ============================= //
-// Fix problem with dropdown menu closing on click
-$('#font-size-container>.dropdown-menu').on('click', function (event) {
-    // The event won't be propagated up to the document NODE and 
-    // therefore delegated events won't be fired
-    event.stopPropagation();
-});

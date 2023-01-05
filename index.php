@@ -89,7 +89,7 @@
                             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
                         </svg>
                     </label>
-                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" aria-label="light Switch to dark and light mode" />
+                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" aria-label="light Switch to dark and light mode"/>
                 </div>
 
                 <!-- Responsive navbar toggler -->
@@ -128,13 +128,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li>
-                                    <a class="dropdown-item" aria-current="page" target="_blank" href="https://uibdigital.uib.es/uibdigital/">UIB</a>
+                                    <a class="dropdown-item" aria-current="page" target="_blank" aria-label="Link to the uib page" href="https://uibdigital.uib.es/uibdigital/">UIB</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" aria-current="page" target="_blank" href="https://www.kaggle.com/datasets/mohamedjafirashraf/fuel-consumption-co2">Data source</a>
+                                    <a class="dropdown-item" aria-current="page" target="_blank" aria-label="Link to the data of graphis, kaggle.com" href="https://www.kaggle.com/datasets/mohamedjafirashraf/fuel-consumption-co2">Data source</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" aria-current="page" target="_blank" href="https://www.climatiq.io/docs#travel-flights">API Climatiq.io</a>
+                                    <a class="dropdown-item" aria-current="page" target="_blank" aria-label="Link to the api, climatiq" href="https://www.climatiq.io/docs#travel-flights">API Climatiq.io</a>
                                 </li>
                             </ul>
                         </li>
@@ -159,7 +159,7 @@
             <!-- Barack obama cite about climate change -->
             <section class="row" data-aos="zoom-in">
                 <div class="col">
-                    <figure class="text-center" tabindex="0" aria-labelledby="#barack-quote">
+                    <figure class="text-center" aria-labelledby="#barack-quote">
                         <blockquote class="blockquote">
                             <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
                         </blockquote>
@@ -182,7 +182,7 @@
 
             <!-- This div is used to control which elements will be spied by the nav-pills links,
                 and it will contain all the graphics-->
-            <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" data-bs-root-margin="-30% 0px" tabindex="0">
+            <div class="mx-auto" data-bs-spy="scroll" data-bs-target="#list-sections" data-bs-offset="0" data-bs-root-margin="-30% 0px">
 
                 <!--      Graphic 0       -->
                 <!-- Consumption MarkFilt -->
@@ -195,7 +195,7 @@
                         <h1 class="display-4 mb-5 text-center">Not all the makers are the same</h1>
                         <!-- Graphic -->
                         <div class="col">
-                            <div id="consumption-by-make"></div>
+                            <div id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></div>
                         </div>
                         <!-- Text -->
                         <div class="col d-flex flex-column justify-content-center">
@@ -222,7 +222,7 @@
                                         <!-- Input -->
                                         <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
                                         <!-- Floating label -->
-                                        <label class="floating-input-label">Type the brand (e.g. BMW)</label>
+                                        <label class="floating-input-label">Type the brand (<abbr title="for example">e.g.</abbr> BMW)</label>
                                     </div>
                                     <!-- Text to display when the given text is invalid -->
                                     <div class="invalid-feedback pe-none">
@@ -242,7 +242,7 @@
                                 </datalist>
                             </form>
                             <!-- Graphic -->
-                            <div id="model-consumption-by-make"></div>
+                            <div id="model-consumption-by-make" aria-label="graph where you can see the differences in the average consumption of the 5 models that consume the least of each car brand"></div>
                         </div>
                         <!-- Text -->
                         <div class="col order-2 order-lg-1 d-flex flex-column justify-content-center">
@@ -260,7 +260,7 @@
                         <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
                         <!-- Graphic -->
                         <div class="col">
-                            <div id="emission-by-fueltype"></div>
+                            <div id="emission-by-fueltype"  aria-label="graph of the volume of CO2 emissions according to the type of fuel"></div>
                         </div>
                         <!-- Text -->
                         <div class="col d-flex flex-column justify-content-center">
@@ -279,9 +279,9 @@
                         <h1 class="display-4 mb-5 text-center">Size matters</h1>
                         <!-- Graphic -->
                         <figure class="col order-1 order-lg-2">
-                            <div id="consumption-by-enginesize"></div>
+                            <div id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></div>
                             <div class="w-100">
-                                <button id="play-engine-size" type="button" class="btn btn-secondary"><span id="play-pause-word">Play</span> chart
+                                <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph"><span id="play-pause-word">Play</span> chart
                                     <!-- Play svg -->
                                     <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
@@ -322,7 +322,7 @@
                                                 <!-- Input -->
                                                 <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-origin" name="flight-input" placeholder="IATA code (e.g. PMI)">
                                                 <!-- Floating label -->
-                                                <label class="floating-input-label">IATA code (e.g. PMI)</label>
+                                                <label class="floating-input-label">IATA code (<abbr title="For example">e.g.</abbr> PMI)</label>
                                             </div>
                                             <!-- Text to display when the given text is invalid -->
                                             <div class="invalid-feedback pe-none">
@@ -337,7 +337,7 @@
                                                 <!-- Input -->
                                                 <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-destination" name="flight-input-2" placeholder="IATA code (e.g. PMI)">
                                                 <!-- Floating label -->
-                                                <label class="floating-input-label">IATA code (e.g. PMI)</label>
+                                                <label class="floating-input-label">IATA code (<abbr title="For example">e.g.</abbr> PMI)</label>
                                             </div>
                                             <!-- Text to display when the given text is invalid -->
                                             <div class="invalid-feedback pe-none">
@@ -346,7 +346,7 @@
                                         </div>
                                         <!-- Send button that no recharge the page aligned right -->
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-primary" id="flight-emissions-button">Calculate</button>
+                                            <button type="button" class="btn btn-primary" id="flight-emissions-button" aria-label="Button to calculate the consumption">Calculate</button>
                                         </div>
 
                                         <!-- List of IATA codes available in our database for autocompletion -->
@@ -396,7 +396,7 @@
                                         </div>
                                         <!-- Flight consumption -->
                                         <div class="card-footer">
-                                            <p class="card-text text-center fw-semibold fs-5"><span id="consumption_calculated">-</span> kgCO2e</p>
+                                            <p class="card-text text-center fw-semibold fs-5"><span id="consumption_calculated">-</span><abbr title="kilograms of carbon dioxide">kgCO2</abbr></p>
                                         </div>
                                     </div>
                                 </div>
@@ -404,7 +404,7 @@
                         </div>
                         <!-- Map graphic -->
                         <div class="col-12 col-lg-8">
-                            <div id="flight-emissions"></div>
+                            <div id="flight-emissions" aria-label = "Earth globe where the flight routes are drawed"></div>
                         </div>
                     </div>
                 </section>
