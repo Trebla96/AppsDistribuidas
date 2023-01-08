@@ -335,11 +335,6 @@ function updateConsumptionEngineSizeGraphic(data) {
 loadConsumptionEngineSizeData(updateConsumptionEngineSizeGraphic);
 
 // ================= Sonification =============================
-function switchSonificationIcons() {
-    $("#play-icon").toggleClass("d-none");
-    $("#pause-icon").toggleClass("d-none");
-}
-
 
 // Utility function that highlights a point
 function highlightPoint(event, point) {
@@ -361,57 +356,58 @@ $("#play-engine-size").click(
 
     () => {
 
-        const playPauseWord = $("#play-pause-word");
-
-        if (playPauseWord.text() === "Play" || playPauseWord.text() === "Resume") {
-
-            playPauseWord.text("Pause");
-
-            if (consumptionEngineSizeGraphic.sonification.timeline && !consumptionEngineSizeGraphic.sonification.timeline.atStart()) {
-                consumptionEngineSizeGraphic.resumeSonify();
-                return;
-            }
-
-            consumptionEngineSizeGraphic.sonify({
-                duration: 5000,
-                order: 'sequential',
-                pointPlayTime: 'x',
-                afterSeriesWait: 500,
-                instruments: [{
-                    instrument: 'triangleMajor',
-                    instrumentMapping: {
-                        volume: 0.5,
-                        duration: 250,
-                        pan: 'x',
-                        frequency: 'y'
-                    },
-                    // Start at C5 note, end at C6
-                    instrumentOptions: {
-                        minFrequency: 520,
-                        maxFrequency: 1050
-                    }
-                }],
-                seriesOptions: [{
-                    id: 'highway',
-                    onPointStart: highlightPoint,
-                }, {
-                    id: 'city',
-                    onPointStart: highlightPoint,
-                }],
-                // Delete timeline on end
-                onEnd: function () {
-                    if (consumptionEngineSizeGraphic.sonification.timeline) {
-                        delete consumptionEngineSizeGraphic.sonification.timeline;
-                    }
-                    playPauseWord.text("Play");
-                    switchSonificationIcons();
-                }
-            });
-        } else if (playPauseWord.text() === "Pause") {
-            playPauseWord.text("Resume");
-            consumptionEngineSizeGraphic.pauseSonify();
+        if (consumptionEngineSizeGraphic.sonification.timeline && !consumptionEngineSizeGraphic.sonification.timeline.atStart()) {
+            consumptionEngineSizeGraphic.resumeSonify();
+            return;
         }
-        switchSonificationIcons();
+
+        consumptionEngineSizeGraphic.sonify({
+            duration: 5000,
+            order: 'sequential',
+            pointPlayTime: 'x',
+            afterSeriesWait: 500,
+            instruments: [{
+                instrument: 'triangleMajor',
+                instrumentMapping: {
+                    volume: 0.5,
+                    duration: 250,
+                    pan: 'x',
+                    frequency: 'y'
+                },
+                // Start at C5 note, end at C6
+                instrumentOptions: {
+                    minFrequency: 520,
+                    maxFrequency: 1050
+                }
+            }],
+            seriesOptions: [{
+                id: 'highway',
+                onPointStart: highlightPoint,
+            }, {
+                id: 'city',
+                onPointStart: highlightPoint,
+            }],
+            // Delete timeline on end
+            onEnd: function () {
+                if (consumptionEngineSizeGraphic.sonification.timeline) {
+                    delete consumptionEngineSizeGraphic.sonification.timeline;
+                }
+            }
+        });
+
     }
 )
 
+$("#pause-engine-size").click(
+    () => {
+        consumptionEngineSizeGraphic.pauseSonify();
+    }
+)
+
+$("#rewind-engine-size").click(
+    () => {
+        if (consumptionEngineSizeGraphic.sonification.timeline) {
+            consumptionEngineSizeGraphic.resetSonifyCursor();
+        }
+    }
+)

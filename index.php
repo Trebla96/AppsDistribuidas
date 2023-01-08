@@ -283,21 +283,23 @@
                         <figure class="col-12 col-lg-6 order-1 order-lg-2">
                             <div id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></div>
                             <div class="w-100">
-                                <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph"><span id="play-pause-word">Play</span>
+                                <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph">Play
                                     <!-- Play svg -->
                                     <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
                                     </svg>
+                                </button>
+                                <button id="pause-engine-size" type="button" class="btn btn-secondary" aria-label="Pause the audio of the graph">Pause
                                     <!-- Pause svg -->
-                                    <svg id="pause-icon" class="d-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                                    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
                                         <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z" />
                                     </svg>
                                 </button>
-                                <button id="rewind-engine-size" type="button" class="btn btn-secondary" aria-label="Rewind the audio of the graph">
-                                    Rewind
+                                <button id="rewind-engine-size" type="button" class="btn btn-secondary" aria-label="Restart the audio of the graph">
+                                    Restart
                                     <!-- rewind svg -->
-                                    <svg id="rewind-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                                    <svg id="rewind-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
+                                        <path d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z" />
                                     </svg>
                                 </button>
                             </div>
