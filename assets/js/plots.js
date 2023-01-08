@@ -296,11 +296,13 @@ export const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-eng
     },
     series: [
         {
+            id: 'highway',
             name: 'Highway',
             data: [],
             dashStyle: 'longdash'
         },
         {
+            id: 'city',
             name: 'City',
             data: [],
             dashStyle: 'shortdot'
@@ -339,7 +341,21 @@ function switchSonificationIcons() {
 }
 
 
-let sonificationPaused = false;
+// Utility function that highlights a point
+function highlightPoint(event, point) {
+    var chart = point.series.chart,
+        hasVisibleSeries = chart.series.some(function (series) {
+            return series.visible;
+        });
+    if (!point.isNull && hasVisibleSeries) {
+        point.onMouseOver(); // Show the hover marker and tooltip
+    } else {
+        if (chart.tooltip) {
+            chart.tooltip.hide(0);
+        }
+    }
+}
+
 
 $("#play-engine-size").click(
 
@@ -347,12 +363,11 @@ $("#play-engine-size").click(
 
         const playPauseWord = $("#play-pause-word");
 
-        if (playPauseWord.text() === "Play") {
+        if (playPauseWord.text() === "Play" || playPauseWord.text() === "Resume") {
 
             playPauseWord.text("Pause");
 
-            if (sonificationPaused) {
-                sonificationPaused = false;
+            if (consumptionEngineSizeGraphic.sonification.timeline && !consumptionEngineSizeGraphic.sonification.timeline.atStart()) {
                 consumptionEngineSizeGraphic.resumeSonify();
                 return;
             }
@@ -361,7 +376,7 @@ $("#play-engine-size").click(
                 duration: 5000,
                 order: 'sequential',
                 pointPlayTime: 'x',
-                afterSeriesWait: 1000,
+                afterSeriesWait: 500,
                 instruments: [{
                     instrument: 'triangleMajor',
                     instrumentMapping: {
@@ -375,11 +390,25 @@ $("#play-engine-size").click(
                         minFrequency: 520,
                         maxFrequency: 1050
                     }
-                }]
+                }],
+                seriesOptions: [{
+                    id: 'highway',
+                    onPointStart: highlightPoint,
+                }, {
+                    id: 'city',
+                    onPointStart: highlightPoint,
+                }],
+                // Delete timeline on end
+                onEnd: function () {
+                    if (consumptionEngineSizeGraphic.sonification.timeline) {
+                        delete consumptionEngineSizeGraphic.sonification.timeline;
+                    }
+                    playPauseWord.text("Play");
+                    switchSonificationIcons();
+                }
             });
         } else if (playPauseWord.text() === "Pause") {
-            sonificationPaused = true;
-            playPauseWord.text("Play");
+            playPauseWord.text("Resume");
             consumptionEngineSizeGraphic.pauseSonify();
         }
         switchSonificationIcons();
