@@ -209,7 +209,7 @@ const renderSea = () => {
 };
 
 renderSea();
-autoRotate(worldMap);
+// autoRotate(worldMap);
 Highcharts.addEvent(worldMap, 'redraw', renderSea);
 
 // ================== Update world Map =============================

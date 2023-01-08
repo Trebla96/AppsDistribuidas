@@ -29,6 +29,7 @@
     <script type="module" src="assets/js/map.js" defer></script>
     <script type="module" src="assets/js/fonts.js" defer></script>
     <script type="module" src="assets/js/modules/switchLightMode.js" defer></script>
+    <script type="module" src="assets/js/header-resizing.js" defer></script>
 
     <!-- Highmaps -->
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -45,7 +46,7 @@
 
 <body>
 
-    <a class="visually-hidden-focusable" href="#main-content" alt = "Skip to content">Skip to main content</a>
+    <a class="visually-hidden-focusable" href="#main-content" alt="Skip to content">Skip to main content</a>
 
     <!-- Header of the page -->
     <header class="sticky-top border-bottom border-secondary">
@@ -55,7 +56,7 @@
             <div class="container-fluid">
 
                 <!-- Brand name -->
-                <a id="brand" class="navbar-brand flex-grow-1" href="#" aria-label = "link to main page">
+                <a id="brand" class="navbar-brand flex-grow-1" href="#" aria-label="link to main page">
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
                         <path d="M21.739 15.921c-1.347-.39-1.885-.538-3.552-.921 0 0-2.379-2.359-2.832-2.816-.568-.572-1.043-1.184-2.949-1.184h-7.894c-.511 0-.735.547-.069 1-.743.602-1.62 1.38-2.258 2.027-1.436 1.455-2.185 2.385-2.185 4.255 0 1.76 1.042 3.718 3.174 3.718h.01c.413 1.162 1.512 2 2.816 2 1.304 0 2.403-.838 2.816-2h6.367c.413 1.162 1.512 2 2.816 2s2.403-.838 2.816-2h.685c1.994 0 2.5-1.776 2.5-3.165 0-2.041-1.123-2.584-2.261-2.914zm-15.739 6.279c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm3.576-6.2c-1.071 0-3.5-.106-5.219-.75.578-.75.998-1.222 1.27-1.536.318-.368.873-.714 1.561-.714h2.388v3zm1-3h1.835c.882 0 1.428.493 2.022 1.105.452.466 1.732 1.895 1.732 1.895h-5.588v-3zm7.424 9.2c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm-7.777-16.972c0 .53-.239.926-.655.926-.412 0-.663-.376-.663-.909 0-.529.243-.925.659-.925.424-.002.659.419.659.908zm2.857 2.977c-.35 2.316-3.454 2.22-4.175.683-.941 1.75-3.791 1.283-4.024-.738-1.251-.251-2.194-1.355-2.194-2.68s.943-2.429 2.194-2.68l-.006-.055c0-1.51 1.225-2.735 2.735-2.735 1.096 0 2.034.649 2.471 1.579 1.239-1.203 3.358-.468 3.484 1.205 1.278.23 2.25 1.342 2.25 2.686 0 1.511-1.224 2.735-2.735 2.735zm-6.464-2.965c0-.606.38-.901.869-.901.218 0 .392.049.517.101l.126-.49c-.11-.056-.352-.121-.671-.121-.825 0-1.487.517-1.487 1.447 0 .776.485 1.362 1.427 1.362.331 0 .586-.061.699-.117l-.094-.481c-.121.049-.327.089-.513.089-.55 0-.873-.343-.873-.889zm4.257-.032c0-.752-.457-1.378-1.294-1.378-.804 0-1.326.611-1.326 1.427 0 .776.473 1.386 1.281 1.386.798-.001 1.339-.542 1.339-1.435zm1.66 1.548h-.695s.661-.483.661-.942c0-.335-.229-.579-.647-.579-.25 0-.466.085-.604.19l.122.309c.096-.074.235-.153.394-.153.213 0 .304.119.304.27-.007.27-.316.523-.843.999v.261h1.308v-.355zm-8.345 2.62c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm-2.144 1.995c0 .414-.336.75-.75.75s-.75-.336-.75-.75.336-.75.75-.75.75.335.75.75zm-1.044 2.129c0 .276-.224.5-.5.5s-.5-.224-.5-.5.224-.5.5-.5.5.224.5.5z" />
                     </svg>
@@ -64,16 +65,16 @@
 
                 <!-- Change font size -->
                 <div id="font-size-container" class="dropdown-center">
-                    <a class="text-primary dropdown-toggle user-select-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label = "font resizing options">
+                    <a class="text-primary dropdown-toggle user-select-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="font resizing options">
                         <span class="fs-2">A</span>
                         <span class="fs-6">A</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                    <li class="container-fluid">
+                        <li class="container-fluid">
                             <div class="row font-size-menu">
-                                <button class="col-4 fs-3 user-select-none" aria-label = "Reduce font size">A-</button>
-                                <button class="col-4 fs-3 user-select-none" aria-label = "Restart font size">A</button>
-                                <button class="col-4 fs-3 user-select-none" aria-label = "increrase font size">A+</button>
+                                <button class="col-12 col-lg-4 fs-3 user-select-none" aria-label="Reduce font size">A-</button>
+                                <button class="col-12 col-lg-4 fs-3 user-select-none" aria-label="Restart font size">A</button>
+                                <button class="col-12 col-lg-4 fs-3 user-select-none" aria-label="increrase font size">A+</button>
                             </div>
                         </li>
                     </ul>
@@ -82,14 +83,14 @@
                 <!-- light mode switch -->
                 <div id="ligt-switch-container" class="hstack gap-5 form-check form-switch">
                     <label class="form-check-label" for="lightSwitch" role="button" aria-label="switch light mode">
-                        <svg hidden id="svg-sun" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
+                        <svg hidden id="svg-sun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-brightness-high align-self-start" viewBox="0 0 16 16">
                             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
                         </svg>
                         <svg id="svg-moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-moon bi-brightness-high" viewBox="0 0 16 16">
                             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
                         </svg>
                     </label>
-                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" aria-label="light Switch to dark and light mode"/>
+                    <input role="button" class="form-check-input" type="checkbox" id="lightSwitch" aria-label="light Switch to dark and light mode" />
                 </div>
 
                 <!-- Responsive navbar toggler -->
@@ -107,11 +108,11 @@
                         <!-- Navigation pills (in the same page) -->
                         <li id="list-sections">
                             <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link" href="#section-make" title = "Makers">Makers</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-model" title = "Models">Models</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-fuel" title = "Fuel type">Fuel type</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-size" title = "Engine size">Engine size</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#section-flight" title = "Flights">Flights</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-make" title="Makers">Makers</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-model" title="Models">Models</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-fuel" title="Fuel type">Fuel type</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-size" title="Engine size">Engine size</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#section-flight" title="Flights">Flights</a></li>
                             </ul>
                         </li>
 
@@ -189,16 +190,16 @@
                 <!--                      -->
                 <!-- We need to use a section and inside one div to control separately the animations
                     and the auto scroll with the navbar links -->
-                <section id="section-make">
+                <section class="container" id="section-make">
                     <div class="row my-5">
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center">Not all the makers are the same</h1>
                         <!-- Graphic -->
-                        <div class="col">
+                        <div class="col-12 col-lg-6">
                             <div id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></div>
                         </div>
                         <!-- Text -->
-                        <div class="col d-flex flex-column justify-content-center">
+                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
                             <p>Due to the power of their vehicles and the degree of awareness of each brand, the level of consumption of each one is different.</p>
                             <p>If we do not want to contribute to the deterioration of our planet, we should be careful when choosing the manufacturer of our future car.</p>
                         </div>
@@ -207,12 +208,12 @@
                 <!--      Graphic 1       -->
                 <!-- Consumption by Model -->
                 <!--                      -->
-                <section id="section-model">
+                <section class="container" id="section-model">
                     <div class="row my-5" data-aos="fade-up">
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center">Model makes the difference</h1>
                         <!-- Div with form and graphic -->
-                        <div class="col order-1 order-lg-2">
+                        <div class="col-12 col-lg-6 order-lg-2 order-1">
                             <!-- Form to select maker -->
                             <form class="mb-1" id="make-input-form">
                                 <!-- Title label for the input -->
@@ -245,7 +246,7 @@
                             <div id="model-consumption-by-make" aria-label="graph where you can see the differences in the average consumption of the 5 models that consume the least of each car brand"></div>
                         </div>
                         <!-- Text -->
-                        <div class="col order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <div class="col-12 col-lg-6 order-lg-1 order-2  d-flex flex-column justify-content-center">
                             <p>Within each brand, we can find models with more or less consumption, so we always have to review their specifications.</p>
                             <p>Choosing the model wisely can be decisive in our carbon footprint.</p>
                         </div>
@@ -254,16 +255,16 @@
                 <!--      Graphic 2       -->
                 <!-- Emission - Fuel_Type -->
                 <!--                      -->
-                <section id="section-fuel">
+                <section class="container" id="section-fuel">
                     <div class="row my-5" data-aos="fade-up">
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
                         <!-- Graphic -->
-                        <div class="col">
-                            <div id="emission-by-fueltype"  aria-label="graph of the volume of CO2 emissions according to the type of fuel"></div>
+                        <div class="col-12 col-lg-6">
+                            <div id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></div>
                         </div>
                         <!-- Text -->
-                        <div class="col d-flex flex-column justify-content-center">
+                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
                             <p>There are many types of fuel, and here we collect the most used.</p>
                             <p>The differences in emissions between them occur because they are not all used to the same extent and, moreover, they are not all equally polluting.</p>
                             <p>It can be seen that gasoline is the cause of most fuel emissions.</p>
@@ -273,12 +274,12 @@
                 <!--         Graphic 3          -->
                 <!-- Consumption by Engine Size -->
                 <!--                            -->
-                <section id="section-size">
+                <section class="container" id="section-size">
                     <div class="row my-5" data-aos="fade-up">
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center">Size matters</h1>
                         <!-- Graphic -->
-                        <figure class="col order-1 order-lg-2">
+                        <figure class="col-12 col-lg-6 order-1 order-lg-2">
                             <div id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></div>
                             <div class="w-100">
                                 <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph"><span id="play-pause-word">Play</span> chart
@@ -295,7 +296,7 @@
                             </div>
                         </figure>
                         <!-- Text -->
-                        <p class="col order-2 order-lg-1 d-flex flex-column justify-content-center gap-3">
+                        <p class="col-12 col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center gap-3">
                             <span>The size of the engine is a fundamental factor in the consumption of the car, and in its emissions.</span>
                             <span>In this case, if we want to pollute less, we could say that the smaller the better. Much better.</span>
                             <span>In addition, whenever we can go by highway, it will be preferable to going through the city.</s>
@@ -305,11 +306,11 @@
                 <!--           API          -->
                 <!-- Flight emissions API -->
                 <!--                        -->
-                <section id="section-flight">
+                <section class="container" id="section-flight">
                     <div class="row my-5 justify-content-center" data-aos="fade-up">
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center">Think twice before flying</h1>
-                        <div class="col-12 col-xl-4">
+                        <div class="container col-12 col-xl-4">
                             <!-- d-flex -->
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-xl-12">
@@ -370,7 +371,7 @@
                                             <h1 class="display-6">Your flight emissions</h1>
                                         </div>
                                         <!-- Card content -->
-                                        <div class="card-body">
+                                        <div class="container card-body">
                                             <div class="row my-5 justify-content-center">
                                                 <!-- Origin -->
                                                 <div class="col-5 text-center">
@@ -396,7 +397,7 @@
                                         </div>
                                         <!-- Flight consumption -->
                                         <div class="card-footer">
-                                            <p class="card-text text-center fw-semibold fs-5"><span id="consumption_calculated">-</span><abbr title="kilograms of carbon dioxide">kgCO2</abbr></p>
+                                            <p class="card-text text-center fw-semibold fs-5"><span id="consumption_calculated">-</span> <abbr title="kilograms of carbon dioxide">kgCO2</abbr></p>
                                         </div>
                                     </div>
                                 </div>
@@ -404,7 +405,7 @@
                         </div>
                         <!-- Map graphic -->
                         <div class="col-12 col-lg-8">
-                            <div id="flight-emissions" aria-label = "Earth globe where the flight routes are drawed"></div>
+                            <div id="flight-emissions" aria-label="Earth globe where the flight routes are drawed"></div>
                         </div>
                     </div>
                 </section>
