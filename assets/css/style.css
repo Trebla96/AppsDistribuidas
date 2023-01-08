@@ -35,7 +35,7 @@ html {
 }
 
 .graphic {
-    min-height: 600px;
+    min-height: 500px;
 }
 
 .graphic-sm {
@@ -173,3 +173,8 @@ html {
 /* button.highcharts-a11y-proxy-button.highcharts-no-tooltip {
     display: block;
 } */
+
+.highcharts-description {
+    font-style: italic;
+    font-size: small;
+}

@@ -12,8 +12,7 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" 
-        m/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" m />
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -58,7 +57,7 @@
             <div class="container-fluid">
 
                 <!-- Brand name -->
-                <a id="brand" class="navbar-brand me-auto" href="#" aria-label="link to main page"> 
+                <a id="brand" class="navbar-brand me-auto" href="#" aria-label="link to main page">
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
                         <path d="M21.739 15.921c-1.347-.39-1.885-.538-3.552-.921 0 0-2.379-2.359-2.832-2.816-.568-.572-1.043-1.184-2.949-1.184h-7.894c-.511 0-.735.547-.069 1-.743.602-1.62 1.38-2.258 2.027-1.436 1.455-2.185 2.385-2.185 4.255 0 1.76 1.042 3.718 3.174 3.718h.01c.413 1.162 1.512 2 2.816 2 1.304 0 2.403-.838 2.816-2h6.367c.413 1.162 1.512 2 2.816 2s2.403-.838 2.816-2h.685c1.994 0 2.5-1.776 2.5-3.165 0-2.041-1.123-2.584-2.261-2.914zm-15.739 6.279c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm3.576-6.2c-1.071 0-3.5-.106-5.219-.75.578-.75.998-1.222 1.27-1.536.318-.368.873-.714 1.561-.714h2.388v3zm1-3h1.835c.882 0 1.428.493 2.022 1.105.452.466 1.732 1.895 1.732 1.895h-5.588v-3zm7.424 9.2c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm-7.777-16.972c0 .53-.239.926-.655.926-.412 0-.663-.376-.663-.909 0-.529.243-.925.659-.925.424-.002.659.419.659.908zm2.857 2.977c-.35 2.316-3.454 2.22-4.175.683-.941 1.75-3.791 1.283-4.024-.738-1.251-.251-2.194-1.355-2.194-2.68s.943-2.429 2.194-2.68l-.006-.055c0-1.51 1.225-2.735 2.735-2.735 1.096 0 2.034.649 2.471 1.579 1.239-1.203 3.358-.468 3.484 1.205 1.278.23 2.25 1.342 2.25 2.686 0 1.511-1.224 2.735-2.735 2.735zm-6.464-2.965c0-.606.38-.901.869-.901.218 0 .392.049.517.101l.126-.49c-.11-.056-.352-.121-.671-.121-.825 0-1.487.517-1.487 1.447 0 .776.485 1.362 1.427 1.362.331 0 .586-.061.699-.117l-.094-.481c-.121.049-.327.089-.513.089-.55 0-.873-.343-.873-.889zm4.257-.032c0-.752-.457-1.378-1.294-1.378-.804 0-1.326.611-1.326 1.427 0 .776.473 1.386 1.281 1.386.798-.001 1.339-.542 1.339-1.435zm1.66 1.548h-.695s.661-.483.661-.942c0-.335-.229-.579-.647-.579-.25 0-.466.085-.604.19l.122.309c.096-.074.235-.153.394-.153.213 0 .304.119.304.27-.007.27-.316.523-.843.999v.261h1.308v-.355zm-8.345 2.62c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm-2.144 1.995c0 .414-.336.75-.75.75s-.75-.336-.75-.75.336-.75.75-.75.75.335.75.75zm-1.044 2.129c0 .276-.224.5-.5.5s-.5-.224-.5-.5.224-.5.5-.5.5.224.5.5z" />
                     </svg>
@@ -153,7 +152,7 @@
         <!-- Title and subtitle -->
         <section class="d-flex justify-content-left ms-3 mt-3">
             <h1 tabindex="0">ConSuCar<br>
-                <small class="text-muted" >Vehicle emissions and consumption</small>
+                <small class="text-muted">Vehicle emissions and consumption</small>
             </h1>
         </section>
 
@@ -198,10 +197,11 @@
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center" tabindex="0">Not all the makers are the same</h1>
                         <!-- Graphic -->
-                        <div class="col-12 col-lg-6">
-                            <figure class="graphic" id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></figure>
-                            <p>Esta es una descripcion lorem fjks fslk fjls4-+4*- +sjkf sdk+* ffjksfksld fhskdjf lksfhslkfsdjkfs-4+ jsf s64 * -+*+54*/+ *+*4-+54* 5+**65*+</p>
-                        </div>
+                        <figure class="col-12 col-lg-6">
+                            <p class="highcharts-description">
+                                The graph showing the average fuel consumption of each brand per 100 kilometers consists of two axes: the vertical axis represents the different car brands and the horizontal axis represents the fuel consumption in liters per 100 kilometers. There is a bar for each car brand, and the height of the bar represents the average fuel consumption for that brand. For example, if there is a high bar for brand "A", it means that brand has a relatively high fuel consumption, while if there is a low bar for brand "B", it means that brand has a relatively low fuel consumption.</p>
+                            <div class="graphic" id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></div>
+                        </figure>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
                             <p tabindex="0">Due to the power of their vehicles and the degree of awareness of each brand, the level of consumption of each one is different.</p>
@@ -231,7 +231,7 @@
                                             <!-- Floating label -->
                                             <label class="floating-input-label">Type the brand (example: BMW)</label>
                                         </div>
-                                    
+
                                         <!-- Text to display when the given text is invalid -->
                                         <div class="invalid-feedback pe-none">
                                             Please provide a brand from the list.
@@ -251,7 +251,12 @@
                                 </fieldset>
                             </form>
                             <!-- Graphic -->
-                            <figure class="graphic" id="model-consumption-by-make" aria-label="graph where you can see the differences in the average consumption of the 5 models that consume the least of each car brand"></figure>
+                            <figure class="d-flex flex-column-reverse">
+                                <p tabindex="0" class="highcharts-description">
+                                    The graph shows the differences in fuel consumption of various models of a previously selected brand. It consists of two axes: the horizontal axis represents the different car models and the vertical axis represents the fuel consumption in liters per 100 kilometers. There is a bar for each car model, and the height of the bar represents the average fuel consumption for that make. For example, if there is a high bar for model "A", it means that model has relatively high fuel consumption, while if there is a low bar for model "B", it means that model has relatively low fuel consumption.
+                                </p>
+                                <div class="graphic" id="model-consumption-by-make" aria-label="graph where you can see the differences in the average consumption of the 5 models that consume the least of each car brand"></div>
+                            </figure>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 order-lg-1 order-2  d-flex flex-column justify-content-center">
@@ -270,6 +275,9 @@
                         <!-- Graphic -->
                         <div class="col-12 col-lg-6">
                             <figure id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></figure>
+                            <p class="highcharts-description">
+                                This graph shows the emissions produced by the main types of fuels. In it we see bubbles, which are larger the more emissions the fuel emits. In this case, Gasoline+ emits the least and Gasoline the most.
+                            </p>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
@@ -289,6 +297,9 @@
                         <!-- Graphic -->
                         <figure class="col-12 col-lg-6 order-1 order-lg-2">
                             <figure class="graphic-sm" id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></figure>
+                            <p class="highcharts-description">
+                                This graph shows the average consumption according to engine size on the highway and in the city. It consists of two axes: the vertical axis represents the average consumption of vehicles in liters per 100 kilometers and the horizontal axis shows the engine size in liters. In this we find two different series, one for the highway data and one for the city data.
+                            </p>
                             <div class="w-100">
                                 <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph">Play
                                     <!-- Play svg -->
@@ -457,7 +468,7 @@
     </footer>
 
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         const isMobile = window.matchMedia('only screen and (max-width: 768px)').matches;
         const userReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
