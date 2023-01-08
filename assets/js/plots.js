@@ -52,7 +52,7 @@ export const consumptionMakeGraphic = Highcharts.chart('consumption-by-make', {
         }
     },
     caption: {
-        text: '<em>El gráfico muestra el consumo de combustible de cada [...] consta de dos ejes: el eje vertical representa las diferentes marcas de coche y el eje horizontal representa el consumo de combustible en litros cada 100 kilómetros. Hay una barra para cada marca de coche, y la altura de la barra representa la media del consumo de combustible para esa marca. Por ejemplo, si hay una barra alta para la marca "A", significa que esa marca tiene un consumo de combustible relativamente alto, mientras que si hay una barra baja para la marca "B", significa que esa marca tiene un consumo de combustible relativamente bajo.</em>'
+        text: '<em>The graph showing the average fuel consumption of each brand per 100 kilometers consists of two axes: the vertical axis represents the different car brands and the horizontal axis represents the fuel consumption in liters per 100 kilometers. There is a bar for each car brand, and the height of the bar represents the average fuel consumption for that brand. For example, if there is a high bar for brand "A", it means that brand has a relatively high fuel consumption, while if there is a low bar for brand "B", it means that brand has a relatively low fuel consumption.</em>'
     }
 });
 
@@ -145,7 +145,7 @@ export const emissionsFuelGraphic =
             {}
         ],
         caption: {
-            text: 'This graph shows the emissions produced by the main types of fuels. In it we see bubbles, which are larger the more emissions the fuel emits. In this case, Gasoline+ emits the least and Gasoline the most. '
+            text: '<em>This graph shows the emissions produced by the main types of fuels. In it we see bubbles, which are larger the more emissions the fuel emits. In this case, Gasoline+ emits the least and Gasoline the most.</em> '
         }
     });
 
@@ -174,8 +174,6 @@ function updateEmissionsFuelGraphic(data) {
     emissionsFuelGraphic.update({
         series: myData
     });
-
-
 }
 
 loadEmissionFuelTypeData(updateEmissionsFuelGraphic);
@@ -219,7 +217,7 @@ export const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-b
         }
     },
     caption: {
-        text: 'Here is the caption'
+        text: '<em> The graph shows the differences in fuel consumption of various models of a previously selected brand. It consists of two axes: the horizontal axis represents the different car models and the vertical axis represents the fuel consumption in liters per 100 kilometers. There is a bar for each car model, and the height of the bar represents the average fuel consumption for that make. For example, if there is a high bar for model "A", it means that model has relatively high fuel consumption, while if there is a low bar for model "B", it means that model has relatively low fuel consumption. </em>'
     }
 });
 
@@ -332,7 +330,7 @@ export const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-eng
         }
     },
     caption: {
-        text: 'Here is the caption for engine size'
+        text: '<em>This graph shows the average consumption according to engine size on the highway and in the city. It consists of two axes: the vertical axis represents the average consumption of vehicles in liters per 100 kilometers and the horizontal axis shows the engine size in liters.  In this we find two different series, one for the highway data and one for the city data.</em>'
     }
 });
 

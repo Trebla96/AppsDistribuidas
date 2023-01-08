@@ -31,6 +31,7 @@
     <script type="module" src="assets/js/fonts.js" defer></script>
     <script type="module" src="assets/js/modules/switchLightMode.js" defer></script>
     <script type="module" src="assets/js/header-resizing.js" defer></script>
+    <script type="module" src="assets/js/fix-scroll-menu.js"></script>
 
     <!-- Highmaps -->
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -198,7 +199,8 @@
                         <h1 class="display-4 mb-5 text-center" tabindex="0">Not all the makers are the same</h1>
                         <!-- Graphic -->
                         <div class="col-12 col-lg-6">
-                            <div id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></div>
+                            <figure class="graphic" id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></figure>
+                            <p>Esta es una descripcion lorem fjks fslk fjls4-+4*- +sjkf sdk+* ffjksfksld fhskdjf lksfhslkfsdjkfs-4+ jsf s64 * -+*+54*/+ *+*4-+54* 5+**65*+</p>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
@@ -218,35 +220,38 @@
                         <div class="col-12 col-lg-6 order-lg-2 order-1">
                             <!-- Form to select maker -->
                             <form class="mb-1" id="make-input-form">
-                                <!-- Title label for the input -->
-                                <label for="make-input" class="form-label">Manufacturer brand</label>
-                                <div class="input-group has-validation">
-                                    <div class="form-floating">
-                                        <!-- Input -->
-                                        <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (example: BMW)">
-                                        <!-- Floating label -->
-                                        <label class="floating-input-label">Type the brand (example: BMW)</label>
-                                    </div>
+                                <fieldset>
+                                    <legend class="visually-hidden" tabindex="0">Enter a car brand in the form below to check the average fuel consumption of its models per 100 Kilometers.</legend>
+                                    <!-- Title label for the input -->
+                                    <label for="make-input" class="form-label">Manufacturer brand</label>
+                                    <div class="input-group has-validation">
+                                        <div class="form-floating">
+                                            <!-- Input -->
+                                            <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (example: BMW)">
+                                            <!-- Floating label -->
+                                            <label class="floating-input-label">Type the brand (example: BMW)</label>
+                                        </div>
                                     
-                                    <!-- Text to display when the given text is invalid -->
-                                    <div class="invalid-feedback pe-none">
-                                        Please provide a brand from the list.
+                                        <!-- Text to display when the given text is invalid -->
+                                        <div class="invalid-feedback pe-none">
+                                            Please provide a brand from the list.
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- List of all the available makers in our databaset for autocompletion -->
-                                <datalist id="datalistOptionsBrand">
-                                    <?php
-                                    include "assets/php/carBrands.php";
-                                    $brands = getQueryResultBrands();
-                                    // $brands to options
-                                    while ($row = mysqli_fetch_assoc($brands)) {
-                                        echo "<option value='{$row['MAKE']}'>";
-                                    }
-                                    ?>
-                                </datalist>
+                                    <!-- List of all the available makers in our databaset for autocompletion -->
+                                    <datalist id="datalistOptionsBrand">
+                                        <?php
+                                        include "assets/php/carBrands.php";
+                                        $brands = getQueryResultBrands();
+                                        // $brands to options
+                                        while ($row = mysqli_fetch_assoc($brands)) {
+                                            echo "<option value='{$row['MAKE']}'>";
+                                        }
+                                        ?>
+                                    </datalist>
+                                </fieldset>
                             </form>
                             <!-- Graphic -->
-                            <div id="model-consumption-by-make" aria-label="graph where you can see the differences in the average consumption of the 5 models that consume the least of each car brand"></div>
+                            <figure class="graphic" id="model-consumption-by-make" aria-label="graph where you can see the differences in the average consumption of the 5 models that consume the least of each car brand"></figure>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 order-lg-1 order-2  d-flex flex-column justify-content-center">
@@ -264,7 +269,7 @@
                         <h1 class="display-4 mb-5 text-center" tabindex="0">How many emissions are produced<br> by each fuel type?</h1>
                         <!-- Graphic -->
                         <div class="col-12 col-lg-6">
-                            <div id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></div>
+                            <figure id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></figure>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
@@ -283,7 +288,7 @@
                         <h1 class="display-4 mb-5 text-center" tabindex="0">Size matters</h1>
                         <!-- Graphic -->
                         <figure class="col-12 col-lg-6 order-1 order-lg-2">
-                            <div id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></div>
+                            <figure class="graphic-sm" id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></figure>
                             <div class="w-100">
                                 <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph">Play
                                     <!-- Play svg -->
@@ -326,52 +331,54 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-xl-12">
                                     <form class="mb-4" id="make-input-form">
-                                        <!-- Origin Airport IATA code input -->
-                                        <!-- Title label for the input -->
-                                        <label for="flight-origin" class="form-label" tabindex="0">Origin</label>
-                                        <div class="input-group has-validation mb-1">
-                                            <div class="form-floating">
-                                                <!-- Input -->
-                                                <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-origin" name="flight-input" placeholder="IATA code (example: PMI)">
-                                                <!-- Floating label -->
-                                                <label class="floating-input-label">IATA code (example: PMI)</label>
+                                        <fieldset>
+                                            <legend class="visually-hidden" tabindex="0">In the following form you must enter two IATA codes of two airports to calculate the volume of CO2 emissions that you would emit in case of travel.</legend>
+                                            <!-- Origin Airport IATA code input -->
+                                            <!-- Title label for the input -->
+                                            <label for="flight-origin" class="form-label" tabindex="0">Origin</label>
+                                            <div class="input-group has-validation mb-1">
+                                                <div class="form-floating">
+                                                    <!-- Input -->
+                                                    <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-origin" name="flight-input" placeholder="IATA code (example: PMI)">
+                                                    <!-- Floating label -->
+                                                    <label class="floating-input-label">IATA code (example: PMI)</label>
+                                                </div>
+                                                <!-- Text to display when the given text is invalid -->
+                                                <div class="invalid-feedback pe-none">
+                                                    Please provide a valid IATA code.
+                                                </div>
                                             </div>
-                                            <!-- Text to display when the given text is invalid -->
-                                            <div class="invalid-feedback pe-none">
-                                                Please provide a valid IATA code.
+                                            <!-- Destination Airport IATA code input -->
+                                            <!-- Title label for the input -->
+                                            <label for="flight-destination" class="form-label">Destination</label>
+                                            <div class="input-group has-validation">
+                                                <div class="form-floating">
+                                                    <!-- Input -->
+                                                    <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-destination" name="flight-input-2" placeholder="IATA code (e.g. PMI)">
+                                                    <!-- Floating label -->
+                                                    <label class="floating-input-label">IATA code (example: PMI)</label>
+                                                </div>
+                                                <!-- Text to display when the given text is invalid -->
+                                                <div class="invalid-feedback pe-none">
+                                                    Please provide a valid IATA code.
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- Destination Airport IATA code input -->
-                                        <!-- Title label for the input -->
-                                        <label for="flight-destination" class="form-label">Destination</label>
-                                        <div class="input-group has-validation">
-                                            <div class="form-floating">
-                                                <!-- Input -->
-                                                <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-destination" name="flight-input-2" placeholder="IATA code (e.g. PMI)">
-                                                <!-- Floating label -->
-                                                <label class="floating-input-label">IATA code (example: PMI)</label>
+                                            <!-- Send button that no recharge the page aligned right -->
+                                            <div class="d-flex justify-content-end">
+                                                <button type="button" class="btn btn-primary" id="flight-emissions-button" aria-label="Button to calculate the consumption">Calculate</button>
                                             </div>
-                                            <!-- Text to display when the given text is invalid -->
-                                            <div class="invalid-feedback pe-none">
-                                                Please provide a valid IATA code.
-                                            </div>
-                                        </div>
-                                        <!-- Send button that no recharge the page aligned right -->
-                                        <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-primary" id="flight-emissions-button" aria-label="Button to calculate the consumption">Calculate</button>
-                                        </div>
-
-                                        <!-- List of IATA codes available in our database for autocompletion -->
-                                        <datalist id="datalistOptionsFlight">
-                                            <?php
-                                            include "assets/php/iataCodes.php";
-                                            $iataCodes = getQueryIataCodes();
-                                            // $iataCodes to options
-                                            while ($row = mysqli_fetch_assoc($iataCodes)) {
-                                                echo "<option label='{$row['city']}' value='{$row['code']}'>";
-                                            }
-                                            ?>
-                                        </datalist>
+                                            <!-- List of IATA codes available in our database for autocompletion -->
+                                            <datalist id="datalistOptionsFlight">
+                                                <?php
+                                                include "assets/php/iataCodes.php";
+                                                $iataCodes = getQueryIataCodes();
+                                                // $iataCodes to options
+                                                while ($row = mysqli_fetch_assoc($iataCodes)) {
+                                                    echo "<option label='{$row['city']}' value='{$row['code']}'>";
+                                                }
+                                                ?>
+                                            </datalist>
+                                        </fieldset>
                                     </form>
                                 </div>
                                 <!-- card with the fly consumption calculated -->
@@ -416,7 +423,7 @@
                         </div>
                         <!-- Map graphic -->
                         <div class="col-12 col-lg-8">
-                            <div id="flight-emissions" aria-label="Earth globe where the flight routes are drawed"></div>
+                            <figure class="graphic" id="flight-emissions" aria-label="Earth globe where the flight routes are drawed"></figure>
                         </div>
                     </div>
                 </section>

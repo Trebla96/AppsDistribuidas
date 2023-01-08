@@ -29,7 +29,18 @@ html {
     overflow-x: hidden !important;
 }
 
+.graphic,
+.graphic-sm {
+    position: relative;
+}
 
+.graphic {
+    min-height: 600px;
+}
+
+.graphic-sm {
+    min-height: 500px;
+}
 
 #go-top-button {
     position: fixed;
@@ -158,3 +169,7 @@ html {
 .floating-input-label abbr {
     text-decoration: none;
 }
+
+/* button.highcharts-a11y-proxy-button.highcharts-no-tooltip {
+    display: block;
+} */

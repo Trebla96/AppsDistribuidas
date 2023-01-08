@@ -1,4 +1,4 @@
-1.1 descripcion de los datos de los graficos- accesibilidad grafico (Descripcion datos o tabla)
+✅ 1.1 descripcion de los datos de los graficos- accesibilidad grafico (Descripcion datos o tabla)
 
 ✅ 2.3 desactivar AOS y Bola del mundo
 
@@ -10,3 +10,8 @@
 ✅ EXTRA navegacion correcta tabindex="¿? y screen reader funcionando
 
 
+https://www.overleaf.com/project/639daf89f53ab7848a081501
+
+http://tawdis.fundacionctic.org/?lang=es
+
+https://wave.webaim.org/
