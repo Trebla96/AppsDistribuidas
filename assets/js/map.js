@@ -209,7 +209,11 @@ const renderSea = () => {
 };
 
 renderSea();
-// autoRotate(worldMap);
+
+const isMobile = window.matchMedia('only screen and (max-width: 768px)').matches;
+if (!isMobile) {
+    autoRotate(worldMap);
+}
 Highcharts.addEvent(worldMap, 'redraw', renderSea);
 
 // ================== Update world Map =============================

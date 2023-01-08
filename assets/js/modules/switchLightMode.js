@@ -2,17 +2,42 @@
  *  Light Switch @version v0.1.4
  */
 
+const sunSVG = $('#svg-sun');
+const moonSVG = $('#svg-moon');
+export function toggleLightIcon() {
+    const lightMode = localStorage.getItem('lightSwitch');
+
+    const options = {
+        'dark': {
+            moonSVGHidden: true,
+            sunSVGHidden: false
+        },
+        'light': {
+            moonSVGHidden: false,
+            sunSVGHidden: true
+        }
+    }
+
+
+    sunSVG.attr('hidden', options[lightMode].sunSVGHidden ? true : null)
+    moonSVG.attr('hidden', options[lightMode].moonSVGHidden ? true : null)
+}
+
 // import only if on index.php
 let toggleGraphicsLigthModeFunction;
 let currName = window.location.href.split('consucar/').at(-1);
-console.log(currName);
+
 if (!currName.includes('accessibility.html')) {
     import('./../main.js')
         .then(({ toggleGraphicsLightMode }) => {
             toggleGraphicsLigthModeFunction = toggleGraphicsLightMode;
             toggleGraphicsLigthModeFunction();
         });
+} else {
+    toggleGraphicsLigthModeFunction = toggleLightIcon;
 }
+
+
 
 (function () {
     let lightSwitch = document.getElementById('lightSwitch');
@@ -111,6 +136,7 @@ if (!currName.includes('accessibility.html')) {
         if (toggleGraphicsLigthModeFunction) {
             toggleGraphicsLigthModeFunction();
         }
+
     }
 
     /**
