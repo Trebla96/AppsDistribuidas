@@ -211,7 +211,8 @@ const renderSea = () => {
 renderSea();
 
 const isMobile = window.matchMedia('only screen and (max-width: 768px)').matches;
-if (!isMobile) {
+const userReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!isMobile && !userReducedMotion) {
     autoRotate(worldMap);
 }
 Highcharts.addEvent(worldMap, 'redraw', renderSea);

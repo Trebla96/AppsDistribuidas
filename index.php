@@ -12,7 +12,8 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" 
+        m/>
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -56,14 +57,14 @@
             <div class="container-fluid">
 
                 <!-- Brand name -->
-                <a id="brand" class="navbar-brand me-auto" href="#" aria-label="link to main page">
+                <a id="brand" class="navbar-brand me-auto" href="#" aria-label="link to main page"> 
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
                         <path d="M21.739 15.921c-1.347-.39-1.885-.538-3.552-.921 0 0-2.379-2.359-2.832-2.816-.568-.572-1.043-1.184-2.949-1.184h-7.894c-.511 0-.735.547-.069 1-.743.602-1.62 1.38-2.258 2.027-1.436 1.455-2.185 2.385-2.185 4.255 0 1.76 1.042 3.718 3.174 3.718h.01c.413 1.162 1.512 2 2.816 2 1.304 0 2.403-.838 2.816-2h6.367c.413 1.162 1.512 2 2.816 2s2.403-.838 2.816-2h.685c1.994 0 2.5-1.776 2.5-3.165 0-2.041-1.123-2.584-2.261-2.914zm-15.739 6.279c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm3.576-6.2c-1.071 0-3.5-.106-5.219-.75.578-.75.998-1.222 1.27-1.536.318-.368.873-.714 1.561-.714h2.388v3zm1-3h1.835c.882 0 1.428.493 2.022 1.105.452.466 1.732 1.895 1.732 1.895h-5.588v-3zm7.424 9.2c-.662 0-1.2-.538-1.2-1.2s.538-1.2 1.2-1.2 1.2.538 1.2 1.2-.538 1.2-1.2 1.2zm-7.777-16.972c0 .53-.239.926-.655.926-.412 0-.663-.376-.663-.909 0-.529.243-.925.659-.925.424-.002.659.419.659.908zm2.857 2.977c-.35 2.316-3.454 2.22-4.175.683-.941 1.75-3.791 1.283-4.024-.738-1.251-.251-2.194-1.355-2.194-2.68s.943-2.429 2.194-2.68l-.006-.055c0-1.51 1.225-2.735 2.735-2.735 1.096 0 2.034.649 2.471 1.579 1.239-1.203 3.358-.468 3.484 1.205 1.278.23 2.25 1.342 2.25 2.686 0 1.511-1.224 2.735-2.735 2.735zm-6.464-2.965c0-.606.38-.901.869-.901.218 0 .392.049.517.101l.126-.49c-.11-.056-.352-.121-.671-.121-.825 0-1.487.517-1.487 1.447 0 .776.485 1.362 1.427 1.362.331 0 .586-.061.699-.117l-.094-.481c-.121.049-.327.089-.513.089-.55 0-.873-.343-.873-.889zm4.257-.032c0-.752-.457-1.378-1.294-1.378-.804 0-1.326.611-1.326 1.427 0 .776.473 1.386 1.281 1.386.798-.001 1.339-.542 1.339-1.435zm1.66 1.548h-.695s.661-.483.661-.942c0-.335-.229-.579-.647-.579-.25 0-.466.085-.604.19l.122.309c.096-.074.235-.153.394-.153.213 0 .304.119.304.27-.007.27-.316.523-.843.999v.261h1.308v-.355zm-8.345 2.62c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm-2.144 1.995c0 .414-.336.75-.75.75s-.75-.336-.75-.75.336-.75.75-.75.75.335.75.75zm-1.044 2.129c0 .276-.224.5-.5.5s-.5-.224-.5-.5.224-.5.5-.5.5.224.5.5z" />
                     </svg>
                     ConSuCar
                 </a>
 
-                <section class="hstack" aria-label="Accesibility options menu">
+                <section id="accessibility-controls" class="hstack gap-3" aria-label="Accesibility options menu">
                     <!-- Change font size -->
                     <div id="font-size-container" class="dropdown-center">
                         <a class="text-primary dropdown-toggle user-select-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="font resizing options">
@@ -150,8 +151,8 @@
     <main id="main-content">
         <!-- Title and subtitle -->
         <section class="d-flex justify-content-left ms-3 mt-3">
-            <h1>ConSuCar<br>
-                <small class="text-muted">Vehicle emissions and consumption</small>
+            <h1 tabindex="0">ConSuCar<br>
+                <small class="text-muted" >Vehicle emissions and consumption</small>
             </h1>
         </section>
 
@@ -163,9 +164,9 @@
                 <div class="col">
                     <figure class="text-center" aria-labelledby="#barack-quote">
                         <blockquote class="blockquote">
-                            <p>Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
+                            <p tabindex="0">Climate change is no longer some far-off problem; it is happening here, it is happening now</p>
                         </blockquote>
-                        <figcaption class="blockquote-footer">
+                        <figcaption class="blockquote-footer" tabindex="0">
                             Barack Obama
                         </figcaption>
                     </figure>
@@ -194,15 +195,15 @@
                 <section class="container" id="section-make">
                     <div class="row my-5">
                         <!-- Title -->
-                        <h1 class="display-4 mb-5 text-center">Not all the makers are the same</h1>
+                        <h1 class="display-4 mb-5 text-center" tabindex="0">Not all the makers are the same</h1>
                         <!-- Graphic -->
                         <div class="col-12 col-lg-6">
                             <div id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></div>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
-                            <p>Due to the power of their vehicles and the degree of awareness of each brand, the level of consumption of each one is different.</p>
-                            <p>If we do not want to contribute to the deterioration of our planet, we should be careful when choosing the manufacturer of our future car.</p>
+                            <p tabindex="0">Due to the power of their vehicles and the degree of awareness of each brand, the level of consumption of each one is different.</p>
+                            <p tabindex="0">If we do not want to contribute to the deterioration of our planet, we should be careful when choosing the manufacturer of our future car.</p>
                         </div>
                     </div>
                 </section>
@@ -212,7 +213,7 @@
                 <section class="container" id="section-model">
                     <div class="row my-5" data-aos="fade-up">
                         <!-- Title -->
-                        <h1 class="display-4 mb-5 text-center">Model makes the difference</h1>
+                        <h1 class="display-4 mb-5 text-center" tabindex="0">Model makes the difference</h1>
                         <!-- Div with form and graphic -->
                         <div class="col-12 col-lg-6 order-lg-2 order-1">
                             <!-- Form to select maker -->
@@ -222,10 +223,11 @@
                                 <div class="input-group has-validation">
                                     <div class="form-floating">
                                         <!-- Input -->
-                                        <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (e.g. BMW)">
+                                        <input class="form-control" list="datalistOptionsBrand" spellcheck="false" id="make-input" name="make-input" placeholder="Type the brand (example: BMW)">
                                         <!-- Floating label -->
-                                        <label class="floating-input-label">Type the brand (<abbr title="for example">e.g.</abbr> BMW)</label>
+                                        <label class="floating-input-label">Type the brand (example: BMW)</label>
                                     </div>
+                                    
                                     <!-- Text to display when the given text is invalid -->
                                     <div class="invalid-feedback pe-none">
                                         Please provide a brand from the list.
@@ -248,8 +250,8 @@
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 order-lg-1 order-2  d-flex flex-column justify-content-center">
-                            <p>Within each brand, we can find models with more or less consumption, so we always have to review their specifications.</p>
-                            <p>Choosing the model wisely can be decisive in our carbon footprint.</p>
+                            <p tabindex="0">Within each brand, we can find models with more or less consumption, so we always have to review their specifications.</p>
+                            <p tabindex="0">Choosing the model wisely can be decisive in our carbon footprint.</p>
                         </div>
                     </div>
                 </section>
@@ -259,16 +261,16 @@
                 <section class="container" id="section-fuel">
                     <div class="row my-5" data-aos="fade-up">
                         <!-- Title -->
-                        <h1 class="display-4 mb-5 text-center">How many emissions are produced<br> by each fuel type?</h1>
+                        <h1 class="display-4 mb-5 text-center" tabindex="0">How many emissions are produced<br> by each fuel type?</h1>
                         <!-- Graphic -->
                         <div class="col-12 col-lg-6">
                             <div id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></div>
                         </div>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
-                            <p>There are many types of fuel, and here we collect the most used.</p>
-                            <p>The differences in emissions between them occur because they are not all used to the same extent and, moreover, they are not all equally polluting.</p>
-                            <p>It can be seen that gasoline is the cause of most fuel emissions.</p>
+                            <p tabindex="0">There are many types of fuel, and here we collect the most used.</p>
+                            <p tabindex="0">The differences in emissions between them occur because they are not all used to the same extent and, moreover, they are not all equally polluting.</p>
+                            <p tabindex="0">It can be seen that gasoline is the cause of most fuel emissions.</p>
                         </div>
                     </div>
                 </section>
@@ -278,7 +280,7 @@
                 <section class="container" id="section-size">
                     <div class="row my-5" data-aos="fade-up">
                         <!-- Title -->
-                        <h1 class="display-4 mb-5 text-center">Size matters</h1>
+                        <h1 class="display-4 mb-5 text-center" tabindex="0">Size matters</h1>
                         <!-- Graphic -->
                         <figure class="col-12 col-lg-6 order-1 order-lg-2">
                             <div id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></div>
@@ -306,9 +308,9 @@
                         </figure>
                         <!-- Text -->
                         <p class="col-12 col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center gap-3">
-                            <span>The size of the engine is a fundamental factor in the consumption of the car, and in its emissions.</span>
-                            <span>In this case, if we want to pollute less, we could say that the smaller the better. Much better.</span>
-                            <span>In addition, whenever we can go by highway, it will be preferable to going through the city.</s>
+                            <span tabindex="0">The size of the engine is a fundamental factor in the consumption of the car, and in its emissions.</span>
+                            <span tabindex="0">In this case, if we want to pollute less, we could say that the smaller the better. Much better.</span>
+                            <span tabindex="0">In addition, whenever we can go by highway, it will be preferable to going through the city.</span>
                         </p>
                     </div>
                 </section>
@@ -318,7 +320,7 @@
                 <section class="container" id="section-flight">
                     <div class="row my-5 justify-content-center" data-aos="fade-up">
                         <!-- Title -->
-                        <h1 class="display-4 mb-5 text-center">Think twice before flying</h1>
+                        <h1 class="display-4 mb-5 text-center" tabindex="0">Think twice before flying</h1>
                         <div class="container col-12 col-xl-4">
                             <!-- d-flex -->
                             <div class="row">
@@ -326,13 +328,13 @@
                                     <form class="mb-4" id="make-input-form">
                                         <!-- Origin Airport IATA code input -->
                                         <!-- Title label for the input -->
-                                        <label for="flight-origin" class="form-label">Origin</label>
+                                        <label for="flight-origin" class="form-label" tabindex="0">Origin</label>
                                         <div class="input-group has-validation mb-1">
                                             <div class="form-floating">
                                                 <!-- Input -->
-                                                <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-origin" name="flight-input" placeholder="IATA code (e.g. PMI)">
+                                                <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-origin" name="flight-input" placeholder="IATA code (example: PMI)">
                                                 <!-- Floating label -->
-                                                <label class="floating-input-label">IATA code (<abbr title="For example">e.g.</abbr> PMI)</label>
+                                                <label class="floating-input-label">IATA code (example: PMI)</label>
                                             </div>
                                             <!-- Text to display when the given text is invalid -->
                                             <div class="invalid-feedback pe-none">
@@ -347,7 +349,7 @@
                                                 <!-- Input -->
                                                 <input data-input-iata class="form-control" list="datalistOptionsFlight" spellcheck="false" id="flight-destination" name="flight-input-2" placeholder="IATA code (e.g. PMI)">
                                                 <!-- Floating label -->
-                                                <label class="floating-input-label">IATA code (<abbr title="For example">e.g.</abbr> PMI)</label>
+                                                <label class="floating-input-label">IATA code (example: PMI)</label>
                                             </div>
                                             <!-- Text to display when the given text is invalid -->
                                             <div class="invalid-feedback pe-none">
@@ -448,9 +450,13 @@
     </footer>
 
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        const isMobile = window.matchMedia('only screen and (max-width: 768px)').matches;
+        const userReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        AOS.init({
+            disable: isMobile || userReducedMotion,
+        });
     </script>
 </body>
 

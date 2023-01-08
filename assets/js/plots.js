@@ -24,6 +24,7 @@ export const consumptionMakeGraphic = Highcharts.chart('consumption-by-make', {
         text: 'Average consumption by Maker'
     },
     yAxis: {
+        type: 'number',
         min: 0,
         max: 50,
         title: {
@@ -49,6 +50,9 @@ export const consumptionMakeGraphic = Highcharts.chart('consumption-by-make', {
                 enabled: true
             }
         }
+    },
+    caption: {
+        text: '<em>El gráfico muestra el consumo de combustible de cada [...] consta de dos ejes: el eje vertical representa las diferentes marcas de coche y el eje horizontal representa el consumo de combustible en litros cada 100 kilómetros. Hay una barra para cada marca de coche, y la altura de la barra representa la media del consumo de combustible para esa marca. Por ejemplo, si hay una barra alta para la marca "A", significa que esa marca tiene un consumo de combustible relativamente alto, mientras que si hay una barra baja para la marca "B", significa que esa marca tiene un consumo de combustible relativamente bajo.</em>'
     }
 });
 
@@ -139,7 +143,10 @@ export const emissionsFuelGraphic =
             {},
             {},
             {}
-        ]
+        ],
+        caption: {
+            text: 'This graph shows the emissions produced by the main types of fuels. In it we see bubbles, which are larger the more emissions the fuel emits. In this case, Gasoline+ emits the least and Gasoline the most. '
+        }
     });
 
 const fuelTypes = {
@@ -210,6 +217,9 @@ export const consumptionModelMakeGraphic = Highcharts.chart('model-consumption-b
                 enabled: true
             }
         }
+    },
+    caption: {
+        text: 'Here is the caption'
     }
 });
 
@@ -320,6 +330,9 @@ export const consumptionEngineSizeGraphic = Highcharts.chart('consumption-by-eng
                 }
             }
         }
+    },
+    caption: {
+        text: 'Here is the caption for engine size'
     }
 });
 
