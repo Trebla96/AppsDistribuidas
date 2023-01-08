@@ -197,8 +197,8 @@
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center" tabindex="0">Not all the makers are the same</h1>
                         <!-- Graphic -->
-                        <figure class="col-12 col-lg-6">
-                            <p class="highcharts-description">
+                        <figure class="col-12 col-lg-6 d-flex flex-column-reverse">
+                            <p tabindex="0" class="highcharts-description">
                                 The graph showing the average fuel consumption of each brand per 100 kilometers consists of two axes: the vertical axis represents the different car brands and the horizontal axis represents the fuel consumption in liters per 100 kilometers. There is a bar for each car brand, and the height of the bar represents the average fuel consumption for that brand. For example, if there is a high bar for brand "A", it means that brand has a relatively high fuel consumption, while if there is a low bar for brand "B", it means that brand has a relatively low fuel consumption.</p>
                             <div class="graphic" id="consumption-by-make" aria-label="graph where you can check the differences in average consumption by car brands"></div>
                         </figure>
@@ -273,12 +273,13 @@
                         <!-- Title -->
                         <h1 class="display-4 mb-5 text-center" tabindex="0">How many emissions are produced<br> by each fuel type?</h1>
                         <!-- Graphic -->
-                        <div class="col-12 col-lg-6">
-                            <figure id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></figure>
-                            <p class="highcharts-description">
+                        <figure class="col-12 col-lg-6 d-flex flex-column-reverse">
+                            <p tabindex="0" class="highcharts-description">
                                 This graph shows the emissions produced by the main types of fuels. In it we see bubbles, which are larger the more emissions the fuel emits. In this case, Gasoline+ emits the least and Gasoline the most.
                             </p>
-                        </div>
+                            <div id="emission-by-fueltype" aria-label="graph of the volume of CO2 emissions according to the type of fuel"></div>
+
+                        </figure>
                         <!-- Text -->
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
                             <p tabindex="0">There are many types of fuel, and here we collect the most used.</p>
@@ -296,10 +297,13 @@
                         <h1 class="display-4 mb-5 text-center" tabindex="0">Size matters</h1>
                         <!-- Graphic -->
                         <figure class="col-12 col-lg-6 order-1 order-lg-2">
-                            <figure class="graphic-sm" id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></figure>
-                            <p class="highcharts-description">
-                                This graph shows the average consumption according to engine size on the highway and in the city. It consists of two axes: the vertical axis represents the average consumption of vehicles in liters per 100 kilometers and the horizontal axis shows the engine size in liters. In this we find two different series, one for the highway data and one for the city data.
-                            </p>
+                            <figure class="d-flex flex-column-reverse">
+                                <p tabindex="0" class="highcharts-description">
+                                    This graph shows the average consumption according to engine size on the highway and in the city. It consists of two axes: the vertical axis represents the average consumption of vehicles in liters per 100 kilometers and the horizontal axis shows the engine size in liters. In this we find two different series, one for the highway data and one for the city data.
+                                </p>
+                                <div class="graphic-sm" id="consumption-by-enginesize" aria-label="graph of the increase in fuel consumption according to the size of the engine"></div>
+
+                            </figure>
                             <div class="w-100">
                                 <button id="play-engine-size" type="button" class="btn btn-secondary" aria-label="play the audio of the graph">Play
                                     <!-- Play svg -->
